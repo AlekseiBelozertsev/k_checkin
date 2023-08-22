@@ -1,0 +1,17 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 64px;
+  position: relative;
+  &::after {
+    position: absolute;
+    content: '';
+    width: 45px;
+    height: 45px;
+    background-color: black;
+  }
+}

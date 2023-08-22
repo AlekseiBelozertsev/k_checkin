@@ -1,0 +1,16 @@
+.mainButton {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  height: 68px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #0d121d;
+  color: #ffffff;
+  border-radius: 16px;
+}
+
+.buttonText {
+  font-size: 32px;
+}

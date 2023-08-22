@@ -1,0 +1,14 @@
+.mainHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerHeadline {
+  font-size: 56px;
+}
+s .headerParagraph {
+  font-size: 24px;
+}

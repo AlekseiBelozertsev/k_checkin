@@ -1,0 +1,6 @@
+dist
+node_modules
+package.json
+tsconfig.json
+next-env.d.ts
+.eslint.json
