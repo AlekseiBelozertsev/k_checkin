@@ -1,9 +1,24 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: flex-start;
+  width: 450px;
   height: 328px;
   gap: 16px;
+}
+
+.mainScroll {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 450px;
+  height: 352px;
+  border-radius: 16px;
+  gap: 16px;
+  padding: 16px;
+  background: #E6ECF5;
   overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+}
 }

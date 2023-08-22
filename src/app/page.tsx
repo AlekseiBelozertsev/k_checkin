@@ -42,7 +42,9 @@ const Home = () => {
       </Modal>
       <Header />
       <div className={mainStyles.dashboard}>
-        <MapComponent />
+        <div className={mainStyles.leftColumn}>
+          <MapComponent />
+        </div>
         <div className={mainStyles.rightColumn}>
           <ListComponent modalOpen={handleModalOpen} elements={places} />
         </div>

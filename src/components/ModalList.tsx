@@ -9,11 +9,21 @@ type ListProps = {
 
 const ModalList: React.FC<ListProps> = ({ elements }) => {
   return (
-    <div className={modalListStyles.main}>
-      {elements.map((element, i) => {
-        return <ListItem content={element.town} key={i} />;
-      })}
-    </div>
+    <>
+      {elements.length > 6 ? (
+        <div className={modalListStyles.mainScroll}>
+          {elements.map((element, i) => {
+            return <ListItem content={element.town} key={i} />;
+          })}
+        </div>
+      ) : (
+        <div className={modalListStyles.main}>
+          {elements.map((element, i) => {
+            return <ListItem content={element.town} key={i} />;
+          })}
+          </div>
+      )}
+    </>
   );
 };
 
