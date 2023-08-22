@@ -11,7 +11,7 @@ const ShowAll: React.FC<ShowAllBtnProps> = ({ onClick }) => {
   return (
     <div onClick={onClick} className={showAllButtonStyles.main}>
       <span className={showAllButtonStyles.text}>{`Show all`}</span>
-      <Icon height={16} width={16} src={arrowDown}/>
+      <Icon height={16} width={16} src={arrowDown} />
     </div>
   );
 };

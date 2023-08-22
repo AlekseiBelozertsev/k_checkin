@@ -3,7 +3,7 @@ export type Place = {
   town: string;
 };
 
-export const recentPlaces: Place[] = [
+export const places: Place[] = [
   {
     country: 'Germany',
     town: 'Dresden',
@@ -17,11 +17,51 @@ export const recentPlaces: Place[] = [
     town: 'Berlin',
   },
   {
-      country: 'Germany',
-      town: 'Dusseldorf',
+    country: 'Germany',
+    town: 'Dusseldorf',
   },
   {
-      country: 'Germany',
-      town: 'Frankfurt',
+    country: 'Germany',
+    town: 'Frankfurt',
   },
+  {
+    country: 'Germany',
+    town: 'Dresden',
+  },
+  {
+    country: 'Germany',
+    town: 'Munich',
+  },
+  // {
+  //   country: 'Germany',
+  //   town: 'Berlin',
+  // },
+  // {
+  //     country: 'Germany',
+  //     town: 'Dusseldorf',
+  // },
+  // {
+  //     country: 'Germany',
+  //     town: 'Frankfurt',
+  // },
+  // {
+  //   country: 'Germany',
+  //   town: 'Dresden',
+  // },
+  // {
+  //   country: 'Germany',
+  //   town: 'Munich',
+  // },
+  // {
+  //   country: 'Germany',
+  //   town: 'Berlin',
+  // },
+  // {
+  //     country: 'Germany',
+  //     town: 'Dusseldorf',
+  // },
+  // {
+  //     country: 'Germany',
+  //     town: 'Frankfurt',
+  // },
 ];
