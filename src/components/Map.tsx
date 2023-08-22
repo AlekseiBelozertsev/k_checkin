@@ -1,7 +1,8 @@
 import React from 'react';
+import mapStyles from './styles/map.module.scss';
 
-const Map = () => {
-  return <div></div>;
+const MapComponent = () => {
+  return <div className={mapStyles.main}></div>;
 };
 
-export default Map;
+export default MapComponent;

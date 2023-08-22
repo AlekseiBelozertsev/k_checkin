@@ -7,7 +7,11 @@ type ListItemProps = {
 };
 
 const ListItem: React.FC<ListItemProps> = ({ content }) => {
-  return <div className={listItemStyles.main}>{content}</div>;
+  return (
+    <div className={listItemStyles.main}>
+      <span className={listItemStyles.text}>{content}</span>
+    </div>
+  );
 };
 
 export default ListItem;

@@ -1,9 +1,10 @@
 .main {
   display: flex;
   flex-direction: row;
-  background-color: #ffc03f;
-  border-radius: 8px;
-  padding: 8px 16px;
+  gap: 8px;
+  height: fit-content;
+  width: fit-content;
+  cursor: pointer;
 }
 
 .text {

@@ -6,12 +6,14 @@ import Header from '@/components/Header';
 import List from '@/components/List';
 import ShowAll from '@/components/ShowAll';
 import { places } from '@/utils/mocks/places';
+import MapComponent from '@/components/Map';
 
 const Home = () => {
   return (
     <section className={mainStyles.app}>
       <Header />
       <div className={mainStyles.dashboard}>
+        <MapComponent />
         <div className={mainStyles.rightColumn}>
           <div className={listStyles.innerWrapper}>
             <h2 className={listStyles.headline}>{`Recently visited`}</h2>
