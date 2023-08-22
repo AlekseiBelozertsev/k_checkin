@@ -1,7 +1,8 @@
-import { Place } from '@/utils/mocks/places';
+import { Place, recentPlaces } from '@/utils/mocks/places';
 import React from 'react';
 import listStyles from './styles/list.module.scss';
 import ListItem from './ListItem';
+import ShowAll from './ShowAll';
 
 type ListProps = {
   elements: Place[];
@@ -17,4 +18,18 @@ const List: React.FC<ListProps> = ({ elements }) => {
   );
 };
 
-export default List;
+const ListComponent = () => {
+  return (
+    <>
+      <div className={listStyles.innerWrapper}>
+        <h2 className={listStyles.headline}>{`Recently visited`}</h2>
+        <List elements={recentPlaces} />
+      </div>
+      {
+        recentPlaces.length >= 5 && <ShowAll onClick={() => console.log('')} />
+      }
+    </>
+  );
+};
+
+export default ListComponent;

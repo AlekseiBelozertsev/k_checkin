@@ -3,7 +3,7 @@ export type Place = {
   town: string;
 };
 
-export const places: Place[] = [
+export const recentPlaces: Place[] = [
   {
     country: 'Germany',
     town: 'Dresden',
@@ -16,12 +16,12 @@ export const places: Place[] = [
     country: 'Germany',
     town: 'Berlin',
   },
-  // {
-  //     country: 'Germany',
-  //     town: 'Dusseldorf',
-  // },
-  // {
-  //     country: 'Germany',
-  //     town: 'Frankfurt',
-  // },
+  {
+      country: 'Germany',
+      town: 'Dusseldorf',
+  },
+  {
+      country: 'Germany',
+      town: 'Frankfurt',
+  },
 ];

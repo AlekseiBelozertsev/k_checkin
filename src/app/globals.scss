@@ -88,6 +88,27 @@ body {
 
 body {
   background: #ffd451;
+  position: relative;
+  &::before {
+    position: absolute;
+    content: '';
+    width: 900px;
+    height: 900px;
+    left: -15%;
+    top: 50%;
+    background: url('../../public/blob_left.svg');
+    z-index: -1;
+  }
+  &::after {
+    position: absolute;
+    content: '';
+    width: 900px;
+    height: 900px;
+    left: 70%;
+    bottom: 40%;
+    background: url('../../public/blob_right.svg');
+    z-index: -1;
+  }
 }
 
 a {
