@@ -40,14 +40,14 @@ const Home = () => {
         <ModalComponent onClose={handleModalClose} elements={places} />
       </Modal>
       <Header />
-      <div className={mainStyles.dashboard}>
+      <section className={mainStyles.dashboard}>
         <div className={mainStyles.leftColumn}>
           <MapComponent />
         </div>
         <div className={mainStyles.rightColumn}>
           <ListComponent modalOpen={handleModalOpen} elements={places} />
         </div>
-      </div>
+      </section>
       <Button onClick={() => null} />
     </section>
   );
