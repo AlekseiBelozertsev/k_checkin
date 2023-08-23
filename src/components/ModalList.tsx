@@ -21,7 +21,7 @@ const ModalList: React.FC<ListProps> = ({ elements }) => {
           {elements.map((element, i) => {
             return <ListItem content={element.town} key={i} />;
           })}
-          </div>
+        </div>
       )}
     </>
   );

@@ -4,4 +4,7 @@
   width: 100%;
   border-radius: 16px;
   box-shadow: 15px 15px 0px 0px #0c0c05;
+  @media (max-width: 768px) {
+    box-shadow: none;
+  }
 }

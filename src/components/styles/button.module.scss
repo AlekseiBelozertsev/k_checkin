@@ -10,9 +10,15 @@
   color: #ffffff;
   border-radius: 8px;
   border: none;
+  @media (max-width: 768px) {
+    width: calc(100% - 48px);
+  }
 }
 
 .buttonText {
   font-size: 32px;
   font-family: '__Jockey_One_c6ad53';
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 }

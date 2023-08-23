@@ -19,6 +19,13 @@
   padding: 56px;
   gap: 32px;
   border-radius: 16px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 24px;
+    gap: 24px;
+    max-width: 496px;
+    width: calc(100% - 48px);
+  }
 }
 
 .leftColumn {
@@ -26,6 +33,9 @@
   flex-direction: column;
   width: 60%;
   gap: 16px;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .rightColumn {
@@ -35,4 +45,7 @@
   height: 100%;
   gap: 16px;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }

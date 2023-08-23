@@ -1,6 +1,5 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 import mainStyles from './main.module.scss';
 import Button from '@/components/Button';

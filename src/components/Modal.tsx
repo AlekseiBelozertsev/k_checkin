@@ -16,7 +16,9 @@ const ModalComponent: React.FC<ModalProps> = ({ onClose, elements }) => {
     <div className={modalStyles.main}>
       <div className={modalStyles.inner}>
         <div className={modalStyles.header}>
-          <h2 className={modalStyles.heading}>{`All places (${elements.length})`}</h2>
+          <h2
+            className={modalStyles.heading}
+          >{`All places (${elements.length})`}</h2>
           <div onClick={() => onClose()} className={modalStyles.closeBtn}>
             <Icon height={12} width={12} src={cross} />
           </div>
