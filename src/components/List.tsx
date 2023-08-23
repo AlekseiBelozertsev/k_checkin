@@ -16,7 +16,7 @@ type ListComponentProps = {
 const List: React.FC<ListProps> = ({ elements }) => {
   return (
     <div className={listStyles.main}>
-      {elements.slice(-5).map((element, i) => {
+      {elements.slice(-4).map((element, i) => {
         return <ListItem content={element.town} key={i} />;
       })}
     </div>
