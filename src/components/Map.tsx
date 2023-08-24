@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import mapboxgl from 'mapbox-gl';
+import mapboxgl, { Marker } from 'mapbox-gl';
 import mapStyles from './styles/map.module.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -19,11 +19,14 @@ const MapComponent = () => {
         style: 'mapbox://styles/mapbox/streets-v12',
         center: [lng, lat],
         zoom: zoom,
+        attributionControl: false,
       });
     }
   }, [lng, lat, zoom]);
 
-  return <div ref={mapContainer} className={`${mapStyles.main} map-container`} />;
+  return (
+    <div ref={mapContainer} className={`${mapStyles.main} map-container`}></div>
+  );
 };
 
 export default MapComponent;
