@@ -11,7 +11,7 @@ type ModalProps = {
   elements: Place[];
 };
 
-const ModalComponent: React.FC<ModalProps> = ({ onClose, elements }) => {
+const ShowAllModal: React.FC<ModalProps> = ({ onClose, elements }) => {
   return (
     <div className={modalStyles.main}>
       <div className={modalStyles.inner}>
@@ -30,4 +30,4 @@ const ModalComponent: React.FC<ModalProps> = ({ onClose, elements }) => {
   );
 };
 
-export default ModalComponent;
+export default ShowAllModal;

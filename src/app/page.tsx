@@ -6,8 +6,9 @@ import Button from '@/components/Button';
 import Header from '@/components/Header';
 import MapComponent from '@/components/Map';
 import ListComponent from '@/components/List';
-import ModalComponent from '@/components/Modal';
 import { places } from '@/utils/mocks/places';
+import ShowAllModal from '@/components/ShowAllModal';
+import { useModalStore } from '@/utils/store/modalStore';
 
 const customStyles = {
   content: {
@@ -24,20 +25,17 @@ const customStyles = {
 Modal.setAppElement(`#app`);
 
 const Home = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const handleModalOpen = () => setIsModalOpen(true);
-  const handleModalClose = () => setIsModalOpen(false);
-
+  const isModalOpened = useModalStore((state) => state.isModalOpened);
+  const handleModalClose = useModalStore((state) => state.closeModal);
+  const handleModalOpen = useModalStore((state) => state.openModal);
   return (
     <section id={`app`} className={mainStyles.app}>
       <Modal
-        isOpen={isModalOpen}
-        onAfterOpen={() => null}
-        onRequestClose={() => null}
+        isOpen={isModalOpened}
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <ModalComponent onClose={handleModalClose} elements={places} />
+        <ShowAllModal onClose={handleModalClose} elements={places} />
       </Modal>
       <Header />
       <section className={mainStyles.dashboard}>
