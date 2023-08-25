@@ -8,8 +8,8 @@ mapboxgl.accessToken = `${process.env.NEXT_PUBLIC_MAPBOX_API_KEY}`;
 const MapComponent = () => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<mapboxgl.Map | null>(null);
-  const [lng, setLng] = useState(-70.9);
-  const [lat, setLat] = useState(42.35);
+  const [lat, setLng] = useState(50.0755);
+  const [lng, setLat] = useState(14.4378);
   const [zoom, setZoom] = useState(9);
 
   useEffect(() => {
