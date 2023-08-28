@@ -3,13 +3,15 @@ import React from 'react';
 import listItemStyles from './styles/listItem.module.scss';
 
 type ListItemProps = {
-  content: string;
+  headline: string;
+  subline: string;
 };
 
-const ListItem: React.FC<ListItemProps> = ({ content }) => {
+const ListItem: React.FC<ListItemProps> = ({ headline, subline }) => {
   return (
     <div className={listItemStyles.main}>
-      <span className={listItemStyles.text}>{content}</span>
+      <span className={listItemStyles.text}>{headline}</span>
+      <span>{subline}</span>
     </div>
   );
 };

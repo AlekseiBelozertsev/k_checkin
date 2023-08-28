@@ -21,11 +21,10 @@ const AddPlaceModal: React.FC<ModalProps> = ({ onClose, elements }) => {
             <Icon height={12} width={12} src={cross} />
           </div>
         </div>
-        <div style={{width: '100%'}}>
-            <Search />
+        <div style={{ width: '100%' }}>
+          <Search />
         </div>
       </div>
-      <Button text={`Submit`} onClick={() => null} />
     </div>
   );
 };
