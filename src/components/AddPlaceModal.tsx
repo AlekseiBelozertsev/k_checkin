@@ -3,7 +3,6 @@ import modalStyles from './styles/modal.module.scss';
 import cross from '../../public/icons/cross.svg';
 import Icon from './Icon';
 import { Place } from '@/utils/mocks/places';
-import Button from './Button';
 import Search from './Search';
 
 type ModalProps = {
@@ -21,8 +20,9 @@ const AddPlaceModal: React.FC<ModalProps> = ({ onClose, elements }) => {
             <Icon height={12} width={12} src={cross} />
           </div>
         </div>
-        <div style={{ width: '100%' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', gap: '10px' }}>
           <Search />
+          <div style={{ borderRadius: '8px', backgroundColor: '#E6ECF5', width: '100%', height: '395px' }} />
         </div>
       </div>
     </div>

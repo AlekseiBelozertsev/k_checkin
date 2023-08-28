@@ -25,7 +25,7 @@ const MapComponent = () => {
   }, [lng, lat, zoom]);
 
   return (
-    <div ref={mapContainer} className={`${mapStyles.main} map-container`} />
+    <div ref={mapContainer} className={`${mapStyles.main} map-container`}></div>
   );
 };
 
