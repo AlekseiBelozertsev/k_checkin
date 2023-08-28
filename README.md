@@ -2,7 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, add the NEXT_PUBLIC_MAPBOX_API_KEY environmental variable to .env file. It must contain Mapbox API key.
+
+Second, run the development server:
 
 ```bash
 npm run dev
