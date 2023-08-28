@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import Modal from 'react-modal';
 import mainStyles from './main.module.scss';
 import Button from '@/components/Button';
@@ -7,8 +7,8 @@ import Header from '@/components/Header';
 import MapComponent from '@/components/Map';
 import ListComponent from '@/components/List';
 import { places } from '@/utils/mocks/places';
-import ShowAllModal from '@/components/ShowAllModal';
 import { useModalStore } from '@/utils/store/modalStore';
+import ModalManager from '@/components/tools/ModalManager';
 
 const customStyles = {
   content: {
@@ -22,20 +22,20 @@ const customStyles = {
   },
 };
 
-Modal.setAppElement(`#app`);
+// Modal.setAppElement(appElement);
 
 const Home = () => {
   const isModalOpened = useModalStore((state) => state.isModalOpened);
-  const handleModalClose = useModalStore((state) => state.closeModal);
   const handleModalOpen = useModalStore((state) => state.openModal);
   return (
     <section id={`app`} className={mainStyles.app}>
       <Modal
+        ariaHideApp={false}
         isOpen={isModalOpened}
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <ShowAllModal onClose={handleModalClose} elements={places} />
+        <ModalManager />
       </Modal>
       <Header />
       <section className={mainStyles.dashboard}>
@@ -43,10 +43,16 @@ const Home = () => {
           <MapComponent />
         </div>
         <div className={mainStyles.rightColumn}>
-          <ListComponent modalOpen={handleModalOpen} elements={places} />
+          <ListComponent
+            modalOpen={() => handleModalOpen('show-all-modal')}
+            elements={places}
+          />
         </div>
       </section>
-      <Button onClick={() => null} />
+      <Button
+        text={`Add location`}
+        onClick={() => handleModalOpen('add-place-modal')}
+      />
     </section>
   );
 };

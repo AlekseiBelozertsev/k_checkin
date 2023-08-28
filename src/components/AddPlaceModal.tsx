@@ -3,8 +3,8 @@ import modalStyles from './styles/modal.module.scss';
 import cross from '../../public/icons/cross.svg';
 import Icon from './Icon';
 import { Place } from '@/utils/mocks/places';
-import ModalList from './ModalList';
 import Button from './Button';
+import Search from './Search';
 
 type ModalProps = {
   onClose: () => void;
@@ -21,9 +21,11 @@ const AddPlaceModal: React.FC<ModalProps> = ({ onClose, elements }) => {
             <Icon height={12} width={12} src={cross} />
           </div>
         </div>
-        <ModalList elements={elements} />
+        <div style={{width: '100%'}}>
+            <Search />
+        </div>
       </div>
-      <Button onClick={() => null} />
+      <Button text={`Submit`} onClick={() => null} />
     </div>
   );
 };

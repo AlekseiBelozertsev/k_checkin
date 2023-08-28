@@ -25,7 +25,7 @@ const ShowAllModal: React.FC<ModalProps> = ({ onClose, elements }) => {
         </div>
         <ModalList elements={elements} />
       </div>
-      <Button onClick={() => null} />
+      <Button text={`Add location`} onClick={() => null} />
     </div>
   );
 };
