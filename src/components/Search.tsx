@@ -15,7 +15,7 @@ const Search = () => {
     colorBackgroundActive: '#BFCEE4',
     colorText: '#0D121D',
     fontWeight: `normal`,
-    unit: '18px', 
+    unit: '18px',
     padding: '.5em',
     borderRadius: '8px',
     boxShadow: 'none',

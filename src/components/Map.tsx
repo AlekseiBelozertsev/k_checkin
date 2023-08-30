@@ -2,14 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl, { Marker } from 'mapbox-gl';
 import mapStyles from './styles/map.module.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { places } from '@/utils/mocks/places';
 
 mapboxgl.accessToken = `${process.env.NEXT_PUBLIC_MAPBOX_API_KEY}`;
 
 const MapComponent = () => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<mapboxgl.Map | null>(null);
-  const [lat, setLng] = useState(50.0755);
-  const [lng, setLat] = useState(14.4378);
   const [zoom, setZoom] = useState(9);
 
   useEffect(() => {
@@ -17,16 +16,27 @@ const MapComponent = () => {
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
         style: 'mapbox://styles/mapbox/streets-v12',
-        center: [lng, lat],
+        center: [14.4378, 50.0755],
         zoom: zoom,
         attributionControl: false,
       });
     }
-  }, [lng, lat, zoom]);
+  }, [zoom]);
+
+  useEffect(() => {
+    if (map.current) {
+      places.forEach((place) => {
+        const marker = new mapboxgl.Marker()
+        .setLngLat([place.features[0].properties.coordinates.longitude, place.features[0].properties.coordinates.latitude])
+        .addTo(map.current!);
+      })
+    }
+  }, []);
 
   return (
-    <div ref={mapContainer} className={`${mapStyles.main} map-container`}></div>
+    <div ref={mapContainer} className={`${mapStyles.main} map-container`} />
   );
 };
 
 export default MapComponent;
+

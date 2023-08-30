@@ -20,9 +20,24 @@ const AddPlaceModal: React.FC<ModalProps> = ({ onClose, elements }) => {
             <Icon height={12} width={12} src={cross} />
           </div>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', gap: '10px' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: '100%',
+            height: '100%',
+            gap: '10px',
+          }}
+        >
           <Search />
-          <div style={{ borderRadius: '8px', backgroundColor: '#E6ECF5', width: '100%', height: '395px' }} />
+          <div
+            style={{
+              borderRadius: '8px',
+              backgroundColor: '#E6ECF5',
+              width: '100%',
+              height: '395px',
+            }}
+          />
         </div>
       </div>
     </div>
