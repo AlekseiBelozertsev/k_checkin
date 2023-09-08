@@ -1,4 +1,3 @@
-import { Value } from 'sass';
 import { create } from 'zustand';
 
 interface SearchStoreType {

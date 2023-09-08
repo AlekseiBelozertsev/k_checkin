@@ -10,6 +10,7 @@ const MapComponent = () => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const [zoom, setZoom] = useState(9);
+  const [marker, setMarker] = useState<mapboxgl.Marker>();
 
   useEffect(() => {
     if (!map.current && mapContainer.current) {
@@ -26,12 +27,15 @@ const MapComponent = () => {
   useEffect(() => {
     if (map.current) {
       places.forEach((place) => {
-        const marker = new mapboxgl.Marker()
-        .setLngLat([place.features[0].properties.coordinates.longitude, place.features[0].properties.coordinates.latitude])
-        .addTo(map.current!);
-      })
+        new mapboxgl.Marker()
+          .setLngLat([
+            place.features[0].properties.coordinates.longitude,
+            place.features[0].properties.coordinates.latitude,
+          ])
+          .addTo(map.current!);
+      });
     }
-  }, []);
+  }, [places]);
 
   return (
     <div ref={mapContainer} className={`${mapStyles.main} map-container`} />
@@ -39,4 +43,3 @@ const MapComponent = () => {
 };
 
 export default MapComponent;
-
