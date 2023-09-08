@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Place } from '../mocks/places';
+import { Place, places } from '../mocks/places';
 
 interface MapStoreType {
   places: Place[];
@@ -7,6 +7,6 @@ interface MapStoreType {
 }
 
 export const useMapStore = create<MapStoreType>((set) => ({
-  places: [],
-  addPlace: (place) => set({}),
+  places: places,
+  addPlace: (place) => set((state) => ({ places: [...state.places, place] })),
 }));

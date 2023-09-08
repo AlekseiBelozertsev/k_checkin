@@ -7,10 +7,9 @@ import Search from './Search';
 
 type ModalProps = {
   onClose: () => void;
-  elements: Place[];
 };
 
-const AddPlaceModal: React.FC<ModalProps> = ({ onClose, elements }) => {
+const AddPlaceModal: React.FC<ModalProps> = ({ onClose }) => {
   return (
     <div className={modalStyles.main}>
       <div className={modalStyles.inner}>

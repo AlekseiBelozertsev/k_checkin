@@ -9,18 +9,10 @@ const ModalManager = () => {
   const handleModaClose = useModalStore((state) => state.closeModal);
   switch (modal) {
     case 'show-all-modal':
-      return (
-        <ShowAllModal
-          onClose={() => handleModaClose('show-all-modal')}
-          elements={places}
-        />
-      );
+      return <ShowAllModal onClose={() => handleModaClose('show-all-modal')} />;
     case 'add-place-modal':
       return (
-        <AddPlaceModal
-          onClose={() => handleModaClose('add-place-modal')}
-          elements={places}
-        />
+        <AddPlaceModal onClose={() => handleModaClose('add-place-modal')} />
       );
   }
 };

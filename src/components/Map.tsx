@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl, { Marker } from 'mapbox-gl';
 import mapStyles from './styles/map.module.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { places } from '@/utils/mocks/places';
+import { useMapStore } from '@/utils/store/mapStore';
 
 mapboxgl.accessToken = `${process.env.NEXT_PUBLIC_MAPBOX_API_KEY}`;
 
@@ -11,6 +11,7 @@ const MapComponent = () => {
   const map = useRef<mapboxgl.Map | null>(null);
   const [zoom, setZoom] = useState(9);
   const [marker, setMarker] = useState<mapboxgl.Marker>();
+  const places = useMapStore((state) => state.places);
 
   useEffect(() => {
     if (!map.current && mapContainer.current) {
@@ -25,16 +26,14 @@ const MapComponent = () => {
   }, [zoom]);
 
   useEffect(() => {
-    if (map.current) {
-      places.forEach((place) => {
-        new mapboxgl.Marker()
-          .setLngLat([
-            place.features[0].properties.coordinates.longitude,
-            place.features[0].properties.coordinates.latitude,
-          ])
-          .addTo(map.current!);
-      });
-    }
+    places.forEach((place) => {
+      new mapboxgl.Marker()
+        .setLngLat([
+          place.features[0].properties.coordinates.longitude,
+          place.features[0].properties.coordinates.latitude,
+        ])
+        .addTo(map.current!);
+    });
   }, [places]);
 
   return (

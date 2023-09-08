@@ -6,9 +6,9 @@ import Button from '@/components/Button';
 import Header from '@/components/Header';
 import MapComponent from '@/components/Map';
 import ListComponent from '@/components/List';
-import { places } from '@/utils/mocks/places';
 import { useModalStore } from '@/utils/store/modalStore';
 import ModalManager from '@/components/tools/ModalManager';
+import { useMapStore } from '@/utils/store/mapStore';
 
 const customStyles = {
   content: {
@@ -25,6 +25,7 @@ const customStyles = {
 // Modal.setAppElement(appElement);
 
 const Home = () => {
+  const places = useMapStore((state) => state.places);
   const isModalOpened = useModalStore((state) => state.isModalOpened);
   const handleModalOpen = useModalStore((state) => state.openModal);
   return (

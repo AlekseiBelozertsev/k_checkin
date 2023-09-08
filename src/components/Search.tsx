@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SearchBox } from '@mapbox/search-js-react';
 import { useSearchStore } from '@/utils/store/searchStore';
-import { SearchBoxRetrieveResponse } from '@mapbox/search-js-core';
-import { places } from '@/utils/mocks/places';
+import { useMapStore } from '@/utils/store/mapStore';
 
 const Search = () => {
   const setValue = useSearchStore((state) => state.setValue);
   const value = useSearchStore((state) => state.value);
+  const addPlace = useMapStore((state) => state.addPlace);
 
   const accessToken = `${process.env.NEXT_PUBLIC_MAPBOX_API_KEY}`;
   const searchBoxTheme = {
@@ -21,10 +21,6 @@ const Search = () => {
     boxShadow: 'none',
   };
 
-  const addPlace = (place: SearchBoxRetrieveResponse) => {
-    places.push(place);
-    console.log(places);
-  };
   return (
     // @ts-ignore
     <SearchBox

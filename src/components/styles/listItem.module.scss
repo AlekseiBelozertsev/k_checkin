@@ -1,9 +1,11 @@
 .main {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   background-color: #ffc03f;
   border-radius: 8px;
   padding: 8px 16px;
+  height: 54px;
 }
 
 .text {

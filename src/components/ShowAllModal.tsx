@@ -2,16 +2,16 @@ import React from 'react';
 import modalStyles from './styles/modal.module.scss';
 import cross from '../../public/icons/cross.svg';
 import Icon from './Icon';
-import { Place } from '@/utils/mocks/places';
 import ModalList from './ModalList';
 import Button from './Button';
+import { useMapStore } from '@/utils/store/mapStore';
 
 type ModalProps = {
   onClose: () => void;
-  elements: Place[];
 };
 
-const ShowAllModal: React.FC<ModalProps> = ({ onClose, elements }) => {
+const ShowAllModal: React.FC<ModalProps> = ({ onClose }) => {
+  const elements = useMapStore((state) => state.places);
   return (
     <div className={modalStyles.main}>
       <div className={modalStyles.inner}>
@@ -25,7 +25,6 @@ const ShowAllModal: React.FC<ModalProps> = ({ onClose, elements }) => {
         </div>
         <ModalList elements={elements} />
       </div>
-      <Button text={`Add location`} onClick={() => null} />
     </div>
   );
 };
