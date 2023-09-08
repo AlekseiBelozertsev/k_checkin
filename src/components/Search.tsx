@@ -2,6 +2,7 @@ import React from 'react';
 import { SearchBox } from '@mapbox/search-js-react';
 import { useSearchStore } from '@/utils/store/searchStore';
 import { useMapStore } from '@/utils/store/mapStore';
+import { useModalStore } from '@/utils/store/modalStore';
 
 const Search = () => {
   const setValue = useSearchStore((state) => state.setValue);
@@ -20,6 +21,7 @@ const Search = () => {
     borderRadius: '8px',
     boxShadow: 'none',
   };
+  const handleModaClose = useModalStore((state) => state.closeModal);
 
   return (
     // @ts-ignore
@@ -30,7 +32,10 @@ const Search = () => {
       onChange={(v) => setValue(v)}
       accessToken={accessToken}
       //onRetrieve gets the geoJSON I need on click of the list element.
-      onRetrieve={(place) => addPlace(place)}
+      onRetrieve={(place) => {
+        addPlace(place);
+        handleModaClose('add-place-modal');
+      }}
       placeholder={' '}
     />
   );
