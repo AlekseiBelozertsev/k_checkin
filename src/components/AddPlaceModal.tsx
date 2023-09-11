@@ -2,7 +2,6 @@ import React from 'react';
 import modalStyles from './styles/modal.module.scss';
 import cross from '../../public/icons/cross.svg';
 import Icon from './Icon';
-import { Place } from '@/utils/mocks/places';
 import Search from './Search';
 
 type ModalProps = {

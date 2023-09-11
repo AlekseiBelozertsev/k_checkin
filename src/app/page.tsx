@@ -11,6 +11,15 @@ import ModalManager from '@/components/tools/ModalManager';
 import { useMapStore } from '@/utils/store/mapStore';
 
 const customStyles = {
+  overlay: {
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backdropFilter: `blur(10px)`,
+    backgroundColor: `none`,
+    zIndex: 999,
+  },
   content: {
     top: '50%',
     left: '50%',
