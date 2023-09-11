@@ -2,12 +2,14 @@ import React from 'react';
 import modalListStyles from './styles/modalList.module.scss';
 import { Place } from '@/utils/mocks/places';
 import ListItem from './ListItem';
+import { useMapStore } from '@/utils/store/mapStore';
 
 type ListProps = {
   elements: Place[];
 };
 
 const ModalList: React.FC<ListProps> = ({ elements }) => {
+  const { setCurrentCenter } = useMapStore();
   return (
     <>
       {elements.length > 6 ? (
@@ -15,6 +17,7 @@ const ModalList: React.FC<ListProps> = ({ elements }) => {
           {elements.map((element, i) => {
             return (
               <ListItem
+                onClick={() => setCurrentCenter(element)}
                 headline={element.features[0].properties.name}
                 subline={element.features[0].properties.place_formatted}
                 key={i}
@@ -27,6 +30,7 @@ const ModalList: React.FC<ListProps> = ({ elements }) => {
           {elements.map((element, i) => {
             return (
               <ListItem
+                onClick={() => setCurrentCenter(element)}
                 headline={element.features[0].properties.name}
                 subline={element.features[0].properties.place_formatted}
                 key={i}
