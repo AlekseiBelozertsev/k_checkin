@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { Place, places } from '../mocks/places';
+import { useModalStore } from './modalStore';
 
 interface MapStoreType {
   places: Place[];

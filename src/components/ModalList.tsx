@@ -3,6 +3,7 @@ import modalListStyles from './styles/modalList.module.scss';
 import { Place } from '@/utils/mocks/places';
 import ListItem from './ListItem';
 import { useMapStore } from '@/utils/store/mapStore';
+import { useModalStore } from '@/utils/store/modalStore';
 
 type ListProps = {
   elements: Place[];
@@ -10,36 +11,24 @@ type ListProps = {
 
 const ModalList: React.FC<ListProps> = ({ elements }) => {
   const { setCurrentCenter } = useMapStore();
+  const { closeModal } = useModalStore();
+
+  const listItems = elements.map((element, i) => (
+    <ListItem
+      onClick={() => {
+        setCurrentCenter(element);
+        closeModal('show-all-modal');
+      }}
+      headline={element.features[0].properties.name}
+      subline={element.features[0].properties.place_formatted}
+      key={i}
+    />
+  ));
+
   return (
-    <>
-      {elements.length > 6 ? (
-        <div className={modalListStyles.mainScroll}>
-          {elements.map((element, i) => {
-            return (
-              <ListItem
-                onClick={() => setCurrentCenter(element)}
-                headline={element.features[0].properties.name}
-                subline={element.features[0].properties.place_formatted}
-                key={i}
-              />
-            );
-          })}
-        </div>
-      ) : (
-        <div className={modalListStyles.main}>
-          {elements.map((element, i) => {
-            return (
-              <ListItem
-                onClick={() => setCurrentCenter(element)}
-                headline={element.features[0].properties.name}
-                subline={element.features[0].properties.place_formatted}
-                key={i}
-              />
-            );
-          })}
-        </div>
-      )}
-    </>
+    <div className={elements.length > 6 ? modalListStyles.mainScroll : modalListStyles.main}>
+      {listItems}
+    </div>
   );
 };
 
