@@ -54,3 +54,14 @@
   background: #e6ecf5;
   cursor: pointer;
 }
+
+.searchPlug {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: #E6ECF5;
+  width: 100%;
+  height: 395px;
+}

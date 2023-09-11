@@ -7,10 +7,11 @@
   padding: 8px 16px;
   height: 54px;
   cursor: pointer;
-  transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease-in-out;
   &:hover {
-    background-color: #ffcd6a;
+    background-color: #ffde9d;
   }
+
 }
 
 .text {

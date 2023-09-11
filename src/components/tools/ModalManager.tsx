@@ -1,4 +1,3 @@
-import { places } from '@/utils/mocks/places';
 import { useModalStore } from '@/utils/store/modalStore';
 import React from 'react';
 import AddPlaceModal from '../AddPlaceModal';
