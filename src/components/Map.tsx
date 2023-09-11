@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import mapStyles from './styles/map.module.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -10,8 +10,15 @@ const MapComponent = () => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<mapboxgl.Map | null>(null);
 
-  //stores
+  // Stores
   const { zoom, currentCenter, places } = useMapStore();
+
+  // This effect listens for changes in currentCenter and re-renders the map when it changes.
+  useEffect(() => {
+    if (map.current) {
+      map.current.setCenter(currentCenter);
+    }
+  }, [currentCenter]);
 
   useEffect(() => {
     if (!map.current && mapContainer.current) {
@@ -23,8 +30,7 @@ const MapComponent = () => {
         attributionControl: false,
       });
     }
-    console.log(`current center in the map is ${currentCenter}`);
-  }, [zoom, currentCenter]);
+  }, [currentCenter, zoom]);
 
   useEffect(() => {
     places.forEach((place) => {
