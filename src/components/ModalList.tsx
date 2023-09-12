@@ -26,7 +26,11 @@ const ModalList: React.FC<ListProps> = ({ elements }) => {
   ));
 
   return (
-    <div className={elements.length > 6 ? modalListStyles.mainScroll : modalListStyles.main}>
+    <div
+      className={
+        elements.length > 6 ? modalListStyles.mainScroll : modalListStyles.main
+      }
+    >
       {listItems}
     </div>
   );

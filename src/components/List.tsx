@@ -42,8 +42,10 @@ const ListComponent: React.FC<ListComponentProps> = ({
   return (
     <>
       {!elements.length ? (
-        <div className={listStyles.innerWrapper}>
-          <h2 className={listStyles.headline}>{`No places visited yet...`}</h2>
+        <div className={listStyles.innerWrapperEmptyList}>
+          <h2 className={listStyles.headline}>
+            {`No places listed. Yet...`} <br /> {`(☉_☉)`}
+          </h2>
           <List elements={elements} />
         </div>
       ) : (

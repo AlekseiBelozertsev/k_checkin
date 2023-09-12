@@ -47,22 +47,24 @@ const Home = () => {
       >
         <ModalManager />
       </Modal>
-      <Header />
+      <div className={mainStyles.leftSidebar}>
+        <div className={mainStyles.sidebarInner}>
+          <Header />
+          <div className={mainStyles.rightColumn}>
+            <ListComponent
+              modalOpen={() => handleModalOpen('show-all-modal')}
+              elements={places}
+            />
+          </div>
+        </div>
+        <Button
+          text={`Add location`}
+          onClick={() => handleModalOpen('add-place-modal')}
+        />
+      </div>
       <section className={mainStyles.dashboard}>
-        <div className={mainStyles.leftColumn}>
-          <MapComponent />
-        </div>
-        <div className={mainStyles.rightColumn}>
-          <ListComponent
-            modalOpen={() => handleModalOpen('show-all-modal')}
-            elements={places}
-          />
-        </div>
+        <MapComponent />
       </section>
-      <Button
-        text={`Add location`}
-        onClick={() => handleModalOpen('add-place-modal')}
-      />
     </section>
   );
 };
