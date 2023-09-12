@@ -1,5 +1,5 @@
 'use client';
-import React, { Suspense, useState } from 'react';
+import React from 'react';
 import Modal from 'react-modal';
 import mainStyles from './main.module.scss';
 import Button from '@/components/Button';
