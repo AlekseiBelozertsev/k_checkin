@@ -9,6 +9,7 @@ import ListComponent from '@/components/List';
 import { useModalStore } from '@/utils/store/modalStore';
 import ModalManager from '@/components/tools/ModalManager';
 import { useMapStore } from '@/utils/store/mapStore';
+import { animated, useSpring } from '@react-spring/web';
 
 const customStyles = {
   overlay: {
@@ -37,6 +38,20 @@ const Home = () => {
   const places = useMapStore((state) => state.places);
   const isModalOpened = useModalStore((state) => state.isModalOpened);
   const handleModalOpen = useModalStore((state) => state.openModal);
+
+  const isOpenedStyles = {
+    left: `-97%`,
+  };
+
+  const isClosedStyles = {
+    left: `0`,
+  };
+
+  const [isOpened, toggleDrawer] = useState(false);
+
+  const stylesToApply = isOpened ? isOpenedStyles : isClosedStyles;
+
+  const props = useSpring({ ...stylesToApply });
   return (
     <section id={`app`} className={mainStyles.app}>
       <Modal
@@ -47,7 +62,8 @@ const Home = () => {
       >
         <ModalManager />
       </Modal>
-      <div className={mainStyles.leftSidebar}>
+
+      <animated.div style={props} className={mainStyles.leftSidebar}>
         <div className={mainStyles.sidebarInner}>
           <Header />
           <div className={mainStyles.rightColumn}>
@@ -57,11 +73,24 @@ const Home = () => {
             />
           </div>
         </div>
-        <Button
-          text={`Add location`}
-          onClick={() => handleModalOpen('add-place-modal')}
+        <div className={mainStyles.buttonsWrapper}>
+          <Button
+            isMobileOnly={false}
+            text={`Add location`}
+            onClick={() => handleModalOpen('add-place-modal')}
+          />
+          <Button
+            isMobileOnly
+            text={`To map`}
+            onClick={() => toggleDrawer(!isOpened)}
+          />
+        </div>
+        <button
+          className={mainStyles.drawerToggler}
+          onClick={() => toggleDrawer(!isOpened)}
         />
-      </div>
+      </animated.div>
+
       <section className={mainStyles.dashboard}>
         <MapComponent />
       </section>

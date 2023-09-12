@@ -16,6 +16,7 @@
 }
 
 .leftSidebar {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -23,6 +24,28 @@
   max-width: 350px;
   background: #ffffff;
   height: 100%;
+  @media (max-width: 768px) {
+    position: absolute;
+    left: 0%;
+    top: 0;
+    padding: 16px;
+    max-width: 100%;
+    width: 100%;
+    z-index: 3;
+  }
+}
+
+.drawerToggler {
+  position: absolute;
+  content: '';
+  left: 97%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 54px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: none;
 }
 
 .sidebarInner {
@@ -37,8 +60,13 @@
   flex-direction: column;
   height: 100%;
   gap: 16px;
-  justify-content: space-between;
   @media (max-width: 768px) {
     width: 100%;
   }
+}
+
+.buttonsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
