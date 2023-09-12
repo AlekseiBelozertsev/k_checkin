@@ -9,60 +9,84 @@ import ListComponent from '@/components/List';
 import { useModalStore } from '@/utils/store/modalStore';
 import ModalManager from '@/components/tools/ModalManager';
 import { useMapStore } from '@/utils/store/mapStore';
-
-const customStyles = {
-  overlay: {
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backdropFilter: `blur(10px)`,
-    backgroundColor: `none`,
-    zIndex: 999,
-  },
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    borderRadius: '16px',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
-
-// Modal.setAppElement(appElement);
+import { animated, useSpring } from '@react-spring/web';
+import { useDrawerStore } from '@/utils/store/drawerStore';
 
 const Home = () => {
   const places = useMapStore((state) => state.places);
-  const isModalOpened = useModalStore((state) => state.isModalOpened);
-  const handleModalOpen = useModalStore((state) => state.openModal);
+  const { openModal, isModalOpened } = useModalStore();
+  const { handleDrawerClose, handleDrawerOpen, customStyles } =
+    useDrawerStore();
+  const props = useSpring({
+    ...customStyles,
+    config: {
+      duration: 200,
+    },
+  });
+
+  const modalStyles = {
+    overlay: {
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backdropFilter: `blur(10px)`,
+      backgroundColor: `none`,
+      zIndex: 999,
+    },
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      borderRadius: '16px',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+    },
+  };
+
   return (
     <section id={`app`} className={mainStyles.app}>
       <Modal
         ariaHideApp={false}
         isOpen={isModalOpened}
-        style={customStyles}
+        style={modalStyles}
         contentLabel="Example Modal"
       >
         <ModalManager />
       </Modal>
-      <Header />
-      <section className={mainStyles.dashboard}>
-        <div className={mainStyles.leftColumn}>
-          <MapComponent />
+
+      <animated.div style={props} className={mainStyles.leftSidebar}>
+        <div className={mainStyles.sidebarInner}>
+          <Header />
+          <div className={mainStyles.rightColumn}>
+            <ListComponent
+              modalOpen={() => openModal('show-all-modal')}
+              elements={places}
+            />
+          </div>
         </div>
-        <div className={mainStyles.rightColumn}>
-          <ListComponent
-            modalOpen={() => handleModalOpen('show-all-modal')}
-            elements={places}
+        <div className={mainStyles.buttonsWrapper}>
+          <Button
+            isMobileOnly={false}
+            text={`Add location`}
+            onClick={() => openModal('add-place-modal')}
+          />
+          <Button
+            isMobileOnly
+            text={`To map`}
+            onClick={() => handleDrawerOpen()}
           />
         </div>
+        <button
+          className={mainStyles.drawerToggler}
+          onClick={() => handleDrawerClose()}
+        ></button>
+      </animated.div>
+
+      <section className={mainStyles.dashboard}>
+        <MapComponent />
       </section>
-      <Button
-        text={`Add location`}
-        onClick={() => handleModalOpen('add-place-modal')}
-      />
     </section>
   );
 };

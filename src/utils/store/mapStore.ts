@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import { Place, places } from '../mocks/places';
-import { useModalStore } from './modalStore';
 
 interface MapStoreType {
   places: Place[];
@@ -20,7 +19,8 @@ export const useMapStore = create<MapStoreType>((set) => ({
     places.length === 0
       ? [14.41854, 50.073658]
       : [
-          places[places.length - 1].features[0].properties.coordinates.longitude,
+          places[places.length - 1].features[0].properties.coordinates
+            .longitude,
           places[places.length - 1].features[0].properties.coordinates.latitude,
         ],
   setCurrentCenter: (place: Place) => {

@@ -5,18 +5,17 @@
   background-color: #ffc03f;
   border-radius: 8px;
   padding: 8px 16px;
-  height: 54px;
+  height: 80px;
   cursor: pointer;
   transition: background-color 0.5s ease-in-out;
   &:hover {
     background-color: #ffde9d;
   }
-
 }
 
 .text {
   color: #282120;
-  font-size: 24px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px; /* 150% */

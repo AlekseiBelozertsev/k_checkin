@@ -28,9 +28,7 @@ const AddPlaceModal: React.FC<ModalProps> = ({ onClose }) => {
           }}
         >
           <Search />
-          <div
-            className={modalStyles.searchPlug}
-          >
+          <div className={modalStyles.searchPlug}>
             <h2 className={modalStyles.heading}>{`༼ つ ◕_◕ ༽つ🍪`}</h2>
           </div>
         </div>

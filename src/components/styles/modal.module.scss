@@ -9,6 +9,10 @@
   gap: 24px;
   overflow: hidden;
   z-index: 9999999;
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .header {
@@ -61,7 +65,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  background-color: #E6ECF5;
+  background-color: #e6ecf5;
   width: 100%;
   height: 395px;
 }
