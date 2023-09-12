@@ -14,10 +14,9 @@ import { useDrawerStore } from '@/utils/store/drawerStore';
 
 const Home = () => {
   const places = useMapStore((state) => state.places);
-  const { openModal, isModalOpened, modalStyles } = useModalStore();
+  const { openModal, isModalOpened } = useModalStore();
   const { handleDrawerClose, handleDrawerOpen, customStyles } =
     useDrawerStore();
-
   const props = useSpring({
     ...customStyles,
     config: {
@@ -25,12 +24,27 @@ const Home = () => {
     },
   });
 
-  //watches screen size
-  // const updateMopdalStyles = () => {
-  //   if (window.innerWidth === 768) {
+  const modalStyles = {
+    overlay: {
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backdropFilter: `blur(10px)`,
+      backgroundColor: `none`,
+      zIndex: 999,
+    },
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      borderRadius: '16px',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+    },
+  };
 
-  //   }
-  // }
   return (
     <section id={`app`} className={mainStyles.app}>
       <Modal
