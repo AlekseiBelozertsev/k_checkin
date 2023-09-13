@@ -41,15 +41,15 @@ const MapComponent = () => {
     element.style.backgroundPosition = 'center';
     element.style.backgroundSize = 'cover';
 
-    element.style.width = '40px'; 
+    element.style.width = '40px';
     element.style.height = '40px';
     return element;
-  }
+  };
 
   useEffect(() => {
     places.forEach((place) => {
       new mapboxgl.Marker({
-        element: createCustomMarkerElement()
+        element: createCustomMarkerElement(),
       })
         .setLngLat([
           place.features[0].properties.coordinates.longitude,

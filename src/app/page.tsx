@@ -75,12 +75,12 @@ const Home = () => {
           <Button
             isMobileOnly
             text={`To map`}
-            onClick={() => handleDrawerOpen()}
+            onClick={() => handleDrawerClose()}
           />
         </div>
         <button
           className={mainStyles.drawerToggler}
-          onClick={() => handleDrawerClose()}
+          onClick={() => handleDrawerOpen()}
         ></button>
       </animated.div>
 

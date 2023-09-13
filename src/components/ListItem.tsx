@@ -11,8 +11,8 @@ type ListItemProps = {
 const ListItem: React.FC<ListItemProps> = ({ headline, subline, onClick }) => {
   return (
     <div onClick={onClick} className={listItemStyles.main}>
-      <span className={listItemStyles.text}>{headline}</span>
-      <span>{subline}</span>
+      <span className={listItemStyles.headline}>{headline}</span>
+      <span className={listItemStyles.subtitle}>{subline}</span>
     </div>
   );
 };

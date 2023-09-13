@@ -4,6 +4,7 @@ import listStyles from './styles/list.module.scss';
 import ListItem from './ListItem';
 import ShowAll from './ShowAll';
 import { useMapStore } from '@/utils/store/mapStore';
+import { useDrawerStore } from '@/utils/store/drawerStore';
 
 type ListProps = {
   elements: Place[];
@@ -16,6 +17,8 @@ type ListComponentProps = {
 
 const List: React.FC<ListProps> = ({ elements }) => {
   const { setCurrentCenter, currentCenter } = useMapStore();
+  const { handleDrawerClose } = useDrawerStore();
+
   return (
     <div className={listStyles.main}>
       {elements.slice(-4).map((element, i) => {
@@ -23,7 +26,7 @@ const List: React.FC<ListProps> = ({ elements }) => {
           <ListItem
             onClick={() => {
               setCurrentCenter(element);
-              console.log(`current center is now ${currentCenter}`);
+              handleDrawerClose();
             }}
             subline={element.features[0].properties.place_formatted}
             headline={element.features[0].properties.name}

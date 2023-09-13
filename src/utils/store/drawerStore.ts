@@ -14,6 +14,6 @@ export const useDrawerStore = create<DrawerType>((set, get) => ({
   customStyles: {
     left: `0`,
   },
-  handleDrawerOpen: () => set({ customStyles: { left: `-97%` } }),
-  handleDrawerClose: () => set({ customStyles: { left: `0` } }),
+  handleDrawerClose: () => set({ customStyles: { left: `-97%` } }),
+  handleDrawerOpen: () => set({ customStyles: { left: `0` } }),
 }));

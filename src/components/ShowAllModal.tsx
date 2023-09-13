@@ -3,7 +3,6 @@ import modalStyles from './styles/modal.module.scss';
 import cross from '../../public/icons/cross.svg';
 import Icon from './Icon';
 import ModalList from './ModalList';
-import Button from './Button';
 import { useMapStore } from '@/utils/store/mapStore';
 
 type ModalProps = {

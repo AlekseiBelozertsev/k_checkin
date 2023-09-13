@@ -5,7 +5,7 @@
   background-color: #ffc03f;
   border-radius: 8px;
   padding: 8px 16px;
-  height: 80px;
+  height: 64px;
   cursor: pointer;
   transition: background-color 0.5s ease-in-out;
   &:hover {
@@ -13,10 +13,18 @@
   }
 }
 
-.text {
+.headline {
   color: #282120;
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 18px; /* 150% */
+}
+
+.subtitle {
+  color: #282120;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 150% */
 }
