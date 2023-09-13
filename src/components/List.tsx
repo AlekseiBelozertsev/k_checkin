@@ -8,15 +8,17 @@ import { useDrawerStore } from '@/utils/store/drawerStore';
 
 type ListProps = {
   elements: Place[];
+  isMobile: boolean;
 };
 
 type ListComponentProps = {
   modalOpen: () => void;
   elements: Place[];
+  isMobile: boolean;
 };
 
-const List: React.FC<ListProps> = ({ elements }) => {
-  const { setCurrentCenter, currentCenter } = useMapStore();
+const List: React.FC<ListProps> = ({ elements, isMobile }) => {
+  const { setCurrentCenter } = useMapStore();
   const { handleDrawerClose } = useDrawerStore();
 
   return (
@@ -26,7 +28,7 @@ const List: React.FC<ListProps> = ({ elements }) => {
           <ListItem
             onClick={() => {
               setCurrentCenter(element);
-              handleDrawerClose();
+              isMobile && handleDrawerClose();
             }}
             subline={element.features[0].properties.place_formatted}
             headline={element.features[0].properties.name}
@@ -41,6 +43,7 @@ const List: React.FC<ListProps> = ({ elements }) => {
 const ListComponent: React.FC<ListComponentProps> = ({
   modalOpen,
   elements,
+  isMobile,
 }) => {
   return (
     <>
@@ -49,13 +52,13 @@ const ListComponent: React.FC<ListComponentProps> = ({
           <h2 className={listStyles.headline}>
             {`No places listed. Yet...`} <br /> {`(☉_☉)`}
           </h2>
-          <List elements={elements} />
+          <List isMobile={isMobile} elements={elements} />
         </div>
       ) : (
         <>
           <div className={listStyles.innerWrapper}>
             <h2 className={listStyles.headline}>{`Recently visited`}</h2>
-            <List elements={elements} />
+            <List isMobile={isMobile} elements={elements} />
           </div>
           {elements.length >= 4 && <ShowAll onClick={() => modalOpen()} />}
         </>

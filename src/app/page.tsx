@@ -11,6 +11,7 @@ import ModalManager from '@/components/tools/ModalManager';
 import { useMapStore } from '@/utils/store/mapStore';
 import { animated, useSpring } from '@react-spring/web';
 import { useDrawerStore } from '@/utils/store/drawerStore';
+import { useMediaQuery } from 'react-responsive';
 
 const Home = () => {
   const places = useMapStore((state) => state.places);
@@ -45,6 +46,10 @@ const Home = () => {
     },
   };
 
+  const isMobile = useMediaQuery({
+    query: `(max-width: 768px)`,
+  });
+
   return (
     <section id={`app`} className={mainStyles.app}>
       <Modal
@@ -61,6 +66,7 @@ const Home = () => {
           <Header />
           <div className={mainStyles.rightColumn}>
             <ListComponent
+              isMobile={isMobile}
               modalOpen={() => openModal('show-all-modal')}
               elements={places}
             />
