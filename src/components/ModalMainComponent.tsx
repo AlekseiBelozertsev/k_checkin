@@ -35,7 +35,6 @@ const modalStylesMobile = {
     zIndex: 999,
   },
   content: {
-    // position: 'relative',
     top: '0',
     left:'0',
     right:'0',

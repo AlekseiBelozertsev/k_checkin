@@ -34,6 +34,10 @@ const MapComponent = () => {
   }, [currentCenter, zoom]);
 
   const createCustomMarkerElement = () => {
+    if (typeof window === 'undefined') {
+      return null;
+    }
+
     const element = document.createElement('div');
     element.className = mapStyles.customMarker;
     element.style.backgroundImage = `url(${baraIcon.src})`;
@@ -48,14 +52,18 @@ const MapComponent = () => {
 
   useEffect(() => {
     places.forEach((place) => {
-      new mapboxgl.Marker({
-        element: createCustomMarkerElement(),
-      })
-        .setLngLat([
-          place.features[0].properties.coordinates.longitude,
-          place.features[0].properties.coordinates.latitude,
-        ])
-        .addTo(map.current!);
+      const customMarkerElement = createCustomMarkerElement();
+
+      if (customMarkerElement) {
+        new mapboxgl.Marker({
+          element: customMarkerElement,
+        })
+          .setLngLat([
+            place.features[0].properties.coordinates.longitude,
+            place.features[0].properties.coordinates.latitude,
+          ])
+          .addTo(map.current!);
+      }
     });
   }, [places]);
 
