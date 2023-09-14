@@ -38,7 +38,7 @@ const Home = () => {
       <ModalMainComponent isMobile={isMobile} />
       <animated.div style={props} className={mainStyles.leftSidebar}>
         <div className={mainStyles.sidebarInner}>
-          <Header />
+          {!isMobile && <Header />}
           <div className={mainStyles.rightColumn}>
             <ListComponent
               isMobile={isMobile}
