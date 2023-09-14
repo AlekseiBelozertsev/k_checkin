@@ -4,18 +4,27 @@ import React from 'react';
 
 const ShowAllModal = dynamic(() => import('../ShowAllModal'), { ssr: false });
 const AddPlaceModal = dynamic(() => import('../AddPlaceModal'), { ssr: false });
-const ModalManager = () => {
+type ModalManagerProps = {
+  isMobile: boolean;
+};
+const ModalManager: React.FC<ModalManagerProps> = ({ isMobile }) => {
   const modal = useModalStore((state) => state.modal);
   const handleModaClose = useModalStore((state) => state.closeModal);
   if (typeof window !== 'undefined') {
     switch (modal) {
       case 'show-all-modal':
         return (
-          <ShowAllModal onClose={() => handleModaClose('show-all-modal')} />
+          <ShowAllModal
+            isMobile={isMobile}
+            onClose={() => handleModaClose('show-all-modal')}
+          />
         );
       case 'add-place-modal':
         return (
-          <AddPlaceModal onClose={() => handleModaClose('add-place-modal')} />
+          <AddPlaceModal
+            isMobile={isMobile}
+            onClose={() => handleModaClose('add-place-modal')}
+          />
         );
     }
   }

@@ -7,9 +7,10 @@ import { useMapStore } from '@/utils/store/mapStore';
 
 type ModalProps = {
   onClose: () => void;
+  isMobile: boolean;
 };
 
-const ShowAllModal: React.FC<ModalProps> = ({ onClose }) => {
+const ShowAllModal: React.FC<ModalProps> = ({ onClose, isMobile }) => {
   const elements = useMapStore((state) => state.places);
   return (
     <div className={modalStyles.main}>
@@ -22,7 +23,7 @@ const ShowAllModal: React.FC<ModalProps> = ({ onClose }) => {
             <Icon height={12} width={12} src={cross} />
           </div>
         </div>
-        <ModalList elements={elements} />
+        <ModalList isMobile={isMobile} elements={elements} />
       </div>
     </div>
   );

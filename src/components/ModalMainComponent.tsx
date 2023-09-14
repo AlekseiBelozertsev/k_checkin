@@ -64,7 +64,7 @@ const ModalMainComponent: React.FC<ModalProps> = ({ isMobile }) => {
       contentLabel="Example Modal"
       onAfterClose={() => console.log('aaa')}
     >
-      <ModalManager />
+      <ModalManager isMobile={isMobile} />
     </Modal>
   );
 };

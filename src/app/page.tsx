@@ -38,7 +38,8 @@ const Home = () => {
       <ModalMainComponent isMobile={isMobile} />
       <animated.div style={props} className={mainStyles.leftSidebar}>
         <div className={mainStyles.sidebarInner}>
-          {!isMobile && <Header />}
+          {/* {!isMobile && <Header />} */}
+          <Header />
           <div className={mainStyles.rightColumn}>
             <ListComponent
               isMobile={isMobile}
@@ -53,11 +54,13 @@ const Home = () => {
             text={`Add location`}
             onClick={() => openModal('add-place-modal')}
           />
-          <Button
-            isMobileOnly
-            text={`To map`}
-            onClick={() => handleDrawerClose()}
-          />
+          {places.length ? (
+            <Button
+              isMobileOnly
+              text={`To map`}
+              onClick={() => handleDrawerClose()}
+            />
+          ) : null}
         </div>
         <button
           className={mainStyles.drawerToggler}

@@ -8,9 +8,10 @@ import { useDrawerStore } from '@/utils/store/drawerStore';
 
 type ListProps = {
   elements: Place[];
+  isMobile: boolean;
 };
 
-const ModalList: React.FC<ListProps> = ({ elements }) => {
+const ModalList: React.FC<ListProps> = ({ elements, isMobile }) => {
   const { setCurrentCenter } = useMapStore();
   const { closeModal } = useModalStore();
   const { handleDrawerClose } = useDrawerStore();
@@ -20,7 +21,7 @@ const ModalList: React.FC<ListProps> = ({ elements }) => {
       onClick={() => {
         setCurrentCenter(element);
         closeModal('show-all-modal');
-        handleDrawerClose();
+        isMobile && handleDrawerClose();
       }}
       headline={element.features[0].properties.name}
       subline={element.features[0].properties.place_formatted}

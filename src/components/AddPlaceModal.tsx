@@ -7,11 +7,12 @@ import dynamic from 'next/dynamic';
 
 type ModalProps = {
   onClose: () => void;
+  isMobile: boolean;
 };
 
 const SearchComponent = dynamic(() => import('./Search'), { ssr: false });
 
-const AddPlaceModal: React.FC<ModalProps> = ({ onClose }) => {
+const AddPlaceModal: React.FC<ModalProps> = ({ onClose, isMobile }) => {
   if (typeof window !== 'undefined') {
     return (
       <div className={modalStyles.main}>
