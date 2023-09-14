@@ -11,8 +11,6 @@ import { animated, useSpring } from '@react-spring/web';
 import { useDrawerStore } from '@/utils/store/drawerStore';
 import { useMediaQuery } from 'react-responsive';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
-
 
 const Home = () => {
   const places = useMapStore((state) => state.places);
@@ -36,49 +34,41 @@ const Home = () => {
   );
 
   return (
-    <>
-    <Head>
-    <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-        />
-    </Head>
-      <section id={`app`} className={mainStyles.app}>
-        <ModalMainComponent isMobile={isMobile} />
-        <animated.div style={props} className={mainStyles.leftSidebar}>
-          <div className={mainStyles.sidebarInner}>
-            <Header />
-            <div className={mainStyles.rightColumn}>
-              <ListComponent
-                isMobile={isMobile}
-                modalOpen={() => openModal('show-all-modal')}
-                elements={places}
-              />
-            </div>
-          </div>
-          <div className={mainStyles.buttonsWrapper}>
-            <Button
-              isMobileOnly={false}
-              text={`Add location`}
-              onClick={() => openModal('add-place-modal')}
-            />
-            <Button
-              isMobileOnly
-              text={`To map`}
-              onClick={() => handleDrawerClose()}
+    <section id={`app`} className={mainStyles.app}>
+      <ModalMainComponent isMobile={isMobile} />
+      <animated.div style={props} className={mainStyles.leftSidebar}>
+        <div className={mainStyles.sidebarInner}>
+          <Header />
+          <div className={mainStyles.rightColumn}>
+            <ListComponent
+              isMobile={isMobile}
+              modalOpen={() => openModal('show-all-modal')}
+              elements={places}
             />
           </div>
-          <button
-            className={mainStyles.drawerToggler}
-            onClick={() => handleDrawerOpen()}
-          ></button>
-        </animated.div>
+        </div>
+        <div className={mainStyles.buttonsWrapper}>
+          <Button
+            isMobileOnly={false}
+            text={`Add location`}
+            onClick={() => openModal('add-place-modal')}
+          />
+          <Button
+            isMobileOnly
+            text={`To map`}
+            onClick={() => handleDrawerClose()}
+          />
+        </div>
+        <button
+          className={mainStyles.drawerToggler}
+          onClick={() => handleDrawerOpen()}
+        ></button>
+      </animated.div>
 
-        <section className={mainStyles.dashboard}>
-          <MapComponent />
-        </section>
+      <section className={mainStyles.dashboard}>
+        <MapComponent />
       </section>
-    </>
+    </section>
   );
 };
 
