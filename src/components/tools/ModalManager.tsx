@@ -1,13 +1,9 @@
 import { useModalStore } from '@/utils/store/modalStore';
 import dynamic from 'next/dynamic';
 import React from 'react';
-// import AddPlaceModal from '../AddPlaceModal';
-// import ShowAllModal from '../ShowAllModal';
 
 const ShowAllModal = dynamic(() => import('../ShowAllModal'), { ssr: false });
-
 const AddPlaceModal = dynamic(() => import('../AddPlaceModal'), { ssr: false });
-
 const ModalManager = () => {
   const modal = useModalStore((state) => state.modal);
   const handleModaClose = useModalStore((state) => state.closeModal);

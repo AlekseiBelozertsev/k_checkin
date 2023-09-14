@@ -11,6 +11,7 @@ const jOne = Jockey_One({
 export const metadata: Metadata = {
   title: "Kika's Checkin",
   description: 'Find the places you have been to with ease.',
+  creator: 'AlexeiB',
 };
 
 export default function RootLayout({

@@ -2,7 +2,6 @@ import React from 'react';
 import Modal from 'react-modal';
 import { useModalStore } from '@/utils/store/modalStore';
 import dynamic from 'next/dynamic';
-// import ModalManager from '@/components/tools/ModalManager';
 
 const modalStyles = {
   overlay: {
@@ -52,7 +51,6 @@ type ModalProps = {
 
 const ModalMainComponent: React.FC<ModalProps> = ({ isMobile }) => {
   const { isModalOpened } = useModalStore();
-
   const ModalManager = dynamic(
     () => import('@/components/tools/ModalManager'),
     { ssr: false },
