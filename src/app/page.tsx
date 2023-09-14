@@ -10,7 +10,8 @@ import { useMapStore } from '@/utils/store/mapStore';
 import { animated, useSpring } from '@react-spring/web';
 import { useDrawerStore } from '@/utils/store/drawerStore';
 import { useMediaQuery } from 'react-responsive';
-import ModalMainComponent from '@/components/ModalMainComponent';
+// import ModalMainComponent from '@/components/ModalMainComponent';
+import dynamic from 'next/dynamic';
 
 const Home = () => {
   const places = useMapStore((state) => state.places);
@@ -27,6 +28,11 @@ const Home = () => {
   const isMobile = useMediaQuery({
     query: `(max-width: 768px)`,
   });
+
+  const ModalMainComponent = dynamic(
+    () => import('@/components/ModalMainComponent'),
+    { ssr: false },
+  );
 
   return (
     <section id={`app`} className={mainStyles.app}>

@@ -38,17 +38,18 @@ const MapComponent = () => {
     if (typeof window === 'undefined') {
       return null;
     }
+    if (typeof document !== 'undefined') {
+      const element = document.createElement('div');
+      element.className = mapStyles.customMarker;
+      element.style.backgroundImage = `url(${baraIcon.src})`;
+      element.style.backgroundRepeat = 'no-repeat';
+      element.style.backgroundPosition = 'center';
+      element.style.backgroundSize = 'cover';
 
-    const element = document.createElement('div');
-    element.className = mapStyles.customMarker;
-    element.style.backgroundImage = `url(${baraIcon.src})`;
-    element.style.backgroundRepeat = 'no-repeat';
-    element.style.backgroundPosition = 'center';
-    element.style.backgroundSize = 'cover';
-
-    element.style.width = '40px';
-    element.style.height = '40px';
-    return element;
+      element.style.width = '40px';
+      element.style.height = '40px';
+      return element;
+    }
   };
 
   useEffect(() => {

@@ -1,7 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { useModalStore } from '@/utils/store/modalStore';
-import ModalManager from '@/components/tools/ModalManager';
+import dynamic from 'next/dynamic';
+// import ModalManager from '@/components/tools/ModalManager';
 
 const modalStyles = {
   overlay: {
@@ -36,9 +37,9 @@ const modalStylesMobile = {
   },
   content: {
     top: '0',
-    left:'0',
-    right:'0',
-    bottom:'0',
+    left: '0',
+    right: '0',
+    bottom: '0',
     borderRadius: 0,
     marginRight: 0,
     transform: 'none',
@@ -47,19 +48,24 @@ const modalStylesMobile = {
 
 type ModalProps = {
   isMobile: boolean;
-}
+};
 
-const ModalMainComponent: React.FC<ModalProps> = ({isMobile}) => {
+const ModalMainComponent: React.FC<ModalProps> = ({ isMobile }) => {
   const { isModalOpened } = useModalStore();
+
+  const ModalManager = dynamic(
+    () => import('@/components/tools/ModalManager'),
+    { ssr: false },
+  );
 
   return (
     <Modal
-        ariaHideApp={false}
-        isOpen={isModalOpened}
-        style={isMobile ? modalStylesMobile : modalStyles}
-        contentLabel="Example Modal"
-        onAfterClose={() => console.log('aaa')}
-      >
+      ariaHideApp={false}
+      isOpen={isModalOpened}
+      style={isMobile ? modalStylesMobile : modalStyles}
+      contentLabel="Example Modal"
+      onAfterClose={() => console.log('aaa')}
+    >
       <ModalManager />
     </Modal>
   );
