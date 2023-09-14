@@ -7,7 +7,7 @@ const Header = () => {
       <h1 className={headerStyles.headerHeadline}>{`Kika's check in`}</h1>
       <p
         className={headerStyles.headerParagraph}
-      >{`Find the places you have been to with ease.`}</p>
+      >{`Another pet project`}</p>
     </header>
   );
 };
