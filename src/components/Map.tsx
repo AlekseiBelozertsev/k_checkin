@@ -1,3 +1,4 @@
+'use-client';
 import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import mapStyles from './styles/map.module.scss';
