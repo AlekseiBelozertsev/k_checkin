@@ -7,6 +7,10 @@
   height: 100%;
   padding: 0;
   position: relative;
+  @media (max-width: 768px) {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }
 
 .dashboard {

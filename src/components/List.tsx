@@ -49,13 +49,9 @@ const ListComponent: React.FC<ListComponentProps> = ({
     <>
       {!elements.length ? (
         <div className={listStyles.innerWrapperEmptyList}>
-          {
-            !isMobile && (
-              <h2 className={listStyles.headline}>
-                {`No places listed. Yet...`} <br /> {`(☉_☉)`}
-              </h2>
-            )
-          }
+          <h2 className={listStyles.headline}>
+            {`No places listed. Yet...`} <br /> {`(☉_☉)`}
+          </h2>
           <List isMobile={isMobile} elements={elements} />
         </div>
       ) : (
