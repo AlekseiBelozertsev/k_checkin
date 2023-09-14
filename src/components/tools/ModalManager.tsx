@@ -1,9 +1,12 @@
 import { useModalStore } from '@/utils/store/modalStore';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import React from 'react';
+import ShowAllModal from '../ShowAllModal';
+import AddPlaceModal from '../AddPlaceModal';
 
-const ShowAllModal = dynamic(() => import('../ShowAllModal'), { ssr: false });
-const AddPlaceModal = dynamic(() => import('../AddPlaceModal'), { ssr: false });
+
+// const ShowAllModal = dynamic(() => import('../ShowAllModal'), { ssr: false });
+// const AddPlaceModal = dynamic(() => import('../AddPlaceModal'), { ssr: false });
 type ModalManagerProps = {
   isMobile: boolean;
 };
