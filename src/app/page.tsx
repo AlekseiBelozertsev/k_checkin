@@ -13,6 +13,17 @@ import { useMediaQuery } from 'react-responsive';
 // import ModalMainComponent from '@/components/ModalMainComponent';
 import dynamic from 'next/dynamic';
 
+export async function getServerSideProps() {
+  const res = await fetch('');
+  const data = await res.json();
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
 const Home = () => {
   const places = useMapStore((state) => state.places);
   const { openModal } = useModalStore();
