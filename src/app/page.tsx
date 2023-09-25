@@ -6,17 +6,6 @@ import { useMediaQuery } from 'react-responsive';
 import dynamic from 'next/dynamic';
 import Sidebar from '@/components/Sidebar';
 
-export async function getServerSideProps() {
-  const res = await fetch('');
-  const data = await res.json();
-
-  return {
-    props: {
-      data,
-    },
-  };
-}
-
 const Home = () => {
   const isMobile = useMediaQuery({
     query: `(max-width: 768px)`,
