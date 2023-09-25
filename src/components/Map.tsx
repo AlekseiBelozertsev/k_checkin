@@ -13,7 +13,7 @@ const MapComponent = () => {
   const map = useRef<mapboxgl.Map | null>(null);
 
   // Stores
-  const { zoom, currentCenter, places } = useMapStore();
+  const { zoom, currentCenter, places, onMapLoad, isMapLoaded } = useMapStore();
 
   // This effect listens for changes in currentCenter and re-renders the map when it changes.
   useEffect(() => {
@@ -30,6 +30,9 @@ const MapComponent = () => {
         center: currentCenter,
         zoom: zoom,
         attributionControl: false,
+      });
+      map.current.on('load', () => {
+        onMapLoad();
       });
     }
   }, [currentCenter, zoom]);
@@ -70,7 +73,17 @@ const MapComponent = () => {
   }, [places]);
 
   return (
-    <div ref={mapContainer} className={`${mapStyles.main} map-container`} />
+    <>
+      <div
+        className={isMapLoaded ? mapStyles.mapLoaded : mapStyles.mapIsLoading}
+      />
+      <div
+        ref={mapContainer}
+        className={`${
+          isMapLoaded ? mapStyles.main : mapStyles.notLoaded
+        } map-container`}
+      />
+    </>
   );
 };
 

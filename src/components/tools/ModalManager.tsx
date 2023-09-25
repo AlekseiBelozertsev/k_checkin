@@ -4,7 +4,6 @@ import React from 'react';
 import ShowAllModal from '../ShowAllModal';
 import AddPlaceModal from '../AddPlaceModal';
 
-
 // const ShowAllModal = dynamic(() => import('../ShowAllModal'), { ssr: false });
 // const AddPlaceModal = dynamic(() => import('../AddPlaceModal'), { ssr: false });
 type ModalManagerProps = {

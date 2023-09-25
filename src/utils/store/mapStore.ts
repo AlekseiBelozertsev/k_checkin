@@ -10,6 +10,8 @@ interface MapStoreType {
   ];
   setCurrentCenter: (place: Place) => void;
   zoom: number;
+  isMapLoaded: boolean | undefined;
+  onMapLoad: () => void;
 }
 
 export const useMapStore = create<MapStoreType>((set) => ({
@@ -32,4 +34,8 @@ export const useMapStore = create<MapStoreType>((set) => ({
     });
   },
   zoom: 11,
+  isMapLoaded: false,
+  onMapLoad: () => {
+    set({ isMapLoaded: true });
+  },
 }));

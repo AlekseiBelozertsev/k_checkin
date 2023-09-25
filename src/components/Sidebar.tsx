@@ -8,54 +8,53 @@ import { useDrawerStore } from '@/utils/store/drawerStore';
 import { animated, useSpring } from '@react-spring/web';
 import sidebarStyles from '../components/styles/sidebar.module.scss';
 
-
 type SidebarProps = {
   isMobile: boolean;
-}
+};
 
-const Sidebar: React.FC<SidebarProps> = ({isMobile}) => {
+const Sidebar: React.FC<SidebarProps> = ({ isMobile }) => {
   const places = useMapStore((state) => state.places);
   const { openModal } = useModalStore();
   const { handleDrawerClose, handleDrawerOpen, customStyles } =
     useDrawerStore();
-    const props = useSpring({
-      ...customStyles,
-      config: {
-        duration: 200,
-      },
-    });
+  const props = useSpring({
+    ...customStyles,
+    config: {
+      duration: 200,
+    },
+  });
   return (
     <animated.div style={props} className={sidebarStyles.leftSidebar}>
-        <div className={sidebarStyles.sidebarInner}>
-          <Header />
-          <div className={sidebarStyles.rightColumn}>
-            <ListComponent
-              isMobile={isMobile}
-              modalOpen={() => openModal('show-all-modal')}
-              elements={places}
-            />
-          </div>
-        </div>
-        <div className={sidebarStyles.buttonsWrapper}>
-          <Button
-            isMobileOnly={false}
-            text={`Add location`}
-            onClick={() => openModal('add-place-modal')}
+      <div className={sidebarStyles.sidebarInner}>
+        <Header />
+        <div className={sidebarStyles.rightColumn}>
+          <ListComponent
+            isMobile={isMobile}
+            modalOpen={() => openModal('show-all-modal')}
+            elements={places}
           />
-          {places.length ? (
-            <Button
-              isMobileOnly
-              text={`To map`}
-              onClick={() => handleDrawerClose()}
-            />
-          ) : null}
         </div>
-        <button
-          style={!isMobile ? {display: 'none'} : {display: 'block'}}
-          className={sidebarStyles.drawerToggler}
-          onClick={() => handleDrawerOpen()}
+      </div>
+      <div className={sidebarStyles.buttonsWrapper}>
+        <Button
+          isMobileOnly={false}
+          text={`Add location`}
+          onClick={() => openModal('add-place-modal')}
         />
-      </animated.div>
+        {places.length ? (
+          <Button
+            isMobileOnly
+            text={`To map`}
+            onClick={() => handleDrawerClose()}
+          />
+        ) : null}
+      </div>
+      <button
+        style={!isMobile ? { display: 'none' } : { display: 'block' }}
+        className={sidebarStyles.drawerToggler}
+        onClick={() => handleDrawerOpen()}
+      />
+    </animated.div>
   );
 };
 
