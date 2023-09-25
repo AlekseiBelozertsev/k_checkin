@@ -27,7 +27,6 @@ const Sidebar: React.FC<SidebarProps> = ({isMobile}) => {
   return (
     <animated.div style={props} className={sidebarStyles.leftSidebar}>
         <div className={sidebarStyles.sidebarInner}>
-          {/* {!isMobile && <Header />} */}
           <Header />
           <div className={sidebarStyles.rightColumn}>
             <ListComponent
@@ -52,9 +51,10 @@ const Sidebar: React.FC<SidebarProps> = ({isMobile}) => {
           ) : null}
         </div>
         <button
+          style={!isMobile ? {display: 'none'} : {display: 'block'}}
           className={sidebarStyles.drawerToggler}
           onClick={() => handleDrawerOpen()}
-        ></button>
+        />
       </animated.div>
   );
 };

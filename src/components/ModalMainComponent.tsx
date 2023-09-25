@@ -62,7 +62,6 @@ const ModalMainComponent: React.FC<ModalProps> = ({ isMobile }) => {
       isOpen={isModalOpened}
       style={isMobile ? modalStylesMobile : modalStyles}
       contentLabel="Example Modal"
-      onAfterClose={() => console.log('aaa')}
     >
       <ModalManager isMobile={isMobile} />
     </Modal>
