@@ -15,47 +15,7 @@
   height: 100%;
 }
 
-.leftSidebar {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 24px;
-  max-width: 350px;
-  width: 100%;
-  height: 100%;
-  background: #ffffff;
-  @media (max-width: 768px) {
-    position: fixed;
-    left: 0;
-    top: 0;
-    padding: 16px;
-    max-width: 100%;
-    width: 100%;
-    z-index: 3;
-  }
-}
 
-.drawerToggler {
-  position: absolute;
-  content: '';
-  left: 97%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
-  height: 54px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  border: none;
-  color: #000000;
-}
-
-.sidebarInner {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  gap: 24px;
-}
 
 .rightColumn {
   display: flex;
