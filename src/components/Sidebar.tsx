@@ -49,11 +49,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobile }) => {
           />
         ) : null}
       </div>
-      <button
-        style={!isMobile ? { display: 'none' } : { display: 'block' }}
-        className={sidebarStyles.drawerToggler}
-        onClick={() => handleDrawerOpen()}
-      />
+      {
+        isMobile && (
+          <button
+            className={sidebarStyles.drawerToggler}
+            onClick={() => handleDrawerOpen()}
+          />
+        )
+      }
     </animated.div>
   );
 };
