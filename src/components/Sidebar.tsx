@@ -25,7 +25,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobile }) => {
   });
 
   return (
-    <animated.div style={props} className={sidebarStyles.leftSidebar}>
+    <animated.div style={props} className={sidebarStyles.main}>
       <div onClick={() => isMobile && handleDrawerClose()} className={sidebarStyles.sidebarInner}>
         <Header />
         <div className={sidebarStyles.rightColumn}>
