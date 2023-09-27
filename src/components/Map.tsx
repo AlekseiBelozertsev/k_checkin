@@ -48,7 +48,6 @@ const MapComponent = () => {
       element.style.backgroundRepeat = 'no-repeat';
       element.style.backgroundPosition = 'center';
       element.style.backgroundSize = 'cover';
-
       element.style.width = '40px';
       element.style.height = '40px';
       return element;
