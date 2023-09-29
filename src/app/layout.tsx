@@ -1,6 +1,8 @@
 import './globals.scss';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { motion } from 'framer-motion';
+// import { PageTransition } from 'next-page-transitions';
 import { Jockey_One } from 'next/font/google';
 const jOne = Jockey_One({
   subsets: ['latin'],
