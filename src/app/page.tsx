@@ -4,7 +4,8 @@ import mainStyles from './main.module.scss';
 import MapComponent from '@/components/Map';
 import { useMediaQuery } from 'react-responsive';
 import dynamic from 'next/dynamic';
-import Sidebar from '@/components/Sidebar';
+// import Sidebar from '@/components/HomeComponent';
+import HomeComponent from '@/components/HomeComponent';
 
 const Home = () => {
   const isMobile = useMediaQuery({
@@ -19,10 +20,10 @@ const Home = () => {
   return (
     <section id={`app`} className={mainStyles.app}>
       <ModalMainComponent isMobile={isMobile} />
-      <Sidebar isMobile={isMobile} />
-      <section className={mainStyles.dashboard}>
+      <HomeComponent isMobile={isMobile} />
+      {/* <section className={mainStyles.dashboard}>
         <MapComponent />
-      </section>
+      </section> */}
     </section>
   );
 };

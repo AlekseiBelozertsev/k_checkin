@@ -7,12 +7,15 @@ import { useMapStore } from '@/utils/store/mapStore';
 import { useDrawerStore } from '@/utils/store/drawerStore';
 import { animated, useSpring } from '@react-spring/web';
 import sidebarStyles from '../components/styles/sidebar.module.scss';
+import MenuElement from './mobile/MenuElement';
+import listingsIcon from '../../public/icons/ufo.svg';
+import { menu } from '@/utils/menu';
 
 type SidebarProps = {
   isMobile: boolean;
 };
 
-const Sidebar: React.FC<SidebarProps> = ({ isMobile }) => {
+const HomeComponent: React.FC<SidebarProps> = ({ isMobile }) => {
   const places = useMapStore((state) => state.places);
   const { openModal } = useModalStore();
   const { handleDrawerClose, handleDrawerOpen, customStyles } =
@@ -25,19 +28,23 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobile }) => {
   });
 
   return (
-    <animated.div style={props} className={sidebarStyles.main}>
+    <div className={sidebarStyles.main}>
       <div
         onClick={() => isMobile && handleDrawerClose()}
         className={sidebarStyles.sidebarInner}
       >
         <Header />
-        <div className={sidebarStyles.rightColumn}>
-          <ListComponent
-            isMobile={isMobile}
-            modalOpen={() => openModal('show-all-modal')}
-            elements={places}
-          />
-        </div>
+        {menu.map((menuItem) => {
+          return (
+            <MenuElement
+              isDynamic
+              href={menuItem.href}
+              name={menuItem.name}
+              description={menuItem.description}
+              icon={menuItem.icon}
+            />
+          );
+        })}
       </div>
       <div className={sidebarStyles.buttonsWrapper}>
         <Button
@@ -53,14 +60,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobile }) => {
           />
         ) : null}
       </div>
-      {isMobile && (
-        <button
-          className={sidebarStyles.drawerToggler}
-          onClick={() => handleDrawerOpen()}
-        />
-      )}
-    </animated.div>
+    </div>
   );
 };
 
-export default Sidebar;
+export default HomeComponent;
