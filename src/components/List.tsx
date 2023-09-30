@@ -22,8 +22,10 @@ const List: React.FC<ListProps> = ({ elements, isMobile }) => {
   const { handleDrawerClose } = useDrawerStore();
 
   return (
-    <div className={listStyles.main}>
-      {elements.slice(-4).map((element, i) => {
+    <div
+      className={elements.length > 6 ? listStyles.mainScroll : listStyles.main}
+    >
+      {elements.map((element, i) => {
         return (
           <ListItem
             onClick={() => {
@@ -57,10 +59,9 @@ const ListComponent: React.FC<ListComponentProps> = ({
       ) : (
         <>
           <div className={listStyles.innerWrapper}>
-            <h2 className={listStyles.headline}>{`Recently visited`}</h2>
+            {/* <h2 className={listStyles.headline}>{`Recently visited`}</h2> */}
             <List isMobile={isMobile} elements={elements} />
           </div>
-          {elements.length >= 4 && <ShowAll onClick={() => modalOpen()} />}
         </>
       )}
     </>

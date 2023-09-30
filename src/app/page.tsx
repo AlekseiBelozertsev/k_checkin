@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import mainStyles from './main.module.scss';
+import mainStyles from './styles/main.module.scss';
 import MapComponent from '@/components/Map';
 import { useMediaQuery } from 'react-responsive';
 import dynamic from 'next/dynamic';

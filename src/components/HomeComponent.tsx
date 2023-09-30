@@ -16,25 +16,13 @@ type SidebarProps = {
 };
 
 const HomeComponent: React.FC<SidebarProps> = ({ isMobile }) => {
-  const places = useMapStore((state) => state.places);
   const { openModal } = useModalStore();
-  const { handleDrawerClose, handleDrawerOpen, customStyles } =
-    useDrawerStore();
-  const props = useSpring({
-    ...customStyles,
-    config: {
-      duration: 200,
-    },
-  });
 
   return (
     <div className={sidebarStyles.main}>
-      <div
-        onClick={() => isMobile && handleDrawerClose()}
-        className={sidebarStyles.sidebarInner}
-      >
+      <div className={sidebarStyles.sidebarInner}>
         <Header />
-        {menu.map((menuItem) => {
+        {menu.map((menuItem, i) => {
           return (
             <MenuElement
               isDynamic
@@ -42,6 +30,7 @@ const HomeComponent: React.FC<SidebarProps> = ({ isMobile }) => {
               name={menuItem.name}
               description={menuItem.description}
               icon={menuItem.icon}
+              key={i}
             />
           );
         })}
@@ -52,13 +41,13 @@ const HomeComponent: React.FC<SidebarProps> = ({ isMobile }) => {
           text={`Add location`}
           onClick={() => openModal('add-place-modal')}
         />
-        {places.length ? (
+        {/* {places.length ? (
           <Button
             isMobileOnly
             text={`To map`}
-            onClick={() => handleDrawerClose()}
+            onClick={() => null}
           />
-        ) : null}
+        ) : null} */}
       </div>
     </div>
   );
