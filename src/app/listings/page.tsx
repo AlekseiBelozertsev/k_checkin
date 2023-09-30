@@ -14,11 +14,14 @@ const Listings = () => {
     <div className={pageStyles.main}>
       <div className={pageStyles.pageInner}>
         <h1>All places</h1>
-        <List
-          elements={places}
-          isMobile={true}
-          modalOpen={() => openModal('show-all-modal')}
-        />
+        <div style={{width: `100%`, height: `100%`, position: `relative`}}>
+          <List
+            elements={places}
+            isMobile={true}
+            modalOpen={() => openModal('show-all-modal')}
+          />
+        </div>
+        
       </div>
       <div className={pageStyles.buttonsWrapper}>
         <Button

@@ -13,9 +13,13 @@
 .mainScroll {
   display: flex;
   flex-direction: column;
+  position: absolute;
   justify-content: space-between;
-  width: 450px;
-  height: 440px;
+  width: 100%;
+  height: calc(100% - 16px);
+  top: 0;
+  bottom: 0;
+  left: 0;
   border-radius: 16px;
   gap: 16px;
   padding: 16px;
@@ -24,9 +28,9 @@
   &::-webkit-scrollbar {
     display: none;
   }
-  @media (max-width: 768px) {
-    width: 100%;
-  }
+  // @media (max-width: 768px) {
+  //   width: 100%;
+  // }
 }
 
 .innerWrapperEmptyList {
