@@ -2,9 +2,10 @@ import { Place } from '@/utils/mocks/places';
 import React from 'react';
 import listStyles from './styles/list.module.scss';
 import ListItem from './ListItem';
-import ShowAll from './ShowAll';
+import emptySadSmile from '../../public/emptyIcon.svg';
 import { useMapStore } from '@/utils/store/mapStore';
 import { useDrawerStore } from '@/utils/store/drawerStore';
+import Icon from './Icon';
 
 type ListProps = {
   elements: Place[];
@@ -12,7 +13,6 @@ type ListProps = {
 };
 
 type ListComponentProps = {
-  modalOpen: () => void;
   elements: Place[];
   isMobile: boolean;
 };
@@ -22,8 +22,10 @@ const List: React.FC<ListProps> = ({ elements, isMobile }) => {
   const { handleDrawerClose } = useDrawerStore();
 
   return (
-    <div className={listStyles.main}>
-      {elements.slice(-4).map((element, i) => {
+    <div
+      className={elements.length > 6 ? listStyles.mainScroll : listStyles.main}
+    >
+      {elements.map((element, i) => {
         return (
           <ListItem
             onClick={() => {
@@ -41,7 +43,6 @@ const List: React.FC<ListProps> = ({ elements, isMobile }) => {
 };
 
 const ListComponent: React.FC<ListComponentProps> = ({
-  modalOpen,
   elements,
   isMobile,
 }) => {
@@ -49,18 +50,16 @@ const ListComponent: React.FC<ListComponentProps> = ({
     <>
       {!elements.length ? (
         <div className={listStyles.innerWrapperEmptyList}>
-          <h2 className={listStyles.headline}>
-            {`No places listed. Yet...`} <br /> {`(☉_☉)`}
-          </h2>
+          <Icon width={100} height={100} src={emptySadSmile} />
+          <h2 className={listStyles.headline}>{`No places listed. Yet...`}</h2>
           <List isMobile={isMobile} elements={elements} />
         </div>
       ) : (
         <>
           <div className={listStyles.innerWrapper}>
-            <h2 className={listStyles.headline}>{`Recently visited`}</h2>
+            {/* <h2 className={listStyles.headline}>{`Recently visited`}</h2> */}
             <List isMobile={isMobile} elements={elements} />
           </div>
-          {elements.length >= 4 && <ShowAll onClick={() => modalOpen()} />}
         </>
       )}
     </>

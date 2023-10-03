@@ -21,42 +21,18 @@
   }
 }
 
-.drawerToggler {
-  position: absolute;
-  content: '';
-  left: 97%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
-  height: 54px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  border: none;
-  color: #000000;
-}
-
-.sidebarInner {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  gap: 24px;
-}
-
-.rightColumn {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  gap: 16px;
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-}
-
 .buttonsWrapper {
   display: flex;
   flex-direction: column;
   max-width: 300px;
   width: calc(100% - 24px);
   gap: 8px;
+}
+
+.pageInner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: calc(100% - 48px);
+  gap: 24px;
 }

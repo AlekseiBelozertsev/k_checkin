@@ -3,10 +3,34 @@
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
+  height: 440px;
   gap: 16px;
   @media (max-width: 768px) {
     gap: 8px;
   }
+}
+
+.mainScroll {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: space-between;
+  width: 100%;
+  height: calc(100% - 16px);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 16px;
+  gap: 16px;
+  padding: 16px;
+  background: #e6ecf5;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  // @media (max-width: 768px) {
+  //   width: 100%;
+  // }
 }
 
 .innerWrapperEmptyList {
