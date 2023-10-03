@@ -10,7 +10,7 @@ import { Place } from '@/utils/mocks/places';
 interface PageLayoutProps {
   places: Place[];
   headline: string;
-  isMobile: boolean,
+  isMobile: boolean;
 }
 
 const PageLayout: React.FC<PageLayoutProps> = ({
@@ -27,14 +27,9 @@ const PageLayout: React.FC<PageLayoutProps> = ({
       <div className={pageStyles.main}>
         <div className={pageStyles.pageInner}>
           <h1>{headline}</h1>
-          <div style={{width: `100%`, height: `100%`, position: `relative`}}>
-            <List
-              elements={places}
-              isMobile={isMobile}
-              modalOpen={() => openModal('show-all-modal')}
-            />
+          <div style={{ width: `100%`, height: `100%`, position: `relative` }}>
+            <List elements={places} isMobile={isMobile} />
           </div>
-          
         </div>
         <div className={pageStyles.buttonsWrapper}>
           <Button

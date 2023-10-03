@@ -13,7 +13,6 @@ type ListProps = {
 };
 
 type ListComponentProps = {
-  modalOpen: () => void;
   elements: Place[];
   isMobile: boolean;
 };
@@ -44,7 +43,6 @@ const List: React.FC<ListProps> = ({ elements, isMobile }) => {
 };
 
 const ListComponent: React.FC<ListComponentProps> = ({
-  modalOpen,
   elements,
   isMobile,
 }) => {

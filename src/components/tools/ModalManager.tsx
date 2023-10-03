@@ -1,7 +1,6 @@
 import { useModalStore } from '@/utils/store/modalStore';
 // import dynamic from 'next/dynamic';
 import React from 'react';
-import ShowAllModal from '../ShowAllModal';
 import AddPlaceModal from '../AddPlaceModal';
 
 // const ShowAllModal = dynamic(() => import('../ShowAllModal'), { ssr: false });
@@ -14,13 +13,7 @@ const ModalManager: React.FC<ModalManagerProps> = ({ isMobile }) => {
   const handleModaClose = useModalStore((state) => state.closeModal);
   if (typeof window !== 'undefined') {
     switch (modal) {
-      case 'show-all-modal':
-        return (
-          <ShowAllModal
-            isMobile={isMobile}
-            onClose={() => handleModaClose('show-all-modal')}
-          />
-        );
+      //here might come more modals if needed
       case 'add-place-modal':
         return (
           <AddPlaceModal

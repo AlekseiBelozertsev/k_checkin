@@ -10,11 +10,7 @@ const Listings = () => {
     query: `(max-width: 768px)`,
   });
   return (
-    <PageLayout
-      places={places}
-      headline={'All places'}
-      isMobile={isMobile}
-    />
+    <PageLayout places={places} headline={'All places'} isMobile={isMobile} />
   );
 };
 
