@@ -1,6 +1,34 @@
 import { create } from 'zustand';
 import { Place, places } from '../mocks/places';
 
+export interface MapFiltersType {
+  name: string;
+  isActive: boolean;
+}
+
+export const mapFilters: MapFiltersType[] = [
+  {
+    name: 'Europe',
+    isActive: false,
+  },
+  {
+    name: 'Asia',
+    isActive: false,
+  },
+  {
+    name: 'Australia',
+    isActive: false,
+  },
+  {
+    name: 'North America',
+    isActive: false,
+  },
+  {
+    name: 'South America',
+    isActive: false,
+  },
+];
+
 interface MapStoreType {
   places: Place[];
   addPlace: (place: Place) => void;

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import mainStyles from './styles/main.module.scss';
 import { useMediaQuery } from 'react-responsive';

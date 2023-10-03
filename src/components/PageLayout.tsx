@@ -22,32 +22,30 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   const { openModal } = useModalStore();
 
   return (
-    
-      <div className={pageStyles.main}>
-        <ModalMainComponent isMobile={isMobile} />
+    <div className={pageStyles.main}>
+      <ModalMainComponent isMobile={isMobile} />
 
-        <div className={pageStyles.pageInner}>
-          <h1>{headline}</h1>
-          <div className={pageStyles.listWrapper}>
-            <List elements={places} isMobile={isMobile} />
-          </div>
+      <div className={pageStyles.pageInner}>
+        <h1>{headline}</h1>
+        <div className={pageStyles.listWrapper}>
+          <List elements={places} isMobile={isMobile} />
         </div>
-        <div className={pageStyles.buttonsWrapper}>
-          <Button
-            isMobileOnly={false}
-            text={`Add location`}
-            onClick={() => openModal('add-place-modal')}
-          />
-          {/* {places.length ? (
+      </div>
+      <div className={pageStyles.buttonsWrapper}>
+        <Button
+          isMobileOnly={false}
+          text={`Add location`}
+          onClick={() => openModal('add-place-modal')}
+        />
+        {/* {places.length ? (
             <Button
               isMobileOnly
               text={`To map`}
               onClick={() => null}
             />
           ) : null} */}
-        </div>
       </div>
-    
+    </div>
   );
 };
 

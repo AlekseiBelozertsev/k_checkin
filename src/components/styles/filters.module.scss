@@ -1,0 +1,30 @@
+.main {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  left: 0;
+  gap: 16px;
+  /* direction: rtl; */
+  // box-shadow: inset 0px 0px 5px 5px rgb(207, 30, 30);
+  padding: 0 16px;
+  white-space: nowrap;
+  background-color: #ffffff;
+  overflow-x: auto;
+}
+
+.filterItem {
+  font-family: '__Jockey_One_c6ad53';
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  transition: background-color 0.2s ease-in;
+  border: none;
+  &:active {
+    background-color: #cccccc;
+  }
+}
