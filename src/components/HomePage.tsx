@@ -11,11 +11,11 @@ import MenuElement from './mobile/MenuElement';
 import listingsIcon from '../../public/icons/ufo.svg';
 import { menu } from '@/utils/menu';
 
-type SidebarProps = {
+type HomePageProps = {
   isMobile: boolean;
 };
 
-const HomeComponent: React.FC<SidebarProps> = ({ isMobile }) => {
+const HomePage: React.FC<HomePageProps> = ({ isMobile }) => {
   const { openModal } = useModalStore();
 
   return (
@@ -53,4 +53,4 @@ const HomeComponent: React.FC<SidebarProps> = ({ isMobile }) => {
   );
 };
 
-export default HomeComponent;
+export default HomePage;

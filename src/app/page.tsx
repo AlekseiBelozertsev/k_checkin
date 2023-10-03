@@ -5,7 +5,7 @@ import MapComponent from '@/components/Map';
 import { useMediaQuery } from 'react-responsive';
 import dynamic from 'next/dynamic';
 // import Sidebar from '@/components/HomeComponent';
-import HomeComponent from '@/components/HomeComponent';
+import HomePage from '@/components/HomePage';
 
 const Home = () => {
   const isMobile = useMediaQuery({
@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <section id={`app`} className={mainStyles.app}>
       <ModalMainComponent isMobile={isMobile} />
-      <HomeComponent isMobile={isMobile} />
+      <HomePage isMobile={isMobile} />
       {/* <section className={mainStyles.dashboard}>
         <MapComponent />
       </section> */}
