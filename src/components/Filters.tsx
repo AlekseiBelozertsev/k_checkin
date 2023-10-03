@@ -29,6 +29,7 @@ const Filters: React.FC<FiltersProps> = ({ items }) => {
             isActive={item.isActive}
             onCLick={() => null}
             text={item.name}
+            key={i}
           />
         );
       })}
