@@ -1,3 +1,4 @@
+// 'use client'
 import { Place } from '@/utils/mocks/places';
 import React from 'react';
 import listStyles from './styles/list.module.scss';
@@ -28,6 +29,7 @@ const List: React.FC<ListProps> = ({ elements, isMobile }) => {
       {elements.map((element, i) => {
         return (
           <ListItem
+            href={'#'}
             onClick={() => {
               setCurrentCenter(element);
               isMobile && handleDrawerClose();
