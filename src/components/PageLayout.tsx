@@ -22,12 +22,13 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   const { openModal } = useModalStore();
 
   return (
-    <>
-      <ModalMainComponent isMobile={isMobile} />
+    
       <div className={pageStyles.main}>
+        <ModalMainComponent isMobile={isMobile} />
+
         <div className={pageStyles.pageInner}>
           <h1>{headline}</h1>
-          <div style={{ width: `100%`, height: `100%`, position: `relative` }}>
+          <div className={pageStyles.listWrapper}>
             <List elements={places} isMobile={isMobile} />
           </div>
         </div>
@@ -46,7 +47,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           ) : null} */}
         </div>
       </div>
-    </>
+    
   );
 };
 

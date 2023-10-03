@@ -50,7 +50,7 @@ const ListComponent: React.FC<ListComponentProps> = ({
     <>
       {!elements.length ? (
         <div className={listStyles.innerWrapperEmptyList}>
-          <Icon width={100} height={100} src={emptySadSmile} />
+          <Icon width={64} height={64} src={emptySadSmile} />
           <h2 className={listStyles.headline}>{`No places listed. Yet...`}</h2>
           <List isMobile={isMobile} elements={elements} />
         </div>
