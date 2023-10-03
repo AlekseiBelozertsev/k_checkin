@@ -2,9 +2,10 @@ import { Place } from '@/utils/mocks/places';
 import React from 'react';
 import listStyles from './styles/list.module.scss';
 import ListItem from './ListItem';
-import ShowAll from './ShowAll';
+import emptySadSmile from '../../public/emptyIcon.svg';
 import { useMapStore } from '@/utils/store/mapStore';
 import { useDrawerStore } from '@/utils/store/drawerStore';
+import Icon from './Icon';
 
 type ListProps = {
   elements: Place[];
@@ -51,9 +52,8 @@ const ListComponent: React.FC<ListComponentProps> = ({
     <>
       {!elements.length ? (
         <div className={listStyles.innerWrapperEmptyList}>
-          <h2 className={listStyles.headline}>
-            {`No places listed. Yet...`} <br /> {`(☉_☉)`}
-          </h2>
+          <Icon width={100} height={100} src={emptySadSmile} />
+          <h2 className={listStyles.headline}>{`No places listed. Yet...`}</h2>
           <List isMobile={isMobile} elements={elements} />
         </div>
       ) : (
