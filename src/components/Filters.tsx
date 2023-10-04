@@ -22,17 +22,19 @@ const FilterItem: React.FC<FilterItemProps> = ({ text, onCLick, isActive }) => {
 
 const Filters: React.FC<FiltersProps> = ({ items }) => {
   return (
-    <div className={filtersStyles.main}>
-      {items.map((item, i) => {
-        return (
-          <FilterItem
-            isActive={item.isActive}
-            onCLick={() => null}
-            text={item.name}
-            key={i}
-          />
-        );
-      })}
+    <div className={filtersStyles.mapFiltersWrapper}>
+      <div className={filtersStyles.main}>
+        {items.map((item, i) => {
+          return (
+            <FilterItem
+              isActive={item.isActive}
+              onCLick={() => null}
+              text={item.name}
+              key={i}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

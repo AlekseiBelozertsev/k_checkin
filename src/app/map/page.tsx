@@ -7,9 +7,7 @@ import { mapFilters } from '@/utils/store/mapStore';
 const MapPage = () => {
   return (
     <div className={mapStyles.mapPage}>
-      <div className={mapStyles.mapFiltersWrapper}>
-        <Filters items={mapFilters} />
-      </div>
+      <Filters items={mapFilters} />
       <MapComponent />
     </div>
   );
