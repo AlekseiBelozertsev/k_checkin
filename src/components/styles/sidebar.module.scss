@@ -21,20 +21,6 @@
   }
 }
 
-.drawerToggler {
-  position: absolute;
-  content: '';
-  left: 97%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
-  height: 54px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  border: none;
-  color: #000000;
-}
-
 .sidebarInner {
   display: flex;
   flex-direction: column;
