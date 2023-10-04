@@ -22,8 +22,11 @@
 }
 
 .buttonsWrapper {
+  position: absolute;
   display: flex;
   flex-direction: column;
+  bottom: 0;
+  margin-bottom: 24px;
   max-width: 300px;
   width: calc(100% - 24px);
   gap: 8px;
