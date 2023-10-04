@@ -5,10 +5,10 @@
   width: 100%;
   height: 70px;
   left: 0;
-  gap: 16px;
+  // gap: 16px;
   /* direction: rtl; */
   // box-shadow: inset 0px 0px 5px 5px rgb(207, 30, 30);
-  padding: 0 16px;
+  // padding: 0 16px;
   white-space: nowrap;
   background-color: #ffffff;
   overflow-x: auto;
@@ -20,7 +20,8 @@
   display: flex;
   align-items: center;
   padding: 8px 16px;
-  border-radius: 16px;
+  width: 116px;
+  height: 100%;
   background-color: #ffffff;
   transition: background-color 0.2s ease-in;
   border: none;
