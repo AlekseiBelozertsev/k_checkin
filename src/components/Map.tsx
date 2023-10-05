@@ -5,12 +5,14 @@ import mapStyles from './styles/map.module.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useMapStore } from '@/utils/store/mapStore';
 import baraIcon from '../../public/icons/baraIcon.svg';
+import { useRouter } from 'next/navigation';
 
 mapboxgl.accessToken = `${process.env.NEXT_PUBLIC_MAPBOX_API_KEY}`;
 
 const MapComponent = () => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<mapboxgl.Map | null>(null);
+  const router = useRouter();
 
   // Stores
   const { zoom, currentCenter, places, onMapLoad, isMapLoaded } = useMapStore();
@@ -56,8 +58,12 @@ const MapComponent = () => {
 
   useEffect(() => {
     places.forEach((place) => {
+      const slug = place.features[0].properties.name
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/\s+/g, '-')
+        .toLowerCase();
       const customMarkerElement = createCustomMarkerElement();
-
       if (customMarkerElement) {
         const marker = new mapboxgl.Marker({
           element: customMarkerElement,
@@ -68,7 +74,8 @@ const MapComponent = () => {
           ])
           .addTo(map.current!);
         marker.getElement().addEventListener('click', () => {
-          alert(`clicked on ${place.features[0].properties.name}`);
+          // alert(`clicked on ${place.features[0].properties.name}`);
+          router.push(`/listings/${slug}`);
         });
       }
     });
