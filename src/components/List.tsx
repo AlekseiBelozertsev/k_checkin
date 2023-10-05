@@ -29,7 +29,7 @@ const List: React.FC<ListProps> = ({ elements, isMobile }) => {
       {elements.map((element, i) => {
         return (
           <ListItem
-            href={'#'}
+            href={'/map'}
             onClick={() => {
               setCurrentCenter(element);
               isMobile && handleDrawerClose();

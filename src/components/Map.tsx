@@ -59,7 +59,7 @@ const MapComponent = () => {
       const customMarkerElement = createCustomMarkerElement();
 
       if (customMarkerElement) {
-        new mapboxgl.Marker({
+        const marker = new mapboxgl.Marker({
           element: customMarkerElement,
         })
           .setLngLat([
@@ -67,6 +67,9 @@ const MapComponent = () => {
             place.features[0].properties.coordinates.latitude,
           ])
           .addTo(map.current!);
+        marker.getElement().addEventListener('click', () => {
+          alert(`clicked on ${place.features[0].properties.name}`);
+        });
       }
     });
   }, [places]);
