@@ -6,7 +6,7 @@ import { useModalStore } from '@/utils/store/modalStore';
 import { useMapStore } from '@/utils/store/mapStore';
 import { useDrawerStore } from '@/utils/store/drawerStore';
 import { animated, useSpring } from '@react-spring/web';
-import sidebarStyles from '../components/styles/sidebar.module.scss';
+import homePageStyles from '../components/styles/homePage.module.scss';
 import MenuElement from './mobile/MenuElement';
 import listingsIcon from '../../public/icons/ufo.svg';
 import { menu } from '@/utils/menu';
@@ -19,8 +19,8 @@ const HomePage: React.FC<HomePageProps> = ({ isMobile }) => {
   const { openModal } = useModalStore();
 
   return (
-    <div className={sidebarStyles.main}>
-      <div className={sidebarStyles.sidebarInner}>
+    <div className={homePageStyles.main}>
+      <div className={homePageStyles.pageInner}>
         <Header />
         {menu.map((menuItem, i) => {
           return (
@@ -35,7 +35,7 @@ const HomePage: React.FC<HomePageProps> = ({ isMobile }) => {
           );
         })}
       </div>
-      <div className={sidebarStyles.buttonsWrapper}>
+      <div className={homePageStyles.buttonsWrapper}>
         <Button
           isMobileOnly={false}
           text={`Add location`}
