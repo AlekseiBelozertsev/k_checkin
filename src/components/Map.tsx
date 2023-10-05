@@ -79,7 +79,7 @@ const MapComponent = () => {
       {!isMapLoaded && (
         <div className={mapStyles.plug}>
           <div className={mapStyles.spinner} />
-          <p>{`Wait until map fully loads. :)`}</p>
+          {/* <p>{`Wait until map fully loads. :)`}</p> */}
         </div>
       )}
       <div
