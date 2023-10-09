@@ -14,10 +14,8 @@ const MapComponent = () => {
   const map = useRef<mapboxgl.Map | null>(null);
   const router = useRouter();
 
-  // Stores
   const { zoom, currentCenter, places, onMapLoad, isMapLoaded } = useMapStore();
 
-  // This effect listens for changes in currentCenter and re-renders the map when it changes.
   useEffect(() => {
     if (map.current) {
       map.current.setCenter(currentCenter);
