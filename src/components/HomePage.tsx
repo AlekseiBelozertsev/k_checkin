@@ -37,7 +37,7 @@ const HomePage: React.FC<HomePageProps> = ({ isMobile }) => {
       </div>
       <div className={homePageStyles.buttonsWrapper}>
         <Button
-          isMobileOnly={false}
+          type={'primary'}
           text={`Add location`}
           onClick={() => openModal('add-place-modal')}
         />

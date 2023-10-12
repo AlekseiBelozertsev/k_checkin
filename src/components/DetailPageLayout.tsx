@@ -2,6 +2,7 @@
 import React from 'react';
 import detailPageStyles from '../../src/app/styles/detailPage.module.scss';
 import Button from '@/components/Button';
+import { useRouter } from 'next/navigation';
 
 interface DetailPageLayoutProps {
   headline: string;
@@ -12,6 +13,7 @@ const DetailPageLayout: React.FC<DetailPageLayoutProps> = ({
   headline,
   isConnected,
 }) => {
+  const router = useRouter();
   return (
     <div className={detailPageStyles.main}>
       {isConnected ? (
@@ -40,7 +42,7 @@ const DetailPageLayout: React.FC<DetailPageLayoutProps> = ({
             <h1>{`Couldn't fetch. 🤔`}</h1>
           </div>
           <div className={detailPageStyles.buttonsWrapper}>
-            <Button text={`Back home`} type={'secondary'} />
+            <Button onClick={() => router.push('/')} text={`Back home`} type={'secondary'} />
           </div>
         </>
       )}
