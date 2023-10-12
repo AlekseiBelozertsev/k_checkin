@@ -33,7 +33,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
       </div>
       <div className={pageStyles.buttonsWrapper}>
         <Button
-          isMobileOnly={false}
+          type={'primary'}
           text={`Add location`}
           onClick={() => openModal('add-place-modal')}
         />
