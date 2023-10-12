@@ -19,7 +19,8 @@ const ListingPage: React.FC = () => {
   const place = generateStaticParams()[0];
   return (
     <DetailPageLayout
-      headline={!place ? `Something went wrong...` : place.headline}
+      headline={place && place.headline}
+      isConnected={!!place}
     />
   );
 };
