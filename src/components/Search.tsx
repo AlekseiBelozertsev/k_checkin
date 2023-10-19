@@ -3,6 +3,7 @@ import { SearchBox } from '@mapbox/search-js-react';
 import { useSearchStore } from '@/utils/store/searchStore';
 import { useMapStore } from '@/utils/store/mapStore';
 import { useModalStore } from '@/utils/store/modalStore';
+import { Place } from '@/utils/mocks/places';
 
 const Search = () => {
   const setValue = useSearchStore((state) => state.setValue);
@@ -23,6 +24,27 @@ const Search = () => {
   };
   const handleModaClose = useModalStore((state) => state.closeModal);
 
+  const postPlace = (place: Place) => {
+    const placeId = Number(place.features[0].properties.mapbox_id);
+    fetch(`${process.env.NEXT_PUBLIC_LOCAL_API}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id: placeId,
+        name: place.features[0].properties.name,
+        address: place.features[0].properties.address,
+        country: place.features[0].properties.address,
+        coordintes: [
+          place.features[0].properties.coordinates.latitude,
+          place.features[0].properties.coordinates.longitude,
+        ],
+        createdAt: new Date().toISOString(),
+      }),
+    });
+  };
+
   return (
     // @ts-ignore
     <SearchBox
@@ -35,6 +57,7 @@ const Search = () => {
       onRetrieve={(place) => {
         addPlace(place);
         handleModaClose('add-place-modal');
+        postPlace(place);
       }}
       placeholder={' '}
     />
