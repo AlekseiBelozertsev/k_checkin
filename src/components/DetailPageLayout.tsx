@@ -42,7 +42,11 @@ const DetailPageLayout: React.FC<DetailPageLayoutProps> = ({
             <h1>{`Couldn't fetch. 🤔`}</h1>
           </div>
           <div className={detailPageStyles.buttonsWrapper}>
-            <Button onClick={() => router.push('/')} text={`Back home`} type={'secondary'} />
+            <Button
+              onClick={() => router.push('/')}
+              text={`Back home`}
+              type={'secondary'}
+            />
           </div>
         </>
       )}
