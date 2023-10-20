@@ -35,7 +35,7 @@ const Search = () => {
         id: v4(),
         name: place.features[0].properties.name,
         address: place.features[0].properties.address ?? '',
-        country: place.features[0].properties.address ?? '',
+        country: place.features[0].properties.place_formatted ?? '',
         coordintes: [
           place.features[0].properties.coordinates.latitude,
           place.features[0].properties.coordinates.longitude,
@@ -44,7 +44,7 @@ const Search = () => {
       }),
     });
   };
-
+  
   return (
     // @ts-ignore
     <SearchBox
