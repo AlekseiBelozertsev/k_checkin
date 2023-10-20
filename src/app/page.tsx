@@ -20,9 +20,6 @@ const Home = () => {
     <section id={`app`} className={mainStyles.app}>
       <ModalMainComponent isMobile={isMobile} />
       <HomePage isMobile={isMobile} />
-      {/* <section className={mainStyles.dashboard}>
-        <MapComponent />
-      </section> */}
     </section>
   );
 };

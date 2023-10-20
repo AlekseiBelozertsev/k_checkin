@@ -36,13 +36,6 @@ const HomePage: React.FC<HomePageProps> = ({ isMobile }) => {
           text={`Add location`}
           onClick={() => openModal('add-place-modal')}
         />
-        {/* {places.length ? (
-          <Button
-            isMobileOnly
-            text={`To map`}
-            onClick={() => null}
-          />
-        ) : null} */}
       </div>
     </div>
   );
