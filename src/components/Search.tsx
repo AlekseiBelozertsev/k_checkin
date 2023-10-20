@@ -26,7 +26,7 @@ const Search = () => {
   const handleModaClose = useModalStore((state) => state.closeModal);
 
   const postPlace = (place: Place) => {
-    fetch(`${process.env.NEXT_PUBLIC_LOCAL_API}`, {
+    fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_POST}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
