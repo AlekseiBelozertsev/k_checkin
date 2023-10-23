@@ -37,13 +37,6 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           text={`Add location`}
           onClick={() => openModal('add-place-modal')}
         />
-        {/* {places.length ? (
-            <Button
-              isMobileOnly
-              text={`To map`}
-              onClick={() => null}
-            />
-          ) : null} */}
       </div>
     </div>
   );
