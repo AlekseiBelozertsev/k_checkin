@@ -30,7 +30,7 @@ const HomePage: React.FC<HomePageProps> = ({ isMobile }) => {
           );
         })}
       </div>
-      <div className={homePageStyles.buttonsWrapper}>
+      <div className={isMobile ? homePageStyles.buttonsWrapperMobile : homePageStyles.buttonsWrapperDesktop}>
         <Button
           type={'primary'}
           text={`Add location`}
