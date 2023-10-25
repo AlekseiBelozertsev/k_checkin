@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import detailPageStyles from '../../src/app/styles/detailPage.module.scss';
+import detailPageStyles from './detailPage.module.scss';
 import Button from '@/components/Button';
 import { useRouter } from 'next/navigation';
 

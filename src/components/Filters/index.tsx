@@ -1,6 +1,5 @@
 import { MapFiltersType } from '@/utils/store/mapStore';
-import filtersStyles from '../components/styles/filters.module.scss';
-import React from 'react';
+import filtersStyles from './filters.module.scss';
 
 interface FiltersProps {
   items: MapFiltersType[];

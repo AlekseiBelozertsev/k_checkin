@@ -1,10 +1,10 @@
 'use-client';
 import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
-import mapStyles from './styles/map.module.scss';
+import mapStyles from './map.module.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useMapStore } from '@/utils/store/mapStore';
-import baraIcon from '../../public/icons/baraIcon.svg';
+import baraIcon from '../../../public/icons/baraIcon.svg';
 import { useRouter } from 'next/navigation';
 
 mapboxgl.accessToken = `${process.env.NEXT_PUBLIC_MAPBOX_API_KEY}`;
