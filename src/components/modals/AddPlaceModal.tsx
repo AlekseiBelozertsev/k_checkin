@@ -1,7 +1,7 @@
 import React from 'react';
 import modalStyles from './modal.module.scss';
 import cross from '../../../public/icons/cross.svg';
-import Icon from '../../components/Icon/Icon';
+import Icon from '../Icon';
 // import Search from './Search';
 import dynamic from 'next/dynamic';
 
@@ -10,7 +10,7 @@ type ModalProps = {
   isMobile: boolean;
 };
 
-const SearchComponent = dynamic(() => import('../../components/SearchBox/Search'), { ssr: false });
+const SearchComponent = dynamic(() => import('../SearchBox'), { ssr: false });
 
 const AddPlaceModal: React.FC<ModalProps> = ({ onClose, isMobile }) => {
   if (typeof window !== 'undefined') {

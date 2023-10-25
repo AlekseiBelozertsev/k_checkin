@@ -3,7 +3,7 @@ import { SearchBox } from '@mapbox/search-js-react';
 import { useSearchStore } from '@/utils/store/searchStore';
 import { useMapStore } from '@/utils/store/mapStore';
 import { useModalStore } from '@/utils/store/modalStore';
-import { v4 } from "uuid";
+import { v4 } from 'uuid';
 import { Place } from '@/utils/mocks/places';
 
 const Search = () => {
@@ -44,7 +44,7 @@ const Search = () => {
       }),
     });
   };
-  
+
   return (
     // @ts-ignore
     <SearchBox

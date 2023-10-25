@@ -1,9 +1,9 @@
 import React from 'react';
-import Button from '@/components/Button/Button';
-import Header from '@/ui/header/Header';
+import Button from '@/components/Button';
+import Header from '@/components/Header';
 import { useModalStore } from '@/utils/store/modalStore';
 import homePageStyles from './homePage.module.scss';
-import MenuElement from '../../../components/mobile/MenuElement';
+import MenuElement from '../../../components/MenuElement';
 import { menu } from '@/utils/menu';
 
 type HomePageProps = {
@@ -30,7 +30,13 @@ const HomePage: React.FC<HomePageProps> = ({ isMobile }) => {
           );
         })}
       </div>
-      <div className={isMobile ? homePageStyles.buttonsWrapperMobile : homePageStyles.buttonsWrapperDesktop}>
+      <div
+        className={
+          isMobile
+            ? homePageStyles.buttonsWrapperMobile
+            : homePageStyles.buttonsWrapperDesktop
+        }
+      >
         <Button
           type={'primary'}
           text={`Add location`}

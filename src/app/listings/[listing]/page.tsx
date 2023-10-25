@@ -1,5 +1,5 @@
 'use client';
-import DetailPageLayout from '@/ui/pages/DetailPage/DetailPageLayout';
+import DetailPageLayout from '@/ui/pages/DetailPage';
 import { useMapStore } from '@/utils/store/mapStore';
 import React from 'react';
 

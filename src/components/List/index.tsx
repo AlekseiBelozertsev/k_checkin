@@ -6,7 +6,7 @@ import ListItem from './ListItem/ListItem';
 import emptySadSmile from '../../public/emptyIcon.svg';
 import { useMapStore } from '@/utils/store/mapStore';
 import { useDrawerStore } from '@/utils/store/drawerStore';
-import Icon from '../Icon/Icon';
+import Icon from '../Icon';
 
 type ListProps = {
   elements: Place[];

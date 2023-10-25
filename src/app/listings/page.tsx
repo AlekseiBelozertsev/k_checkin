@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useMapStore } from '@/utils/store/mapStore';
-import PageLayout from '@/components/PageLayout';
+import PageLayout from '@/ui/pages/NormalPage';
 import { useMediaQuery } from 'react-responsive';
 import { Place } from '@/utils/mocks/places';
 
