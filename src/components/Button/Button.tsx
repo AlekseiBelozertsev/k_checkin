@@ -1,5 +1,5 @@
 import React from 'react';
-import buttonStyles from '../../src/components/styles/button.module.scss';
+import buttonStyles from './button.module.scss';
 
 type Button = {
   onClick?: () => void;

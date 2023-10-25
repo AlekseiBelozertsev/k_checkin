@@ -1,8 +1,8 @@
 'use client';
 import React from 'react';
-import MapComponent from '../../components/Map';
+import MapComponent from '../../components/Map/Map';
 import mapStyles from '../../components/styles/map.module.scss';
-import Filters from '@/components/Filters';
+import Filters from '@/components/Filters/Filters';
 import { mapFilters } from '@/utils/store/mapStore';
 const MapPage = () => {
   return (

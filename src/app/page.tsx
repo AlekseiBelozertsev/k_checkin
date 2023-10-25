@@ -4,7 +4,7 @@ import mainStyles from './styles/main.module.scss';
 import { useMediaQuery } from 'react-responsive';
 import dynamic from 'next/dynamic';
 // import Sidebar from '@/components/HomeComponent';
-import HomePage from '@/components/HomePage';
+import HomePage from '@/ui/pages/HomePage/HomePage';
 
 const Home = () => {
   const isMobile = useMediaQuery({
@@ -12,7 +12,7 @@ const Home = () => {
   });
 
   const ModalMainComponent = dynamic(
-    () => import('@/components/ModalMainComponent'),
+    () => import('@/ui/modals/ModalMainComponent'),
     { ssr: false },
   );
 

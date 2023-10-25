@@ -52,7 +52,7 @@ type ModalProps = {
 const ModalMainComponent: React.FC<ModalProps> = ({ isMobile }) => {
   const { isModalOpened } = useModalStore();
   const ModalManager = dynamic(
-    () => import('@/components/tools/ModalManager'),
+    () => import('@/ui/tools/modals/ModalManager'),
     { ssr: false },
   );
 

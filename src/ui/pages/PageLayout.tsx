@@ -1,10 +1,10 @@
 'use client';
 import React from 'react';
 import pageStyles from '../../src/app/styles/page.module.scss';
-import List from '@/components/List';
+import List from '@/components/List/List';
 import { useModalStore } from '@/utils/store/modalStore';
-import Button from '@/components/Button';
-import ModalMainComponent from '@/components/ModalMainComponent';
+import Button from '@/components/Button/Button';
+import ModalMainComponent from '@/ui/modals/ModalMainComponent';
 import { Place } from '@/utils/mocks/places';
 
 interface PageLayoutProps {

@@ -1,9 +1,9 @@
 import React from 'react';
-import Button from '@/components/Button';
-import Header from '@/components/Header';
+import Button from '@/components/Button/Button';
+import Header from '@/ui/header/Header';
 import { useModalStore } from '@/utils/store/modalStore';
-import homePageStyles from '../components/styles/homePage.module.scss';
-import MenuElement from './mobile/MenuElement';
+import homePageStyles from './homePage.module.scss';
+import MenuElement from '../../../components/mobile/MenuElement';
 import { menu } from '@/utils/menu';
 
 type HomePageProps = {

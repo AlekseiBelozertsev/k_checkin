@@ -2,7 +2,7 @@ import { MenuElementProps } from '@/utils/menu';
 import menuElementStyles from './styles/menuElement.module.scss';
 import Link from 'next/link';
 import React from 'react';
-import Icon from '../Icon';
+import Icon from '../Icon/Icon';
 
 const MenuElement: React.FC<MenuElementProps> = ({
   href,

@@ -1,7 +1,7 @@
 import React from 'react';
 import showAllButtonStyles from './styles/showAll.module.scss';
 import arrowDown from '../../public/icons/arrowDown.svg';
-import Icon from './Icon';
+import Icon from '../Icon/Icon';
 
 type ShowAllBtnProps = {
   onClick: () => void;
