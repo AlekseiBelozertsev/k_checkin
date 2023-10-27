@@ -17,18 +17,26 @@ const HomePage: React.FC<HomePageProps> = ({ isMobile }) => {
     <div className={homePageStyles.main}>
       <div className={homePageStyles.pageInner}>
         <Header />
-        {menu.map((menuItem, i) => {
-          return (
-            <MenuElement
-              isDynamic
-              href={menuItem.href}
-              name={menuItem.name}
-              description={menuItem.description}
-              icon={menuItem.icon}
-              key={i}
-            />
-          );
-        })}
+        <div
+          className={
+            !isMobile
+              ? homePageStyles.menuWrapperDesktop
+              : homePageStyles.menuWrapperMobile
+          }
+        >
+          {menu.map((menuItem, i) => {
+            return (
+              <MenuElement
+                isMobile={isMobile}
+                href={menuItem.href}
+                name={menuItem.name}
+                description={menuItem.description}
+                icon={menuItem.icon}
+                key={i}
+              />
+            );
+          })}
+        </div>
       </div>
       <div
         className={

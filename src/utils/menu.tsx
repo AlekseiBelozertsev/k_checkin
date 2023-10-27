@@ -5,7 +5,6 @@ export type MenuElementProps = {
   name: string;
   icon: string;
   description: string;
-  isDynamic: boolean;
 };
 
 export const menu: MenuElementProps[] = [
@@ -14,6 +13,5 @@ export const menu: MenuElementProps[] = [
     name: 'My listings',
     icon: myListingsIcon,
     description: 'That is listings',
-    isDynamic: true,
   },
 ];
