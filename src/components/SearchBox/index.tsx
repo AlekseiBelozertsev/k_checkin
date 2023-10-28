@@ -3,8 +3,9 @@ import { SearchBox } from '@mapbox/search-js-react';
 import { useSearchStore } from '@/utils/store/searchStore';
 import { useMapStore } from '@/utils/store/mapStore';
 import { useModalStore } from '@/utils/store/modalStore';
+import { SearchBoxRetrieveResponse } from '@mapbox/search-js-core';
 import { v4 } from 'uuid';
-import { Place } from '@/utils/mocks/places';
+
 
 const Search = () => {
   const setValue = useSearchStore((state) => state.setValue);
@@ -25,8 +26,8 @@ const Search = () => {
   };
   const handleModaClose = useModalStore((state) => state.closeModal);
 
-  const postPlace = (place: Place) => {
-    fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_POST}`, {
+  const postPlace = (place: SearchBoxRetrieveResponse) => {
+    fetch(`${process.env.NEXT_PUBLIC_LOCALHOST}/addPlaces`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -56,7 +56,7 @@ const MapComponent = () => {
 
   useEffect(() => {
     places.forEach((place) => {
-      const slug = place.features[0].properties.name
+      const slug = place.name
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
         .replace(/\s+/g, '-')
@@ -67,8 +67,8 @@ const MapComponent = () => {
           element: customMarkerElement,
         })
           .setLngLat([
-            place.features[0].properties.coordinates.longitude,
-            place.features[0].properties.coordinates.latitude,
+            place.coordinates[0],
+            place.coordinates[1],
           ])
           .addTo(map.current!);
         marker.getElement().addEventListener('click', () => {

@@ -1,10 +1,9 @@
 // 'use client'
-import { Place } from '@/utils/mocks/places';
 import React from 'react';
 import listStyles from './styles/list.module.scss';
 import ListItem from './ListItem';
 import emptySadSmile from '../../../public/emptyIcon.svg';
-import { useMapStore } from '@/utils/store/mapStore';
+import { Place, useMapStore } from '@/utils/store/mapStore';
 import { useDrawerStore } from '@/utils/store/drawerStore';
 import Icon from '../Icon/index';
 
@@ -34,8 +33,8 @@ const List: React.FC<ListProps> = ({ elements, isMobile }) => {
               setCurrentCenter(element);
               isMobile && handleDrawerClose();
             }}
-            subline={element.features[0].properties.place_formatted}
-            headline={element.features[0].properties.name}
+            subline={element.address}
+            headline={element.name}
             key={i}
           />
         );
