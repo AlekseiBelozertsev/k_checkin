@@ -1,10 +1,21 @@
 import { create } from 'zustand';
-import { Place, places } from '../mocks/places';
+import { SearchBoxRetrieveResponse } from '@mapbox/search-js-core';
+
+
 
 export interface MapFiltersType {
   name: string;
   isActive: boolean;
 }
+
+export type Place = {
+  id: string;
+  name: string;
+  country: string;
+  address: string;
+  coordinates: [number,number]
+  createdAt: string;
+};
 
 export const mapFilters: MapFiltersType[] = [
   {
@@ -32,6 +43,7 @@ export const mapFilters: MapFiltersType[] = [
 interface MapStoreType {
   places: Place[];
   addPlace: (place: Place) => void;
+  getPlaces: (places: Place[]) => void;
   currentCenter: [
     number, //longitude
     number, //latitude
@@ -43,21 +55,16 @@ interface MapStoreType {
 }
 
 export const useMapStore = create<MapStoreType>((set) => ({
-  places: places,
+  places: [],
+  // push from SearchBox model to Places model
   addPlace: (place) => set((state) => ({ places: [...state.places, place] })),
-  currentCenter:
-    places.length === 0
-      ? [14.41854, 50.073658]
-      : [
-          places[places.length - 1].features[0].properties.coordinates
-            .longitude,
-          places[places.length - 1].features[0].properties.coordinates.latitude,
-        ],
+  getPlaces: (places) => set(() => ({ places : places })),
+  currentCenter: [14.41854, 50.073658],
   setCurrentCenter: (place: Place) => {
     set({
       currentCenter: [
-        place.features[0].properties.coordinates.longitude,
-        place.features[0].properties.coordinates.latitude,
+        place.coordinates[0],
+        place.coordinates[1],
       ],
     });
   },
