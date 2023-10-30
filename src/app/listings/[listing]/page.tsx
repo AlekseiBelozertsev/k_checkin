@@ -9,10 +9,10 @@ const ListingPage: React.FC = () => {
   const { places } = useMapStore();
   const generateStaticParams = () => {
     return places.map((place) => ({
-      slug: place.features[0].properties.name
+      slug: place.name
         .replace(/\s+/g, '-')
         .toLowerCase(),
-      headline: place.features[0].properties.name,
+      headline: place.name,
       //here comes te txt
     }));
   };
