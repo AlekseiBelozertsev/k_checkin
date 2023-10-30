@@ -18,12 +18,12 @@ const MenuElement: React.FC<MenuElementProps & isMobile> = ({
 }) => {
   return (
     <Link href={href}>
-        <DesktopCard
-          href={href}
-          name={name}
-          icon={icon}
-          description={description}
-        />
+      <DesktopCard
+        href={href}
+        name={name}
+        icon={icon}
+        description={description}
+      />
     </Link>
   );
 };

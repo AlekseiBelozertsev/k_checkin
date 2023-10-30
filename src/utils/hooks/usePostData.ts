@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useMapStore } from "../store/mapStore";
+import { useEffect } from 'react';
+import { useMapStore } from '../store/mapStore';
 
 export const usePostData = (url: string, postData: any) => {
   const places = useMapStore((state) => state.places);
@@ -11,5 +11,5 @@ export const usePostData = (url: string, postData: any) => {
       },
       body: JSON.stringify(postData),
     });
-  }, [places])
-}
+  }, [places]);
+};

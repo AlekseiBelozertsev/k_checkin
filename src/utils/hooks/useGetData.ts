@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Place } from "../store/mapStore";
+import { useEffect, useState } from 'react';
+import { Place } from '../store/mapStore';
 
 export const useFetch = (url: string) => {
   const [data, setData] = useState<Place[]>();
@@ -11,5 +11,4 @@ export const useFetch = (url: string) => {
       });
   }, [url]);
   return data;
-}
-
+};

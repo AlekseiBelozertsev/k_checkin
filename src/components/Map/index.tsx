@@ -66,10 +66,7 @@ const MapComponent = () => {
         const marker = new mapboxgl.Marker({
           element: customMarkerElement,
         })
-          .setLngLat([
-            place.coordinates[0],
-            place.coordinates[1],
-          ])
+          .setLngLat([place.coordinates[0], place.coordinates[1]])
           .addTo(map.current!);
         marker.getElement().addEventListener('click', () => {
           // alert(`clicked on ${place.features[0].properties.name}`);

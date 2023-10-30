@@ -1,8 +1,6 @@
 import { create } from 'zustand';
 import { SearchBoxRetrieveResponse } from '@mapbox/search-js-core';
 
-
-
 export interface MapFiltersType {
   name: string;
   isActive: boolean;
@@ -13,7 +11,7 @@ export type Place = {
   name: string;
   country: string;
   address: string;
-  coordinates: [number,number]
+  coordinates: [number, number];
   createdAt: string;
 };
 
@@ -58,14 +56,11 @@ export const useMapStore = create<MapStoreType>((set) => ({
   places: [],
   // push from SearchBox model to Places model
   addPlace: (place) => set((state) => ({ places: [...state.places, place] })),
-  getPlaces: (places) => set(() => ({ places : places })),
+  getPlaces: (places) => set(() => ({ places: places })),
   currentCenter: [14.41854, 50.073658],
   setCurrentCenter: (place: Place) => {
     set({
-      currentCenter: [
-        place.coordinates[0],
-        place.coordinates[1],
-      ],
+      currentCenter: [place.coordinates[0], place.coordinates[1]],
     });
   },
   zoom: 11,
