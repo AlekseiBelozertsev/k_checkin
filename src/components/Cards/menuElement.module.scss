@@ -41,17 +41,21 @@
   gap: 16px;
 }
 
-.elementName {
-  width: 180px;
-  color: #000;
+.textWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
 
+.elementName {
+  color: #000;
   text-align: center;
-  font-family: Roboto;
+  font-family: '__Jockey_One_c6ad53';
+  letter-spacing: 1.5px;
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
   line-height: 32px; /* 128% */
-  letter-spacing: -0.5px;
 }
 
 .text {
