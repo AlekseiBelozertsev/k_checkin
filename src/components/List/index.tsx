@@ -19,7 +19,6 @@ type ListComponentProps = {
 
 const List: React.FC<ListProps> = ({ elements, isMobile }) => {
   const { setCurrentCenter } = useMapStore();
-  const { handleDrawerClose } = useDrawerStore();
 
   return (
     <div
@@ -31,7 +30,6 @@ const List: React.FC<ListProps> = ({ elements, isMobile }) => {
             href={'/map'}
             onClick={() => {
               setCurrentCenter(element);
-              isMobile && handleDrawerClose();
             }}
             subline={element.address}
             headline={element.name}

@@ -5,6 +5,7 @@ import { Place, useMapStore } from '@/utils/store/mapStore';
 import { useModalStore } from '@/utils/store/modalStore';
 import { SearchBoxRetrieveResponse } from '@mapbox/search-js-core';
 import { v4 } from 'uuid';
+import { usePostData } from '@/utils/hooks/usePostData';
 
 const Search = () => {
   const setValue = useSearchStore((state) => state.setValue);
