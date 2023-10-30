@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Place, useMapStore } from '@/utils/store/mapStore';
 import PageLayout from '@/ui/pages/Page';
 import { useMediaQuery } from 'react-responsive';
-import { useFetch } from '@/utils/hooks/useFetch';
+import { useFetch } from '@/utils/hooks/useGetData';
 
 const Listings = () => {
   const data = useFetch(`${process.env.NEXT_PUBLIC_LOCALHOST}/getPlaces`);
