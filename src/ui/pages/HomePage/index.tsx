@@ -3,7 +3,7 @@ import Button from '@/components/Button';
 import Header from '@/components/Header';
 import { useModalStore } from '@/utils/store/modalStore';
 import homePageStyles from './homePage.module.scss';
-import MenuElement from '@/components/MenuElement';
+import MenuElement from '@/components/Cards';
 import { menu } from '@/utils/menu';
 
 type HomePageProps = {
