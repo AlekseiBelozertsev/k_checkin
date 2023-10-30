@@ -1,11 +1,10 @@
 import React from 'react';
 import { SearchBox } from '@mapbox/search-js-react';
 import { useSearchStore } from '@/utils/store/searchStore';
-import { useMapStore } from '@/utils/store/mapStore';
+import { Place, useMapStore } from '@/utils/store/mapStore';
 import { useModalStore } from '@/utils/store/modalStore';
 import { SearchBoxRetrieveResponse } from '@mapbox/search-js-core';
 import { v4 } from 'uuid';
-
 
 const Search = () => {
   const setValue = useSearchStore((state) => state.setValue);
@@ -46,6 +45,23 @@ const Search = () => {
     });
   };
 
+  const onSearchBoxRetrieve = (place: SearchBoxRetrieveResponse) => {
+    const arrayToPush: Place = {
+      id: v4(),
+      name: place.features[0].properties.name,
+      address: place.features[0].properties.address ?? '',
+      country: place.features[0].properties.place_formatted ?? '',
+      coordinates: [
+        place.features[0].properties.coordinates.latitude,
+        place.features[0].properties.coordinates.longitude,
+      ],
+      createdAt: new Date().toISOString(),
+    };
+    addPlace(arrayToPush);
+    handleModaClose('add-place-modal');
+    postPlace(place);
+  };
+
   return (
     // @ts-ignore
     <SearchBox
@@ -54,12 +70,8 @@ const Search = () => {
       value={value}
       onChange={(v) => setValue(v)}
       accessToken={accessToken}
-      //onRetrieve gets the geoJSON I need on click of the list element.
-      onRetrieve={(place) => {
-        addPlace(place);
-        handleModaClose('add-place-modal');
-        postPlace(place);
-      }}
+      // onRetrieve uses SearchBoxApiResponse type
+      onRetrieve={onSearchBoxRetrieve}
       placeholder={' '}
     />
   );
