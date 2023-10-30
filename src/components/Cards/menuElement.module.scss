@@ -1,0 +1,62 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 16px;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.mainDesktop {
+  display: flex;
+  width: 360px;
+  padding: 25px;
+  flex-direction: column;
+  align-items: center;
+  gap: 21px;
+  align-self: stretch;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.iconWrapper {
+  display: flex;
+  width: 94px;
+  height: 94px;
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200px;
+  background: var(--secondary-primary-white, #fff);
+
+  box-shadow: 0px 18px 40px 0px rgba(112, 144, 176, 0.12);
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.elementName {
+  width: 180px;
+  color: #000;
+
+  text-align: center;
+  font-family: Roboto;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 128% */
+  letter-spacing: -0.5px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  // gap: 16px;
+  align-items: flex-start;
+}
