@@ -4,7 +4,7 @@ import buttonStyles from './button.module.scss';
 type Button = {
   onClick?: () => void;
   text: string;
-  type: 'primary' | 'secondary';
+  type: 'primary' | 'secondary' | 'terciary';
 };
 
 const Button: React.FC<Button> = ({ onClick, text, type }) => {
@@ -14,6 +14,8 @@ const Button: React.FC<Button> = ({ onClick, text, type }) => {
         return buttonStyles.primary;
       case 'secondary':
         return buttonStyles.secondary;
+      case 'terciary':
+        return buttonStyles.terciary;
     }
   };
   return (
