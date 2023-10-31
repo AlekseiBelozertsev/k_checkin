@@ -23,6 +23,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
 
   return (
     <div className={homePageStyles.main}>
+      <ModalMainComponent isMobile={isMobile} />
       <div className={homePageStyles.pageInner}>
         <Header />
         <div
