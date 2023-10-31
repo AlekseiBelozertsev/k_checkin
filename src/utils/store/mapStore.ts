@@ -60,7 +60,7 @@ export const useMapStore = create<MapStoreType>((set, get) => ({
   zoom: 11,
   isMapLoaded: false,
   onMapLoad: () => set({ isMapLoaded: true }),
-  postData: async (url,data) => {
+  postData: async (url, data) => {
     await fetch(url, {
       method: 'POST',
       headers: {
@@ -71,9 +71,9 @@ export const useMapStore = create<MapStoreType>((set, get) => ({
   },
   getData: async (url) => {
     await fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      set(() => ({places: data}))
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        set(() => ({ places: data }));
+      });
   },
 }));
