@@ -63,10 +63,8 @@ const MapComponent = () => {
         .toLowerCase();
       const customMarkerElement = createCustomMarkerElement();
       if (customMarkerElement) {
-        const marker = new mapboxgl.Marker({
-          element: customMarkerElement,
-        })
-          .setLngLat([place.coordinates[0], place.coordinates[1]])
+        const marker = new mapboxgl.Marker({ element: customMarkerElement })
+          .setLngLat(currentCenter)
           .addTo(map.current!);
         marker.getElement().addEventListener('click', () => {
           // alert(`clicked on ${place.features[0].properties.name}`);
@@ -81,7 +79,6 @@ const MapComponent = () => {
       {!isMapLoaded && (
         <div className={mapStyles.plug}>
           <div className={mapStyles.spinner} />
-          {/* <p>{`Wait until map fully loads. :)`}</p> */}
         </div>
       )}
       <div
