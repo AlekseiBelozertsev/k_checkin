@@ -1,9 +1,7 @@
 import React from 'react';
 import listStyles from './styles/list.module.scss';
 import ListItem from './ListItem';
-import emptySadSmile from '../../../public/emptyIcon.svg';
 import { Place, useMapStore } from '@/utils/store/mapStore';
-import Icon from '../Icon/index';
 import Loader from '../Loader';
 
 type ListProps = {
