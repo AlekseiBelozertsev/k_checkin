@@ -41,10 +41,10 @@ export const mapFilters: MapFiltersType[] = [
 interface MapStoreType {
   places: Place[];
   addPlace: (place: Place) => void;
-  getPlaces: (places: Place[]) => void;
+  setPlaces: (places: Place[]) => void;
   currentCenter: [
-    number, //longitude
-    number, //latitude
+    number,
+    number,
   ];
   setCurrentCenter: (place: Place) => void;
   zoom: number;
@@ -54,18 +54,15 @@ interface MapStoreType {
 
 export const useMapStore = create<MapStoreType>((set) => ({
   places: [],
-  // push from SearchBox model to Places model
   addPlace: (place) => set((state) => ({ places: [...state.places, place] })),
-  getPlaces: (places) => set(() => ({ places: places })),
+  setPlaces: (places) => set(() => ({ places: places })),
   currentCenter: [14.41854, 50.073658],
-  setCurrentCenter: (place: Place) => {
+  setCurrentCenter: (place) => {
     set({
       currentCenter: [place.coordinates[0], place.coordinates[1]],
     });
   },
   zoom: 11,
   isMapLoaded: false,
-  onMapLoad: () => {
-    set({ isMapLoaded: true });
-  },
+  onMapLoad: () => set({ isMapLoaded: true }),
 }));
