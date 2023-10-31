@@ -41,7 +41,7 @@ interface MapStoreType {
   places: Place[];
   setPlaces: (places: Place[]) => void;
   addPlace: (place: Place) => void;
-  currentCenter: number[];
+  currentCenter: [number, number];
   setCurrentCenter: (place: Place) => void;
   zoom: number;
   isMapLoaded: boolean | undefined;
