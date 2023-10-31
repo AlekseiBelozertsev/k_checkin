@@ -7,16 +7,19 @@ import { useFetch } from '@/utils/hooks/useGetData';
 
 const Listings = () => {
   const data = useFetch(`${process.env.NEXT_PUBLIC_LOCALHOST}/getPlaces`);
-  const getPlaces = useMapStore((state) => state.getPlaces);
+  const setPlaces = useMapStore((state) => state.setPlaces);
   const places = useMapStore((state) => state.places);
+
   useEffect(() => {
     if (data) {
-      getPlaces(data);
+      setPlaces(data);
     }
   }, [data]);
+
   const isMobile = useMediaQuery({
     query: `(max-width: 768px)`,
   });
+  
   return (
     <PageLayout places={places} headline={'All places'} isMobile={isMobile} />
   );
