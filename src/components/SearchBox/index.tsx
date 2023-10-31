@@ -11,6 +11,7 @@ const Search = () => {
   const setValue = useSearchStore((state) => state.setValue);
   const value = useSearchStore((state) => state.value);
   const addPlace = useMapStore((state) => state.addPlace);
+  const handleModaClose = useModalStore((state) => state.closeModal);
 
   const accessToken = `${process.env.NEXT_PUBLIC_MAPBOX_API_KEY}`;
   const searchBoxTheme = {
@@ -24,30 +25,9 @@ const Search = () => {
     borderRadius: '8px',
     boxShadow: 'none',
   };
-  const handleModaClose = useModalStore((state) => state.closeModal);
 
-  const postPlace = (place: SearchBoxRetrieveResponse) => {
-    fetch(`${process.env.NEXT_PUBLIC_LOCALHOST}/addPlaces`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        id: v4(),
-        name: place.features[0].properties.name,
-        address: place.features[0].properties.address ?? '',
-        country: place.features[0].properties.place_formatted ?? '',
-        coordintes: [
-          place.features[0].properties.coordinates.latitude,
-          place.features[0].properties.coordinates.longitude,
-        ],
-        createdAt: new Date().toISOString(),
-      }),
-    });
-  };
-
-  const onSearchBoxRetrieve = (place: SearchBoxRetrieveResponse) => {
-    const arrayToPush: Place = {
+  const createDataObject = (place: SearchBoxRetrieveResponse) => {
+    const data: Place = {
       id: v4(),
       name: place.features[0].properties.name,
       address: place.features[0].properties.address ?? '',
@@ -58,7 +38,15 @@ const Search = () => {
       ],
       createdAt: new Date().toISOString(),
     };
-    addPlace(arrayToPush);
+    return data;
+  }
+
+  const postPlace = (place: SearchBoxRetrieveResponse) => {
+    usePostData(`${process.env.NEXT_PUBLIC_LOCALHOST}/addPlaces`, createDataObject(place))
+  };
+
+  const onSearchBoxRetrieve = (place: SearchBoxRetrieveResponse) => {
+    addPlace(createDataObject(place));
     handleModaClose('add-place-modal');
     postPlace(place);
   };

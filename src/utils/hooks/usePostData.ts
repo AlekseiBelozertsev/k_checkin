@@ -1,15 +1,12 @@
-import { useEffect } from 'react';
-import { useMapStore } from '../store/mapStore';
+import { Place } from '../store/mapStore';
 
-export const usePostData = (url: string, postData: any) => {
-  const places = useMapStore((state) => state.places);
-  useEffect(() => {
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(postData),
-    });
-  }, [places]);
+
+export const usePostData = (url: string, data: Place) => {
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
 };
