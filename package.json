@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "prettier --write src/ ."
+    "prettier": "prettier --write src/ .",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@mapbox/search-js-react": "^1.0.0-beta.17",
@@ -34,6 +35,7 @@
   "devDependencies": {
     "@types/react-modal": "^3.16.0",
     "@types/uuid": "^9.0.6",
+    "cypress": "^13.4.0",
     "prettier": "^3.0.2"
   }
 }
