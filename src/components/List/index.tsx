@@ -1,11 +1,10 @@
-// 'use client'
 import React from 'react';
 import listStyles from './styles/list.module.scss';
 import ListItem from './ListItem';
 import emptySadSmile from '../../../public/emptyIcon.svg';
 import { Place, useMapStore } from '@/utils/store/mapStore';
-import { useDrawerStore } from '@/utils/store/drawerStore';
 import Icon from '../Icon/index';
+import Loader from '../Loader';
 
 type ListProps = {
   elements: Place[];
@@ -28,9 +27,7 @@ const List: React.FC<ListProps> = ({ elements, isMobile }) => {
         return (
           <ListItem
             href={'/map'}
-            onClick={() => {
-              setCurrentCenter(element);
-            }}
+            onClick={() => setCurrentCenter(element)}
             subline={element.address}
             headline={element.name}
             key={i}
@@ -49,9 +46,7 @@ const ListComponent: React.FC<ListComponentProps> = ({
     <>
       {!elements.length ? (
         <div className={listStyles.innerWrapperEmptyList}>
-          <Icon width={64} height={64} src={emptySadSmile} />
-          <h2 className={listStyles.headline}>{`No places listed. Yet...`}</h2>
-          <List isMobile={isMobile} elements={elements} />
+          <Loader />
         </div>
       ) : (
         <>
