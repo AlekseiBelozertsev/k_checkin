@@ -1,6 +1,5 @@
 import { Place } from '../store/mapStore';
 
-
 export const usePostData = (url: string, data: Place) => {
   fetch(url, {
     method: 'POST',

@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { SearchBoxRetrieveResponse } from '@mapbox/search-js-core';
 
 export interface MapFiltersType {
   name: string;
@@ -40,28 +39,22 @@ export const mapFilters: MapFiltersType[] = [
 
 interface MapStoreType {
   places: Place[];
-  addPlace: (place: Place) => void;
   setPlaces: (places: Place[]) => void;
-  currentCenter: [
-    number,
-    number,
-  ];
+  addPlace: (place: Place) => void;
+  currentCenter: [number, number];
   setCurrentCenter: (place: Place) => void;
   zoom: number;
   isMapLoaded: boolean | undefined;
   onMapLoad: () => void;
 }
 
-export const useMapStore = create<MapStoreType>((set) => ({
+export const useMapStore = create<MapStoreType>((set, get) => ({
   places: [],
-  addPlace: (place) => set((state) => ({ places: [...state.places, place] })),
   setPlaces: (places) => set(() => ({ places: places })),
+  addPlace: (place) => set((state) => ({ places: [...state.places, place] })),
   currentCenter: [14.41854, 50.073658],
-  setCurrentCenter: (place) => {
-    set({
-      currentCenter: [place.coordinates[0], place.coordinates[1]],
-    });
-  },
+  setCurrentCenter: (place) =>
+    set({ currentCenter: [place.coordinates[1], place.coordinates[0]] }),
   zoom: 11,
   isMapLoaded: false,
   onMapLoad: () => set({ isMapLoaded: true }),

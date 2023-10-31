@@ -19,7 +19,7 @@ const Listings = () => {
   const isMobile = useMediaQuery({
     query: `(max-width: 768px)`,
   });
-  
+
   return (
     <PageLayout places={places} headline={'All places'} isMobile={isMobile} />
   );

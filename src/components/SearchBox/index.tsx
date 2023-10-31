@@ -39,10 +39,13 @@ const Search = () => {
       createdAt: new Date().toISOString(),
     };
     return data;
-  }
+  };
 
   const postPlace = (place: SearchBoxRetrieveResponse) => {
-    usePostData(`${process.env.NEXT_PUBLIC_LOCALHOST}/addPlaces`, createDataObject(place))
+    usePostData(
+      `${process.env.NEXT_PUBLIC_LOCALHOST}/addPlaces`,
+      createDataObject(place),
+    );
   };
 
   const onSearchBoxRetrieve = (place: SearchBoxRetrieveResponse) => {
