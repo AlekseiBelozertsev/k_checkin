@@ -41,11 +41,13 @@ interface MapStoreType {
   places: Place[];
   setPlaces: (places: Place[]) => void;
   addPlace: (place: Place) => void;
-  currentCenter: [number, number];
+  currentCenter: number[];
   setCurrentCenter: (place: Place) => void;
   zoom: number;
   isMapLoaded: boolean | undefined;
   onMapLoad: () => void;
+  postData: (url: string, data: Place) => void;
+  getData: (url: string) => void;
 }
 
 export const useMapStore = create<MapStoreType>((set, get) => ({
@@ -58,4 +60,20 @@ export const useMapStore = create<MapStoreType>((set, get) => ({
   zoom: 11,
   isMapLoaded: false,
   onMapLoad: () => set({ isMapLoaded: true }),
+  postData: async (url,data) => {
+    await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+  },
+  getData: async (url) => {
+    await fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      set(() => ({places: data}))
+    });
+  },
 }));

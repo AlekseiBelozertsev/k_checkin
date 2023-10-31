@@ -5,7 +5,6 @@ import { Place, useMapStore } from '@/utils/store/mapStore';
 import { useModalStore } from '@/utils/store/modalStore';
 import { SearchBoxRetrieveResponse } from '@mapbox/search-js-core';
 import { v4 } from 'uuid';
-import { usePostData } from '@/utils/hooks/usePostData';
 
 const Search = () => {
   const setValue = useSearchStore((state) => state.setValue);
@@ -41,11 +40,11 @@ const Search = () => {
     return data;
   };
 
+  const { postData } = useMapStore();
+
   const postPlace = (place: SearchBoxRetrieveResponse) => {
-    usePostData(
-      `${process.env.NEXT_PUBLIC_LOCALHOST}/addPlaces`,
-      createDataObject(place),
-    );
+    const data = createDataObject(place)
+    postData(`${process.env.NEXT_PUBLIC_LOCALHOST}/addPlaces`, data);
   };
 
   const onSearchBoxRetrieve = (place: SearchBoxRetrieveResponse) => {

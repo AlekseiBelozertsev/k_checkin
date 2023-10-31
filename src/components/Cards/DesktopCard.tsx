@@ -1,15 +1,17 @@
 import { MenuElementProps } from '@/utils/menu';
 import menuElementStyles from './menuElement.module.scss';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Icon from '../Icon';
 import Button from '../Button';
-import { useFetch } from '@/utils/hooks/useGetData';
 import Loader from '../Loader';
+import { useMapStore } from '@/utils/store/mapStore';
 
 const DesktopCard: React.FC<MenuElementProps> = ({ icon, name }) => {
-  const data = useFetch(`${process.env.NEXT_PUBLIC_LOCALHOST}/getPlaces`);
-
-  return (
+  const { getData, places } = useMapStore();
+  useEffect(() => {
+    getData(`${process.env.NEXT_PUBLIC_LOCALHOST}/getPlaces`)
+  }, [places])
+  return (  
     <div className={menuElementStyles.mainDesktop}>
       <div className={menuElementStyles.contentWrapper}>
         <div className={menuElementStyles.iconWrapper}>
@@ -17,10 +19,10 @@ const DesktopCard: React.FC<MenuElementProps> = ({ icon, name }) => {
         </div>
         <div className={menuElementStyles.textWrapper}>
           <span className={menuElementStyles.elementName}>{`${name}`}</span>
-          {data ? (
+          {places.length ? (
             <span
               className={menuElementStyles.elementName}
-            >{`(${data.length})`}</span>
+            >{`(${places.length})`}</span>
           ) : (
             <Loader />
           )}

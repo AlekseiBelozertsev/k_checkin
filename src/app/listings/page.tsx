@@ -3,23 +3,15 @@ import React, { useEffect, useState } from 'react';
 import { Place, useMapStore } from '@/utils/store/mapStore';
 import PageLayout from '@/ui/pages/Page';
 import { useMediaQuery } from 'react-responsive';
-import { useFetch } from '@/utils/hooks/useGetData';
 
 const Listings = () => {
-  const data = useFetch(`${process.env.NEXT_PUBLIC_LOCALHOST}/getPlaces`);
-  const setPlaces = useMapStore((state) => state.setPlaces);
-  const places = useMapStore((state) => state.places);
-
+  const { getData, places } = useMapStore();
   useEffect(() => {
-    if (data) {
-      setPlaces(data);
-    }
-  }, [data]);
-
+    getData(`${process.env.NEXT_PUBLIC_LOCALHOST}/getPlaces`)
+  }, [places]);
   const isMobile = useMediaQuery({
     query: `(max-width: 768px)`,
   });
-
   return (
     <PageLayout places={places} headline={'All places'} isMobile={isMobile} />
   );
