@@ -10,7 +10,7 @@ const DesktopCard: React.FC<MenuElementProps> = ({ icon, name }) => {
   const { getData, places } = useMapStore();
   useEffect(() => {
     getData(`${process.env.NEXT_PUBLIC_LOCALHOST}/getPlaces`)
-  }, [places])
+  }, [])
   return (  
     <div className={menuElementStyles.mainDesktop}>
       <div className={menuElementStyles.contentWrapper}>

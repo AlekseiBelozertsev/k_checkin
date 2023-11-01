@@ -8,7 +8,7 @@ const Listings = () => {
   const { getData, places } = useMapStore();
   useEffect(() => {
     getData(`${process.env.NEXT_PUBLIC_LOCALHOST}/getPlaces`)
-  }, [places]);
+  }, []);
   const isMobile = useMediaQuery({
     query: `(max-width: 768px)`,
   });
