@@ -1,8 +1,13 @@
 ## Getting Started
 
-First, add the NEXT_PUBLIC_MAPBOX_API_KEY variable to .env file. It must contain your Mapbox API key.
+Before all run:
+```bash
+npm install
+```
 
-Second, run the development server:
+Add the NEXT_PUBLIC_MAPBOX_API_KEY variable to .env file. It must contain your Mapbox API key.
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -11,6 +16,23 @@ yarn dev
 # or
 pnpm dev
 ```
+
+## Testing
+
+To open Cypress, run:
+
+```bash
+npm run cypress:open
+```
+
+## Code formatting
+
+To format code, run:
+
+```bash
+npm run prettier
+```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
