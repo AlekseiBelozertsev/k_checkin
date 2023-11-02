@@ -1,12 +1,15 @@
 'use client';
 import DetailPageLayout from '@/ui/pages/DetailPage';
 import { useMapStore } from '@/utils/store/mapStore';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 //write logic for error - should display something went wrong and back button (see figma)
 
 const ListingPage: React.FC = () => {
-  const { places } = useMapStore();
+  const { places, getData } = useMapStore();
+  useEffect(() => {
+    getData(`${process.env.NEXT_PUBLIC_LOCALHOST}/getPlaces`)
+  }, [])
   const generateStaticParams = () => {
     return places.map((place) => ({
       slug: place.name.replace(/\s+/g, '-').toLowerCase(),
