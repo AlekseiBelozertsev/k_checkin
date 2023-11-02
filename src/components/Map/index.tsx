@@ -6,6 +6,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { useMapStore } from '@/utils/store/mapStore';
 import baraIcon from '../../../public/icons/baraIcon.svg';
 import { useRouter } from 'next/navigation';
+import { generateSlug } from '@/utils/generateSlug';
 
 mapboxgl.accessToken = `${process.env.NEXT_PUBLIC_MAPBOX_API_KEY}`;
 
@@ -55,24 +56,21 @@ const MapComponent = () => {
   };
 
   useEffect(() => {
+
     places.forEach((place) => {
-      const slug = place.name
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .replace(/\s+/g, '-')
-        .toLowerCase();
+      const slug = generateSlug(place.name);
       const customMarkerElement = createCustomMarkerElement();
       if (customMarkerElement) {
         const marker = new mapboxgl.Marker({ element: customMarkerElement })
-          .setLngLat(currentCenter)
+          .setLngLat([place.coordinates[1], place.coordinates[0]])
           .addTo(map.current!);
         marker.getElement().addEventListener('click', () => {
-          // alert(`clicked on ${place.features[0].properties.name}`);
           router.push(`/listings/${slug}`);
         });
       }
     });
-  }, [places]);
+    //Find out why markers disappear on rerender
+  }, [isMapLoaded]);
 
   return (
     <>
