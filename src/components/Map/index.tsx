@@ -3,19 +3,34 @@ import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import mapStyles from './map.module.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { useMapStore } from '@/utils/store/mapStore';
+import { Place, useMapStore } from '@/utils/store/mapStore';
 import baraIcon from '../../../public/icons/baraIcon.svg';
 import { useRouter } from 'next/navigation';
 import { generateSlug } from '@/utils/generateSlug';
 
 mapboxgl.accessToken = `${process.env.NEXT_PUBLIC_MAPBOX_API_KEY}`;
 
-const MapComponent = () => {
+type MapProps = {
+  zoom: number;
+  currentCenter: [number, number];
+  places: Place[];
+  onMapLoad: () => void;
+  isMapLoaded: boolean;
+}
+
+const MapComponent: React.FC<MapProps> = ({
+  currentCenter,
+  places,
+  zoom,
+  onMapLoad,
+  isMapLoaded
+}) => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const router = useRouter();
 
-  const { zoom, currentCenter, places, onMapLoad, isMapLoaded } = useMapStore();
+  // const { zoom, currentCenter, places, onMapLoad, isMapLoaded, getData } = useMapStore();
+
 
   useEffect(() => {
     if (map.current) {
@@ -56,8 +71,9 @@ const MapComponent = () => {
   };
 
   useEffect(() => {
-
+    console.log('initial render')
     places.forEach((place) => {
+      console.log('rendered markers')
       const slug = generateSlug(place.name);
       const customMarkerElement = createCustomMarkerElement();
       if (customMarkerElement) {
@@ -69,8 +85,7 @@ const MapComponent = () => {
         });
       }
     });
-    //Find out why markers disappear on rerender
-  }, [isMapLoaded]);
+  }, [places]);
 
   return (
     <>
