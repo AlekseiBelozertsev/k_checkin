@@ -29,9 +29,6 @@ const MapComponent: React.FC<MapProps> = ({
   const map = useRef<mapboxgl.Map | null>(null);
   const router = useRouter();
 
-  // const { zoom, currentCenter, places, onMapLoad, isMapLoaded, getData } = useMapStore();
-
-
   useEffect(() => {
     if (map.current) {
       map.current.setCenter(currentCenter);
@@ -73,9 +70,7 @@ const MapComponent: React.FC<MapProps> = ({
   };
 
   useEffect(() => {
-    console.log('initial render')
     places.forEach((place) => {
-      console.log('rendered markers')
       const slug = generateSlug(place.name);
       const customMarkerElement = createCustomMarkerElement();
       if (customMarkerElement) {
@@ -83,7 +78,8 @@ const MapComponent: React.FC<MapProps> = ({
           .setLngLat([place.coordinates[1], place.coordinates[0]])
           .addTo(map.current!);
         marker.getElement().addEventListener('click', () => {
-          router.push(`/listings/${slug}`);
+          // router.push(`/listings/${slug}`);
+          alert(slug)
         });
       }
     });

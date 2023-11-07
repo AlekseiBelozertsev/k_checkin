@@ -68,6 +68,7 @@ export const useMapStore = create<MapStoreType>((set, get) => ({
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
+      
     });
   },
   getData: async (url) => {
