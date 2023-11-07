@@ -48,7 +48,9 @@ const MapComponent: React.FC<MapProps> = ({
         attributionControl: false,
       });
       map.current.on('load', () => {
-        onMapLoad();
+        if (places.length !== 0) {
+          onMapLoad();
+        }
       });
     }
   }, [currentCenter, zoom]);

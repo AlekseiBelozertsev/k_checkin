@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { useModalStore } from './modalStore';
 
 export interface MapFiltersType {
   name: string;
@@ -74,6 +75,7 @@ export const useMapStore = create<MapStoreType>((set, get) => ({
       .then((response) => response.json())
       .then((data) => {
         set(() => ({ places: data }));
-      });
+      })
+      .catch((err) => useModalStore.getState().openModal('fetch-error-modal'));
   },
 }));
