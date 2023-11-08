@@ -1,12 +1,7 @@
 import { useModalStore } from '@/utils/store/modalStore';
-// import dynamic from 'next/dynamic';
 import React from 'react';
-import AddPlaceModal from '../../../components/modals/AddPlaceModal';
-import FetchErrorModal from '@/components/modals/FetchErrorModal';
-import PostErrorModal from '@/components/modals/PostErrorModal';
+import AddPlaceModal from '@/components/modals/AddPlaceModal';
 
-// const ShowAllModal = dynamic(() => import('../ShowAllModal'), { ssr: false });
-// const AddPlaceModal = dynamic(() => import('../AddPlaceModal'), { ssr: false });
 type ModalManagerProps = {
   isMobile: boolean;
 };
@@ -15,22 +10,11 @@ const ModalManager: React.FC<ModalManagerProps> = ({ isMobile }) => {
   const handleModaClose = useModalStore((state) => state.closeModal);
   if (typeof window !== 'undefined') {
     switch (modal) {
-      //here might come more modals if needed
       case 'add-place-modal':
         return (
-          <AddPlaceModal
-            isMobile={isMobile}
-            onClose={() => handleModaClose('add-place-modal')}
-          />
-        );
-        case 'fetch-error-modal':
-        return (
-          <FetchErrorModal onClose={() => handleModaClose('fetch-error-modal')}/>
-        );
-        case 'post-error-modal':
-        return (
-          <PostErrorModal onClose={() => handleModaClose('post-error-modal')}/>
-        );
+          <AddPlaceModal isMobile={isMobile} onClose={() => handleModaClose('add-place-modal')}
+        />
+      );
     }
   }
 };
