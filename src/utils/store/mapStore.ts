@@ -63,6 +63,8 @@ export const useMapStore = create<MapStoreType>((set, get) => ({
   isMapLoaded: false,
   onMapLoad: () => set({ isMapLoaded: true }),
   postData: async (url, data) => {
+    const stringifiedData = JSON.stringify(get().places);
+    localStorage.setItem('places', stringifiedData);
     await fetch(url, {
       method: 'POST',
       headers: {
@@ -70,8 +72,8 @@ export const useMapStore = create<MapStoreType>((set, get) => ({
       },
       body: JSON.stringify(data),
     }).catch((err) => {
-      const stringifiedData = JSON.stringify(get().places);
-      localStorage.setItem('places', stringifiedData);
+      // const stringifiedData = JSON.stringify(get().places);
+      // localStorage.setItem('places', stringifiedData);
     });
   },
   getData: async (url) => {
@@ -82,6 +84,7 @@ export const useMapStore = create<MapStoreType>((set, get) => ({
       })
       .catch((err) => {
         const localStorageData = localStorage.getItem('places');
+        console.log(localStorage)
         if (localStorageData !== null) {
           const localStorageDataParsed = JSON.parse(localStorageData);
           set(() => ({ places: localStorageDataParsed }));
