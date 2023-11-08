@@ -68,7 +68,8 @@ export const useMapStore = create<MapStoreType>((set, get) => ({
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-    });
+    })
+    .catch((err) => useModalStore.getState().openModal('post-error-modal'))
   },
   getData: async (url) => {
     await fetch(url)

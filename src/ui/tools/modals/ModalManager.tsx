@@ -3,6 +3,7 @@ import { useModalStore } from '@/utils/store/modalStore';
 import React from 'react';
 import AddPlaceModal from '../../../components/modals/AddPlaceModal';
 import FetchErrorModal from '@/components/modals/FetchErrorModal';
+import PostErrorModal from '@/components/modals/PostErrorModal';
 
 // const ShowAllModal = dynamic(() => import('../ShowAllModal'), { ssr: false });
 // const AddPlaceModal = dynamic(() => import('../AddPlaceModal'), { ssr: false });
@@ -25,6 +26,10 @@ const ModalManager: React.FC<ModalManagerProps> = ({ isMobile }) => {
         case 'fetch-error-modal':
         return (
           <FetchErrorModal onClose={() => handleModaClose('fetch-error-modal')}/>
+        );
+        case 'post-error-modal':
+        return (
+          <PostErrorModal onClose={() => handleModaClose('post-error-modal')}/>
         );
     }
   }
