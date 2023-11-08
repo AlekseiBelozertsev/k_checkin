@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { useModalStore } from './modalStore';
+import { useAppSettings } from './appSettingsStore';
 
 export interface MapFiltersType {
   name: string;
@@ -68,8 +69,10 @@ export const useMapStore = create<MapStoreType>((set, get) => ({
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-    })
-    .catch((err) => useModalStore.getState().openModal('post-error-modal'))
+    }).catch((err) => {
+      const stringifiedData = JSON.stringify(get().places);
+      localStorage.setItem('places', stringifiedData);
+    });
   },
   getData: async (url) => {
     await fetch(url)
@@ -77,6 +80,12 @@ export const useMapStore = create<MapStoreType>((set, get) => ({
       .then((data) => {
         set(() => ({ places: data }));
       })
-      .catch((err) => useModalStore.getState().openModal('fetch-error-modal'));
+      .catch((err) => {
+        const localStorageData = localStorage.getItem('places');
+        if (localStorageData !== null) {
+          const localStorageDataParsed = JSON.parse(localStorageData);
+          set(() => ({ places: localStorageDataParsed }));
+        }
+      });
   },
 }));
