@@ -44,12 +44,11 @@ const ListComponent: React.FC<ListComponentProps> = ({
     <>
       {!elements.length ? (
         <div className={listStyles.innerWrapperEmptyList}>
-          <Loader />
+          <Loader size={32} />
         </div>
       ) : (
         <>
           <div className={listStyles.innerWrapper}>
-            {/* <h2 className={listStyles.headline}>{`Recently visited`}</h2> */}
             <List isMobile={isMobile} elements={elements} />
           </div>
         </>

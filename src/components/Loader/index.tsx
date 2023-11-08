@@ -3,10 +3,13 @@ import loaderStyles from './loader.module.scss';
 import Icon from '../Icon';
 import loader from '../../../public/icons/loader.svg';
 
-const Loader = () => {
+type LoaderProps = {
+ size: number;
+}
+const Loader: React.FC<LoaderProps> = ({size}) => {
   return (
-    <div className={loaderStyles.main}>
-      <Icon height={32} width={32} src={loader} />
+    <div style={{width: `${size}px`, height: `${size}px`}} className={loaderStyles.main}>
+      <Icon height={size} width={size} src={loader} />
     </div>
   );
 };

@@ -26,7 +26,7 @@ const DetailPageLayout: React.FC<DetailPageLayoutProps> = ({
       ) : (
         <>
           <div className={detailPageStyles.loaderWrapper}>
-            <Loader />
+            <Loader size={64} />
           </div>
         </>
       )}

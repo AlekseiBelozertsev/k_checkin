@@ -24,7 +24,7 @@ const DesktopCard: React.FC<MenuElementProps> = ({ icon, name }) => {
               className={menuElementStyles.elementName}
             >{`(${places.length})`}</span>
           ) : (
-            <Loader />
+            <Loader size={20}/>
           )}
         </div>
         <Button text={`Open listings`} type={`terciary`} onClick={() => null} />

@@ -45,9 +45,7 @@ const MapComponent: React.FC<MapProps> = ({
         attributionControl: false,
       });
       map.current.on('load', () => {
-        if (places.length !== 0) {
-          onMapLoad();
-        }
+        onMapLoad();
       });
     }
   }, [currentCenter, zoom]);
@@ -78,8 +76,8 @@ const MapComponent: React.FC<MapProps> = ({
           .setLngLat([place.coordinates[1], place.coordinates[0]])
           .addTo(map.current!);
         marker.getElement().addEventListener('click', () => {
-          // router.push(`/listings/${slug}`);
-          alert(slug)
+          router.push(`/listings/${slug}`);
+          // alert(slug)
         });
       }
     });
