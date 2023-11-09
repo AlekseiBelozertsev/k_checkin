@@ -18,12 +18,7 @@ const HomePage: React.FC<HomePageProps> = ({ isMobile }) => {
       <div className={homePageStyles.pageInner}>
         <Header />
         <div
-          className={
-            !isMobile
-              ? homePageStyles.menuWrapperDesktop
-              : homePageStyles.menuWrapperMobile
-          }
-        >
+          className={ homePageStyles.menuWrapper}>
           {menu.map((menuItem, i) => {
             return (
               <MenuElement
@@ -39,11 +34,7 @@ const HomePage: React.FC<HomePageProps> = ({ isMobile }) => {
         </div>
       </div>
       <div
-        className={
-          isMobile
-            ? homePageStyles.buttonsWrapperMobile
-            : homePageStyles.buttonsWrapperDesktop
-        }
+        className={homePageStyles.buttonsWrapper}
       >
         <Button
           type={'primary'}

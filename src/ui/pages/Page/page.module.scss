@@ -13,8 +13,10 @@
 }
 
 .listWrapperMobile {
+  display: flex;
+  align-self: center;
   position: relative;
-  width: 100%;
+  width: calc(100% - 32px);
   height: calc(100% - 136px);
 }
 

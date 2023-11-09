@@ -19,7 +19,7 @@ const DesktopCard: React.FC<MenuElementProps> = ({ icon, name }) => {
         </div>
         <div className={menuElementStyles.textWrapper}>
           <span className={menuElementStyles.elementName}>{`${name}`}</span>
-          {places.length ? (
+          {places ? (
             <span
               className={menuElementStyles.elementName}
             >{`(${places.length})`}</span>

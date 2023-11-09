@@ -61,7 +61,7 @@ export const useMapStore = create<MapStoreType>((set, get) => ({
   setCurrentCenter: (place) =>
     set({ currentCenter: [place.coordinates[1], place.coordinates[0]] }),
   zoom: 11,
-  setZoom: (zoom) => set(() => ({zoom: zoom})),
+  setZoom: (zoom) => set(() => ({ zoom: zoom })),
   isMapLoaded: false,
   onMapLoad: () => set({ isMapLoaded: true }),
   postData: async (url, data) => {
