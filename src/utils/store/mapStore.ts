@@ -46,6 +46,7 @@ interface MapStoreType {
   currentCenter: [number, number];
   setCurrentCenter: (place: Place) => void;
   zoom: number;
+  setZoom: (zoom: number) => void;
   isMapLoaded: boolean | undefined;
   onMapLoad: () => void;
   postData: (url: string, data: Place) => void;
@@ -60,6 +61,7 @@ export const useMapStore = create<MapStoreType>((set, get) => ({
   setCurrentCenter: (place) =>
     set({ currentCenter: [place.coordinates[1], place.coordinates[0]] }),
   zoom: 11,
+  setZoom: (zoom) => set(() => ({zoom: zoom})),
   isMapLoaded: false,
   onMapLoad: () => set({ isMapLoaded: true }),
   postData: async (url, data) => {
@@ -72,23 +74,22 @@ export const useMapStore = create<MapStoreType>((set, get) => ({
       },
       body: JSON.stringify(data),
     }).catch((err) => {
-      // const stringifiedData = JSON.stringify(get().places);
-      // localStorage.setItem('places', stringifiedData);
+      console.log(err);
     });
   },
   getData: async (url) => {
+    const localStorageData = localStorage.getItem('places');
+    if (localStorageData) {
+      const localStorageDataParsed = JSON.parse(localStorageData);
+      set(() => ({ places: localStorageDataParsed }));
+    }
     await fetch(url)
       .then((response) => response.json())
       .then((data) => {
         set(() => ({ places: data }));
       })
       .catch((err) => {
-        const localStorageData = localStorage.getItem('places');
-        console.log(localStorage)
-        if (localStorageData !== null) {
-          const localStorageDataParsed = JSON.parse(localStorageData);
-          set(() => ({ places: localStorageDataParsed }));
-        }
+        console.log(err);
       });
   },
 }));
