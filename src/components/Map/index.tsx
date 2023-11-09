@@ -23,7 +23,7 @@ const MapComponent: React.FC<MapProps> = ({
   places,
   zoom,
   onMapLoad,
-  isMapLoaded
+  isMapLoaded,
 }) => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<mapboxgl.Map | null>(null);
@@ -61,6 +61,7 @@ const MapComponent: React.FC<MapProps> = ({
       element.style.backgroundRepeat = 'no-repeat';
       element.style.backgroundPosition = 'center';
       element.style.backgroundSize = 'cover';
+      element.style.cursor = 'pointer';
       element.style.width = '40px';
       element.style.height = '40px';
       return element;
@@ -77,7 +78,6 @@ const MapComponent: React.FC<MapProps> = ({
           .addTo(map.current!);
         marker.getElement().addEventListener('click', () => {
           router.push(`/listings/${slug}`);
-          // alert(slug)
         });
       }
     });
