@@ -74,7 +74,7 @@ export const useMapStore = create<MapStoreType>((set, get) => ({
       },
       body: JSON.stringify(data),
     }).catch((err) => {
-      console.log(err);
+      console.log(`${err} - Data will be stored in localStorage`);
     });
   },
   getData: async (url) => {
