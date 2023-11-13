@@ -37,12 +37,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
         </div>
       </div>
       <div
-        className={
-          !isMobile
-            ? homePageStyles.buttonsWrapperDesktop
-            : homePageStyles.buttonsWrapperMobile
-        }
-      >
+        className={homePageStyles.buttonsWrapper}>
         <Button
           type={'primary'}
           text={`Add location`}

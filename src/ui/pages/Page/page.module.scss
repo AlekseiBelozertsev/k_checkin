@@ -80,21 +80,13 @@
   align-self: stretch;
 }
 
-.buttonsWrapperMobile {
+.buttonsWrapper {
   position: absolute;
   display: flex;
   flex-direction: column;
   bottom: 0;
   margin-bottom: 24px;
-  width: calc(100% - 24px);
-  gap: 8px;
-}
-
-.buttonsWrapperDesktop {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 24px;
-  width: 100%;
-  max-width: 500px;
+  max-width: 360px;
+  width: calc(100% - 32px);
   gap: 8px;
 }
