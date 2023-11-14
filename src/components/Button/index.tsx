@@ -1,5 +1,6 @@
 import React from 'react';
 import buttonStyles from './button.module.scss';
+import { motion } from 'framer-motion';
 
 type Button = {
   onClick?: () => void;
@@ -19,13 +20,17 @@ const Button: React.FC<Button> = ({ onClick, text, type }) => {
     }
   };
   return (
-    <button
+    <motion.button
       style={{ cursor: 'pointer' }}
       onClick={onClick}
       className={getButtonStyles()}
+      whileHover={{ scale: 1.03}}
+      whileTap={{
+        scale: 0.95,
+      }}
     >
       <span className={buttonStyles.buttonText}>{text}</span>
-    </button>
+    </motion.button>
   );
 };
 
