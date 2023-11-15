@@ -24,14 +24,17 @@ const container = {
     scale: 1,
     transition: {
       delayChildren: 0.3,
-      staggerChildren: 0.2
-    }
-  }
-}
+      staggerChildren: 0.2,
+    },
+  },
+};
 
-
-const List: React.FC<ListItemProps> = ({ elements, isMobile, setCurrentCenter, setZoom }) => {
-
+const List: React.FC<ListItemProps> = ({
+  elements,
+  isMobile,
+  setCurrentCenter,
+  setZoom,
+}) => {
   return (
     <motion.div
       className={elements.length > 6 ? listStyles.mainScroll : listStyles.main}
@@ -43,7 +46,10 @@ const List: React.FC<ListItemProps> = ({ elements, isMobile, setCurrentCenter, s
         return (
           <ListItem
             href={'/map'}
-            onClick={() => {setCurrentCenter(element); setZoom(16)}}
+            onClick={() => {
+              setCurrentCenter(element);
+              setZoom(16);
+            }}
             subline={element.address}
             headline={element.name}
             key={i}
@@ -54,10 +60,7 @@ const List: React.FC<ListItemProps> = ({ elements, isMobile, setCurrentCenter, s
   );
 };
 
-const ListComponent: React.FC<ListProps> = ({
-  elements,
-  isMobile,
-}) => {
+const ListComponent: React.FC<ListProps> = ({ elements, isMobile }) => {
   const { setCurrentCenter, setZoom } = useMapStore();
   return (
     <>
@@ -68,7 +71,12 @@ const ListComponent: React.FC<ListProps> = ({
       ) : (
         <>
           <div className={listStyles.innerWrapper}>
-            <List setZoom={setZoom} setCurrentCenter={setCurrentCenter}  isMobile={isMobile} elements={elements} />
+            <List
+              setZoom={setZoom}
+              setCurrentCenter={setCurrentCenter}
+              isMobile={isMobile}
+              elements={elements}
+            />
           </div>
         </>
       )}

@@ -9,9 +9,9 @@ import { useMapStore } from '@/utils/store/mapStore';
 const DesktopCard: React.FC<MenuElementProps> = ({ icon, name }) => {
   const { getData, places } = useMapStore();
   useEffect(() => {
-    getData(`${process.env.NEXT_PUBLIC_LOCALHOST}/getPlaces`)
-  }, [])
-  return (  
+    getData(`${process.env.NEXT_PUBLIC_LOCALHOST}/getPlaces`);
+  }, []);
+  return (
     <div className={menuElementStyles.mainDesktop}>
       <div className={menuElementStyles.contentWrapper}>
         <div className={menuElementStyles.iconWrapper}>
@@ -24,7 +24,7 @@ const DesktopCard: React.FC<MenuElementProps> = ({ icon, name }) => {
               className={menuElementStyles.elementName}
             >{`(${places.length})`}</span>
           ) : (
-            <Loader size={20}/>
+            <Loader size={20} />
           )}
         </div>
         <Button text={`Open listings`} type={`terciary`} onClick={() => null} />

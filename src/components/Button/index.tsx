@@ -24,7 +24,7 @@ const Button: React.FC<Button> = ({ onClick, text, type }) => {
       style={{ cursor: 'pointer' }}
       onClick={onClick}
       className={getButtonStyles()}
-      whileHover={{ scale: 1.03}}
+      whileHover={{ scale: 1.03 }}
       whileTap={{
         scale: 0.95,
       }}

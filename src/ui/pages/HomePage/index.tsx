@@ -12,15 +12,18 @@ type HomePageProps = {
   subtitle: string;
 };
 
-const HomePage: React.FC<HomePageProps> = ({ isMobile, headline, subtitle }) => {
+const HomePage: React.FC<HomePageProps> = ({
+  isMobile,
+  headline,
+  subtitle,
+}) => {
   const { openModal } = useModalStore();
 
   return (
     <div className={homePageStyles.main}>
       <div className={homePageStyles.pageInner}>
-        <Header headline={headline} subtitle={subtitle}/>
-        <div
-          className={ homePageStyles.menuWrapper}>
+        <Header headline={headline} subtitle={subtitle} />
+        <div className={homePageStyles.menuWrapper}>
           {menu.map((menuItem, i) => {
             return (
               <MenuElement
@@ -35,9 +38,7 @@ const HomePage: React.FC<HomePageProps> = ({ isMobile, headline, subtitle }) => 
           })}
         </div>
       </div>
-      <div
-        className={homePageStyles.buttonsWrapper}
-      >
+      <div className={homePageStyles.buttonsWrapper}>
         <Button
           type={'primary'}
           text={`Add location`}

@@ -12,14 +12,13 @@ type ListItemProps = {
   href: string;
 };
 
-  
 const item = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
-    opacity: 1
-  }
-}
+    opacity: 1,
+  },
+};
 
 const ListItem: React.FC<ListItemProps> = ({
   headline,
@@ -30,7 +29,7 @@ const ListItem: React.FC<ListItemProps> = ({
   return (
     <motion.div
       variants={item}
-      whileHover={{ scale: 1.03}}
+      whileHover={{ scale: 1.03 }}
       whileTap={{
         scale: 0.95,
       }}
@@ -41,7 +40,10 @@ const ListItem: React.FC<ListItemProps> = ({
             <span className={listItemStyles.headline}>{headline}</span>
             <span className={listItemStyles.subtitle}>{subline}</span>
           </div>
-          <button onClick={() => alert('"Delete" feature is not yet implemented')} className={listItemStyles.button}>
+          <button
+            onClick={() => alert('"Delete" feature is not yet implemented')}
+            className={listItemStyles.button}
+          >
             <Icon height={32} width={32} src={deleteIcon} />
           </button>
         </div>

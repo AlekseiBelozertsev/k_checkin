@@ -27,7 +27,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
     <div className={homePageStyles.main}>
       <ModalMainComponent isMobile={isMobile} />
       <div className={homePageStyles.pageInner}>
-        <Header subtitle={subtitle} headline={headline}/>
+        <Header subtitle={subtitle} headline={headline} />
         <div
           className={
             !isMobile
@@ -38,8 +38,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           <List elements={places} isMobile={isMobile} />
         </div>
       </div>
-      <div
-        className={homePageStyles.buttonsWrapper}>
+      <div className={homePageStyles.buttonsWrapper}>
         <Button
           type={'primary'}
           text={`Add location`}

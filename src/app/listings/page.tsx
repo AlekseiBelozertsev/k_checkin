@@ -7,13 +7,18 @@ import { useMediaQuery } from 'react-responsive';
 const Listings = () => {
   const { getData, places } = useMapStore();
   useEffect(() => {
-    getData(`${process.env.NEXT_PUBLIC_LOCALHOST}/getPlaces`)
+    getData(`${process.env.NEXT_PUBLIC_LOCALHOST}/getPlaces`);
   }, []);
   const isMobile = useMediaQuery({
     query: `(max-width: 768px)`,
   });
   return (
-    <PageLayout subtitle={''} places={places} headline={'Places listed:'} isMobile={isMobile} />
+    <PageLayout
+      subtitle={''}
+      places={places}
+      headline={'Places listed:'}
+      isMobile={isMobile}
+    />
   );
 };
 

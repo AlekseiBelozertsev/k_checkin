@@ -12,9 +12,11 @@ const ModalManager: React.FC<ModalManagerProps> = ({ isMobile }) => {
     switch (modal) {
       case 'add-place-modal':
         return (
-          <AddPlaceModal isMobile={isMobile} onClose={() => handleModaClose('add-place-modal')}
-        />
-      );
+          <AddPlaceModal
+            isMobile={isMobile}
+            onClose={() => handleModaClose('add-place-modal')}
+          />
+        );
     }
   }
 };

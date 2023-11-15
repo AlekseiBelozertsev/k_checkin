@@ -4,12 +4,9 @@ import headerStyles from './header.module.scss';
 type HeaderProps = {
   headline: string;
   subtitle: string;
-}
+};
 
-const Header: React.FC<HeaderProps> = ({
-  headline,
-  subtitle
-}) => {
+const Header: React.FC<HeaderProps> = ({ headline, subtitle }) => {
   return (
     <header className={headerStyles.mainHeader}>
       <h1 className={headerStyles.headerHeadline}>{headline}</h1>

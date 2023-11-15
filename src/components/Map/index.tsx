@@ -16,7 +16,7 @@ type MapProps = {
   places: Place[];
   onMapLoad: () => void;
   isMapLoaded: boolean;
-}
+};
 
 const MapComponent: React.FC<MapProps> = ({
   currentCenter,

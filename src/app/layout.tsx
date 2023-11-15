@@ -9,7 +9,7 @@ const jOne = Jockey_One({
 });
 
 export const metadata: Metadata = {
-  title: "Checkin App",
+  title: 'Checkin App',
   description: 'Another pet project',
   creator: 'AlexeiB',
   viewport:
@@ -24,9 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={jOne.className}>
-        <Template>
-          {children}
-        </Template>
+        <Template>{children}</Template>
       </body>
     </html>
   );

@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "prettier --write src/**/*.ts cypress/**/*.ts",
+    "prettier": "prettier --write src/**/*.{ts,tsx} cypress/**/*.{ts,tsx}",
     "cypress:open": "cypress open"
   },
   "dependencies": {

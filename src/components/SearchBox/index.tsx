@@ -43,7 +43,7 @@ const Search = () => {
   const { postData } = useMapStore();
 
   const postPlace = (place: SearchBoxRetrieveResponse) => {
-    const data = createDataObject(place)
+    const data = createDataObject(place);
     postData(`${process.env.NEXT_PUBLIC_LOCALHOST}/addPlaces`, data);
   };
 
