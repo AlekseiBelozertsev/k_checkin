@@ -13,7 +13,7 @@ const Listings = () => {
     query: `(max-width: 768px)`,
   });
   return (
-    <PageLayout places={places} headline={'All places'} isMobile={isMobile} />
+    <PageLayout subtitle={''} places={places} headline={'Places listed:'} isMobile={isMobile} />
   );
 };
 

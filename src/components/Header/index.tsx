@@ -1,11 +1,19 @@
 import React from 'react';
 import headerStyles from './header.module.scss';
 
-const Header = () => {
+type HeaderProps = {
+  headline: string;
+  subtitle: string;
+}
+
+const Header: React.FC<HeaderProps> = ({
+  headline,
+  subtitle
+}) => {
   return (
     <header className={headerStyles.mainHeader}>
-      <h1 className={headerStyles.headerHeadline}>{`Check in app`}</h1>
-      <p className={headerStyles.headerParagraph}>{`Another pet project`}</p>
+      <h1 className={headerStyles.headerHeadline}>{headline}</h1>
+      <p className={headerStyles.headerParagraph}>{subtitle}</p>
     </header>
   );
 };

@@ -8,15 +8,17 @@ import { menu } from '@/utils/menu';
 
 type HomePageProps = {
   isMobile: boolean;
+  headline: string;
+  subtitle: string;
 };
 
-const HomePage: React.FC<HomePageProps> = ({ isMobile }) => {
+const HomePage: React.FC<HomePageProps> = ({ isMobile, headline, subtitle }) => {
   const { openModal } = useModalStore();
 
   return (
     <div className={homePageStyles.main}>
       <div className={homePageStyles.pageInner}>
-        <Header />
+        <Header headline={headline} subtitle={subtitle}/>
         <div
           className={ homePageStyles.menuWrapper}>
           {menu.map((menuItem, i) => {

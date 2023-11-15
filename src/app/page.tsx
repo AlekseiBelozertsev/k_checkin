@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <section id={`app`} className={mainStyles.app}>
       <ModalMainComponent isMobile={isMobile} />
-      <HomePage isMobile={isMobile} />
+      <HomePage headline={'Checkin App'} subtitle={''} isMobile={isMobile} />
     </section>
   );
 };

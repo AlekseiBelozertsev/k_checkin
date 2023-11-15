@@ -12,11 +12,13 @@ interface PageLayoutProps {
   places: Place[];
   headline: string;
   isMobile: boolean;
+  subtitle: string;
 }
 
 const PageLayout: React.FC<PageLayoutProps> = ({
   places,
   headline,
+  subtitle,
   isMobile,
 }) => {
   const { openModal } = useModalStore();
@@ -25,7 +27,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
     <div className={homePageStyles.main}>
       <ModalMainComponent isMobile={isMobile} />
       <div className={homePageStyles.pageInner}>
-        <Header />
+        <Header subtitle={subtitle} headline={headline}/>
         <div
           className={
             !isMobile
