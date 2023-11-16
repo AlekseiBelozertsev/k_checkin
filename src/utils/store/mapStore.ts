@@ -1,6 +1,4 @@
 import { create } from 'zustand';
-import { useModalStore } from './modalStore';
-import { useAppSettings } from './appSettingsStore';
 
 export interface MapFiltersType {
   name: string;

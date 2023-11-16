@@ -70,7 +70,8 @@ const MapComponent: React.FC<MapProps> = ({
 
   useEffect(() => {
     places.forEach((place) => {
-      const slug = generateSlug(place.name);
+      // const slug = generateSlug(place.name);
+      const slug = place.id;
       const customMarkerElement = createCustomMarkerElement();
       if (customMarkerElement) {
         const marker = new mapboxgl.Marker({ element: customMarkerElement })

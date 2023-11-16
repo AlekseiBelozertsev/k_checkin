@@ -6,13 +6,17 @@ import { useRouter } from 'next/navigation';
 import Loader from '@/components/Loader';
 
 interface DetailPageLayoutProps {
-  headline: string;
+  headline: string | undefined;
+  coordinates: [number, number] | undefined;
+  address: string | undefined;
   isConnected: boolean;
 }
 
 const DetailPageLayout: React.FC<DetailPageLayoutProps> = ({
   headline,
   isConnected,
+  address,
+  coordinates,
 }) => {
   const router = useRouter();
   return (
@@ -26,7 +30,13 @@ const DetailPageLayout: React.FC<DetailPageLayoutProps> = ({
       ) : (
         <>
           <div className={detailPageStyles.loaderWrapper}>
-            <Loader size={64} />
+            {/* <Loader size={64} /> */}
+            <h1>{`Page not found. :(`}</h1>
+            <Button
+              text="Go back"
+              type="primary"
+              onClick={() => router.back()}
+            />
           </div>
         </>
       )}
