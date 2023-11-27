@@ -1,11 +1,11 @@
 import { create } from 'zustand';
 
-interface SearchStoreType {
+interface InputValueStoreType {
   value: string;
   setValue: (v: string) => void;
 }
 
-export const useSearchStore = create<SearchStoreType>((set) => ({
+export const useInputValueStore = create<InputValueStoreType>((set) => ({
   value: '',
   setValue: (v) => set({ value: v }),
 }));

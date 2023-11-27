@@ -24,8 +24,8 @@ type ModalStylesType = {
 interface ModalState {
   modal: string;
   isModalOpened: boolean;
-  openModal: (id: 'add-place-modal') => void;
-  closeModal: (id: 'add-place-modal') => void;
+  openModal: (id: 'add-place-modal' | 'add-place-info-modal') => void;
+  closeModal: (id: 'add-place-modal' | 'add-place-info-modal') => void;
 }
 
 export const useModalStore = create<ModalState>((set) => ({

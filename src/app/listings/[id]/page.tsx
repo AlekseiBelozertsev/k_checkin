@@ -1,8 +1,9 @@
 'use client';
+import ModalMainComponent from '@/components/modals';
 import DetailPageLayout from '@/ui/pages/DetailPage';
-import { generateSlug } from '@/utils/generateSlug';
 import { Place, useMapStore } from '@/utils/store/mapStore';
 import React, { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 export const generateStaticParams = async () => {
   try {
@@ -39,13 +40,19 @@ const ListingPage = ({ params }: { params: { id: string } }) => {
     const place: Place = getPlaceById(params.id);
     setPage(place);
   }, []);
+  const isMobile = useMediaQuery({
+    query: `(max-width: 768px)`,
+  });
   return (
-    <DetailPageLayout
-      address={page?.address}
-      coordinates={page?.coordinates}
-      headline={page?.name}
-      isConnected={!!page}
-    />
+    <>
+      <ModalMainComponent isMobile={isMobile} />
+      <DetailPageLayout
+        address={page?.address}
+        coordinates={page?.coordinates}
+        headline={page?.name}
+        isConnected={!!page}
+      />
+    </>
   );
 };
 

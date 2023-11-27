@@ -1,20 +1,21 @@
 import { useModalStore } from '@/utils/store/modalStore';
 import React from 'react';
 import AddPlaceModal from '@/components/modals/AddPlaceModal';
+import AddPlaceInfoModal from '@/components/modals/AddPlaceInfoModal';
 
-type ModalManagerProps = {
-  isMobile: boolean;
-};
-const ModalManager: React.FC<ModalManagerProps> = ({ isMobile }) => {
+const ModalManager: React.FC = () => {
   const modal = useModalStore((state) => state.modal);
   const handleModaClose = useModalStore((state) => state.closeModal);
   if (typeof window !== 'undefined') {
     switch (modal) {
       case 'add-place-modal':
         return (
-          <AddPlaceModal
-            isMobile={isMobile}
-            onClose={() => handleModaClose('add-place-modal')}
+          <AddPlaceModal onClose={() => handleModaClose('add-place-modal')} />
+        );
+      case 'add-place-info-modal':
+        return (
+          <AddPlaceInfoModal
+            onClose={() => handleModaClose('add-place-info-modal')}
           />
         );
     }

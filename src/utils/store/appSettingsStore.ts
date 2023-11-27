@@ -1,3 +1,4 @@
+import { useMediaQuery } from 'react-responsive';
 import { create } from 'zustand';
 
 interface AppSettingsStore {
@@ -6,7 +7,6 @@ interface AppSettingsStore {
 }
 
 export const useAppSettings = create<AppSettingsStore>((set) => ({
-  //2
   isOfflineMode: false,
   setIsOfflineMode: (isOfflineMode) =>
     set(() => ({ isOfflineMode: isOfflineMode })),

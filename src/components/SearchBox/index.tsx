@@ -1,14 +1,14 @@
 import React from 'react';
 import { SearchBox } from '@mapbox/search-js-react';
-import { useSearchStore } from '@/utils/store/searchStore';
+import { useInputValueStore } from '@/utils/store/inputValueStore';
 import { Place, useMapStore } from '@/utils/store/mapStore';
 import { useModalStore } from '@/utils/store/modalStore';
 import { SearchBoxRetrieveResponse } from '@mapbox/search-js-core';
 import { v4 } from 'uuid';
 
 const Search = () => {
-  const setValue = useSearchStore((state) => state.setValue);
-  const value = useSearchStore((state) => state.value);
+  const setValue = useInputValueStore((state) => state.setValue);
+  const value = useInputValueStore((state) => state.value);
   const addPlace = useMapStore((state) => state.addPlace);
   const handleModaClose = useModalStore((state) => state.closeModal);
 

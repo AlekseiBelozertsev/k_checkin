@@ -62,7 +62,7 @@ const ModalMainComponent: React.FC<ModalProps> = ({ isMobile }) => {
       style={isMobile ? modalStylesMobile : modalStyles}
       contentLabel="Example Modal"
     >
-      <ModalManager isMobile={isMobile} />
+      <ModalManager />
     </Modal>
   );
 };

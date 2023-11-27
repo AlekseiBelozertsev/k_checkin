@@ -7,12 +7,11 @@ import dynamic from 'next/dynamic';
 
 type ModalProps = {
   onClose: () => void;
-  isMobile: boolean;
 };
 
 const SearchComponent = dynamic(() => import('../SearchBox'), { ssr: false });
 
-const AddPlaceModal: React.FC<ModalProps> = ({ onClose, isMobile }) => {
+const AddPlaceModal: React.FC<ModalProps> = ({ onClose }) => {
   if (typeof window !== 'undefined') {
     return (
       <div className={modalStyles.main}>
@@ -23,15 +22,7 @@ const AddPlaceModal: React.FC<ModalProps> = ({ onClose, isMobile }) => {
               <Icon height={12} width={12} src={cross} />
             </div>
           </div>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              width: '100%',
-              height: '100%',
-              gap: '10px',
-            }}
-          >
+          <div className={modalStyles.innerWrapper}>
             <SearchComponent />
           </div>
         </div>

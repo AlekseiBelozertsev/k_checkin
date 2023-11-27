@@ -1,9 +1,10 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import detailPageStyles from './detailPage.module.scss';
 import Button from '@/components/Button';
 import { useRouter } from 'next/navigation';
 import Loader from '@/components/Loader';
+import { useModalStore } from '@/utils/store/modalStore';
 
 interface DetailPageLayoutProps {
   headline: string | undefined;
@@ -19,6 +20,10 @@ const DetailPageLayout: React.FC<DetailPageLayoutProps> = ({
   coordinates,
 }) => {
   const router = useRouter();
+  const openModal = useModalStore((state) => state.openModal);
+  useEffect(() => {
+    openModal('add-place-info-modal');
+  }, []);
   return (
     <div className={detailPageStyles.main}>
       {isConnected ? (
