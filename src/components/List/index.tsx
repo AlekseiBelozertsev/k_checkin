@@ -1,9 +1,10 @@
 import React from 'react';
 import listStyles from './styles/list.module.scss';
 import ListItem from './ListItem';
-import { Place, useMapStore } from '@/utils/store/mapStore';
+import { Place, usePlaceStore } from '@/utils/store/placeStore';
 import Loader from '../Loader';
 import { motion } from 'framer-motion';
+import { useMapStore } from '@/utils/store/mapStore';
 
 type ListItemProps = {
   elements: Place[];

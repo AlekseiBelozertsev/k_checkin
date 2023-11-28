@@ -3,10 +3,11 @@ import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import mapStyles from './map.module.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { Place, useMapStore } from '@/utils/store/mapStore';
+import { useMapStore } from '@/utils/store/mapStore';
 import baraIcon from '../../../public/icons/baraIcon.svg';
 import { useRouter } from 'next/navigation';
 import { generateSlug } from '@/utils/generateSlug';
+import { Place } from '@/utils/store/placeStore';
 
 mapboxgl.accessToken = `${process.env.NEXT_PUBLIC_MAPBOX_API_KEY}`;
 

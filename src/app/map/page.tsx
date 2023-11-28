@@ -6,9 +6,11 @@ import Filters from '@/components/Filters/index';
 import { mapFilters, useMapStore } from '@/utils/store/mapStore';
 import ModalMainComponent from '@/components/modals';
 import { useMediaQuery } from 'react-responsive';
+import { usePlaceStore } from '@/utils/store/placeStore';
 const MapPage = () => {
-  const { currentCenter, getData, places, zoom, onMapLoad, isMapLoaded } =
+  const { currentCenter,zoom, onMapLoad, isMapLoaded } =
     useMapStore();
+  const { getData, places } = usePlaceStore();
   const isMobile = useMediaQuery({
     query: `(max-width: 768px)`,
   });

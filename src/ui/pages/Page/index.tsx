@@ -6,7 +6,7 @@ import { useModalStore } from '@/utils/store/modalStore';
 import Button from '@/components/Button';
 import ModalMainComponent from '@/components/modals';
 import Header from '@/components/Header';
-import { Place } from '@/utils/store/mapStore';
+import { Place } from '@/utils/store/placeStore';
 
 interface PageLayoutProps {
   places: Place[];

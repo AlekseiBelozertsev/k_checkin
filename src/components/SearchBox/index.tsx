@@ -1,15 +1,15 @@
 import React from 'react';
 import { SearchBox } from '@mapbox/search-js-react';
 import { useInputValueStore } from '@/utils/store/inputValueStore';
-import { Place, useMapStore } from '@/utils/store/mapStore';
 import { useModalStore } from '@/utils/store/modalStore';
 import { SearchBoxRetrieveResponse } from '@mapbox/search-js-core';
 import { v4 } from 'uuid';
+import { Place, usePlaceStore } from '@/utils/store/placeStore';
 
 const Search = () => {
   const setValue = useInputValueStore((state) => state.setValue);
   const value = useInputValueStore((state) => state.value);
-  const addPlace = useMapStore((state) => state.addPlace);
+  const addPlace = usePlaceStore((state) => state.addPlace);
   const handleModaClose = useModalStore((state) => state.closeModal);
 
   const accessToken = `${process.env.NEXT_PUBLIC_MAPBOX_API_KEY}`;
@@ -36,11 +36,14 @@ const Search = () => {
         place.features[0].properties.coordinates.longitude,
       ],
       createdAt: new Date().toISOString(),
+      description: '',
+      isInfoAdded: false,
+      tripDate: '',
     };
     return data;
   };
 
-  const { postData } = useMapStore();
+  const { postData } = usePlaceStore();
 
   const postPlace = (place: SearchBoxRetrieveResponse) => {
     const data = createDataObject(place);
@@ -51,6 +54,7 @@ const Search = () => {
     addPlace(createDataObject(place));
     handleModaClose('add-place-modal');
     postPlace(place);
+    setValue('');
   };
 
   return (

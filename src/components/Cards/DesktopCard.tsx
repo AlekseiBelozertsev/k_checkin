@@ -4,10 +4,10 @@ import React, { useEffect } from 'react';
 import Icon from '../Icon';
 import Button from '../Button';
 import Loader from '../Loader';
-import { useMapStore } from '@/utils/store/mapStore';
+import { usePlaceStore } from '@/utils/store/placeStore';
 
 const DesktopCard: React.FC<MenuElementProps> = ({ icon, name }) => {
-  const { getData, places } = useMapStore();
+  const { getData, places } = usePlaceStore();
   useEffect(() => {
     getData(`${process.env.NEXT_PUBLIC_LOCALHOST}/getPlaces`);
   }, []);
