@@ -8,8 +8,7 @@ import ModalMainComponent from '@/components/modals';
 import { useMediaQuery } from 'react-responsive';
 import { usePlaceStore } from '@/utils/store/placeStore';
 const MapPage = () => {
-  const { currentCenter,zoom, onMapLoad, isMapLoaded } =
-    useMapStore();
+  const { currentCenter, zoom, onMapLoad, isMapLoaded } = useMapStore();
   const { getData, places } = usePlaceStore();
   const isMobile = useMediaQuery({
     query: `(max-width: 768px)`,

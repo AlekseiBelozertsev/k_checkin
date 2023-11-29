@@ -36,19 +36,20 @@ const getPlaceById = (id: string) => {
 };
 
 const ListingPage = ({ params }: { params: { id: string } }) => {
-  const{ openModal }= useModalStore();
-  const{ getCurrentPageID, currentPageID } = usePlaceStore();
+  const { openModal } = useModalStore();
+  const { getCurrentPageID, places } = usePlaceStore();
 
   const [page, setPage] = useState<Place>();
 
   useEffect(() => {
     const place: Place = getPlaceById(params.id);
     setPage(place);
-    getCurrentPageID(place.id)
+    getCurrentPageID(place.id);
+
     if (!place.isInfoAdded) {
       openModal('add-place-info-modal');
     }
-  }, []);
+  }, [places]);
 
   const isMobile = useMediaQuery({
     query: `(max-width: 768px)`,

@@ -14,7 +14,8 @@ const AddPlaceInfoModal: React.FC<ModalProps> = ({ onClose }) => {
   const { updatePlace } = usePlaceStore();
   const handleSubmit = () => {
     updatePlace(currentPageID, value, date);
-  }
+    onClose();
+  };
   if (typeof window !== 'undefined') {
     return (
       <div className={modalStyles.main}>
@@ -33,13 +34,27 @@ const AddPlaceInfoModal: React.FC<ModalProps> = ({ onClose }) => {
               </label>
               <label>
                 Select trip date:
-                <input type="date" id="eventDate" onChange={(e) => setDate(e.target.value)} name="eventDate" required />
+                <input
+                  type="date"
+                  id="eventDate"
+                  onChange={(e) => setDate(e.target.value)}
+                  name="eventDate"
+                  required
+                />
               </label>
             </form>
           </div>
           <div className={modalStyles.buttonsWrapper}>
-            <Button text={`Skip notes`} type={'primary'} />
-            <Button text={`Submit`} onClick={() => handleSubmit()} type={'secondary'} />
+            <Button
+              text={`Skip notes`}
+              onClick={() => onClose()}
+              type={'primary'}
+            />
+            <Button
+              text={`Submit`}
+              onClick={() => handleSubmit()}
+              type={'secondary'}
+            />
           </div>
         </div>
       </div>

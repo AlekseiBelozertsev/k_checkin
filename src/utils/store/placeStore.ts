@@ -28,15 +28,26 @@ export const usePlaceStore = create<PlaceStoreType>((set, get) => ({
   setPlaces: (places) => set(() => ({ places: places })),
   currentPageID: '',
   getCurrentPageID: (id) => {
-    set({currentPageID: id});
+    set({ currentPageID: id });
   },
   updatePlace: (id, description, tripDate) => {
     const localStorageData = localStorage.getItem('places');
     if (localStorageData) {
       const localStorageDataParsed = JSON.parse(localStorageData);
-      const places = localStorageDataParsed.map((place: Place) => place.id === id ? place= {...place, description: description, tripDate: tripDate, isInfoAdded: true} : {...place});
-      const stringifiedData = JSON.stringify(places);
+      const places = localStorageDataParsed.map((place: Place) =>
+        place.id === id
+          ? (place = {
+              ...place,
+              description: description,
+              tripDate: tripDate,
+              isInfoAdded: true,
+            })
+          : { ...place },
+      );
+      const stringifiedData: string = JSON.stringify(places);
       localStorage.setItem('places', stringifiedData);
+      const updatedDataParsed: Place[] = JSON.parse(localStorageData);
+      set({ places: updatedDataParsed });
     }
   },
   addPlace: (place) => set((state) => ({ places: [...state.places, place] })),

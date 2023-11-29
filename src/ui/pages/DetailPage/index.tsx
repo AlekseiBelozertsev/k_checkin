@@ -13,7 +13,6 @@ interface DetailPageLayoutProps {
   isConnected: boolean;
   date: string | undefined;
   description: string | undefined;
-  
 }
 
 const DetailPageLayout: React.FC<DetailPageLayoutProps> = ({
@@ -21,18 +20,19 @@ const DetailPageLayout: React.FC<DetailPageLayoutProps> = ({
   isConnected,
   address,
   coordinates,
+  date,
+  description,
 }) => {
   const router = useRouter();
   const openModal = useModalStore((state) => state.openModal);
-  useEffect(() => {
-    openModal('add-place-info-modal');
-  }, []);
   return (
     <div className={detailPageStyles.main}>
       {isConnected ? (
         <>
           <div className={detailPageStyles.pageInner}>
             <h1>{headline}</h1>
+            <h2>{description}</h2>
+            <h2>{date}</h2>
           </div>
         </>
       ) : (
