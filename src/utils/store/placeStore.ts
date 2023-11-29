@@ -14,6 +14,9 @@ export type Place = {
 
 type PlaceStoreType = {
   places: Place[];
+  getCurrentPageID: (id: string) => void;
+  currentPageID: string;
+  updatePlace: (id: string, description: string, tripDate: string) => void;
   setPlaces: (places: Place[]) => void;
   addPlace: (place: Place) => void;
   postData: (url: string, data: Place) => void;
@@ -23,6 +26,19 @@ type PlaceStoreType = {
 export const usePlaceStore = create<PlaceStoreType>((set, get) => ({
   places: [],
   setPlaces: (places) => set(() => ({ places: places })),
+  currentPageID: '',
+  getCurrentPageID: (id) => {
+    set({currentPageID: id});
+  },
+  updatePlace: (id, description, tripDate) => {
+    const localStorageData = localStorage.getItem('places');
+    if (localStorageData) {
+      const localStorageDataParsed = JSON.parse(localStorageData);
+      const places = localStorageDataParsed.map((place: Place) => place.id === id ? place= {...place, description: description, tripDate: tripDate, isInfoAdded: true} : {...place});
+      const stringifiedData = JSON.stringify(places);
+      localStorage.setItem('places', stringifiedData);
+    }
+  },
   addPlace: (place) => set((state) => ({ places: [...state.places, place] })),
   postData: async (url, data) => {
     const places = usePlaceStore.getState().places;

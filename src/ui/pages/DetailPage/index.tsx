@@ -11,6 +11,9 @@ interface DetailPageLayoutProps {
   coordinates: [number, number] | undefined;
   address: string | undefined;
   isConnected: boolean;
+  date: string | undefined;
+  description: string | undefined;
+  
 }
 
 const DetailPageLayout: React.FC<DetailPageLayoutProps> = ({

@@ -1,7 +1,7 @@
 'use client';
 import ModalMainComponent from '@/components/modals';
 import DetailPageLayout from '@/ui/pages/DetailPage';
-import { Place } from '@/utils/store/placeStore';
+import { Place, usePlaceStore } from '@/utils/store/placeStore';
 import { useModalStore } from '@/utils/store/modalStore';
 import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
@@ -36,18 +36,24 @@ const getPlaceById = (id: string) => {
 };
 
 const ListingPage = ({ params }: { params: { id: string } }) => {
-  const openModal = useModalStore((state) => state.openModal);
+  const{ openModal }= useModalStore();
+  const{ getCurrentPageID, currentPageID } = usePlaceStore();
+
   const [page, setPage] = useState<Place>();
+
   useEffect(() => {
     const place: Place = getPlaceById(params.id);
     setPage(place);
+    getCurrentPageID(place.id)
     if (!place.isInfoAdded) {
       openModal('add-place-info-modal');
     }
   }, []);
+
   const isMobile = useMediaQuery({
     query: `(max-width: 768px)`,
   });
+
   return (
     <>
       <ModalMainComponent isMobile={isMobile} />
