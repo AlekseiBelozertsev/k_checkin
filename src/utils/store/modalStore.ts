@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-type ModalStylesType = {
+export type ModalStylesType = {
   overlay: {
     top: number;
     left: number;
@@ -15,8 +15,8 @@ type ModalStylesType = {
     left: string;
     right: string;
     bottom: string;
-    borderRadius: string;
-    marginRight: string;
+    borderRadius: string | number;
+    marginRight: string | number;
     transform: string;
   };
 };
