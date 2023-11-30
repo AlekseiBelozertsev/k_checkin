@@ -64,7 +64,6 @@ const ListingPage = ({ params }: { params: { id: string } }) => {
         address={page?.address}
         coordinates={page?.coordinates}
         headline={page?.name}
-        isConnected={!!page}
       />
     </>
   );

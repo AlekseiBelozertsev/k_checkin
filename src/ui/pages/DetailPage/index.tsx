@@ -10,14 +10,12 @@ interface DetailPageLayoutProps {
   headline: string | undefined;
   coordinates: [number, number] | undefined;
   address: string | undefined;
-  isConnected: boolean;
   date: string | undefined;
   description: string | undefined;
 }
 
 const DetailPageLayout: React.FC<DetailPageLayoutProps> = ({
   headline,
-  isConnected,
   address,
   coordinates,
   date,
@@ -27,27 +25,12 @@ const DetailPageLayout: React.FC<DetailPageLayoutProps> = ({
   const openModal = useModalStore((state) => state.openModal);
   return (
     <div className={detailPageStyles.main}>
-      {isConnected ? (
-        <>
-          <div className={detailPageStyles.pageInner}>
-            <h1>{headline}</h1>
-            <h2>{description}</h2>
-            <h2>{date}</h2>
-          </div>
-        </>
-      ) : (
-        <>
-          <div className={detailPageStyles.loaderWrapper}>
-            {/* <Loader size={64} /> */}
-            <h1>{`Page not found. :(`}</h1>
-            <Button
-              text="Go back"
-              type="primary"
-              onClick={() => router.back()}
-            />
-          </div>
-        </>
-      )}
+      <div className={detailPageStyles.pageInner}>
+        <h1>{headline}</h1>
+        <h2>{description}</h2>
+        <h2>{address}</h2>
+        <h2>{date}</h2>
+      </div>
     </div>
   );
 };
