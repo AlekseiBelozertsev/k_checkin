@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import { useModalStore } from '@/utils/store/modalStore';
+import { ModalStylesType, useModalStore } from '@/utils/store/modalStore';
 import dynamic from 'next/dynamic';
 
 const modalStyles = {
@@ -24,7 +24,7 @@ const modalStyles = {
   },
 };
 
-const modalStylesMobile = {
+const modalStylesMobile: ModalStylesType = {
   overlay: {
     top: 0,
     left: 0,
