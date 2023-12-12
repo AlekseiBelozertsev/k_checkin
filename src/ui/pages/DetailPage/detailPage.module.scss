@@ -44,6 +44,28 @@
   gap: 24px;
 }
 
+.emptyPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.content {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  max-width: 600px;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.divider {
+  width: 100%;
+  background-color: #000000;
+  height: 2px;
+}
+
 .loaderWrapper {
   display: flex;
   flex-direction: column;

@@ -59,6 +59,8 @@ const ListingPage = ({ params }: { params: { id: string } }) => {
     <>
       <ModalMainComponent isMobile={isMobile} />
       <DetailPageLayout
+        isUpdated={page?.isInfoAdded}
+        country={page?.country}
         date={page?.tripDate}
         description={page?.description}
         address={page?.address}
